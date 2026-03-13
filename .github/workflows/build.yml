@@ -43,33 +43,31 @@ jobs:
       - name: App-icoon instellen
         run: |
           sudo apt-get install -y imagemagick
-          for res in mipmap-mdpi mipmap-hdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi; do
-            case $res in
-              mipmap-mdpi)    size=48;;
-              mipmap-hdpi)    size=72;;
-              mipmap-xhdpi)   size=96;;
-              mipmap-xxhdpi)  size=144;;
-              mipmap-xxxhdpi) size=192;;
-            esac
-            dir=android/app/src/main/res/$res
-            convert icon.png -resize ${size}x${size} $dir/ic_launcher.png
-            convert icon.png -resize ${size}x${size} $dir/ic_launcher_round.png
-            convert icon_foreground.png -resize ${size}x${size} $dir/ic_launcher_foreground.png
-          done
-          for xmldir in android/app/src/main/res/mipmap-anydpi-v26 android/app/src/main/res/mipmap-anydpi; do
-            mkdir -p $xmldir
-            cat > $xmldir/ic_launcher.xml << 'XML'
+          convert icon.png -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          convert icon.png -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+          convert icon_foreground.png -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png
+          convert icon.png -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          convert icon.png -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+          convert icon_foreground.png -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png
+          convert icon.png -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          convert icon.png -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+          convert icon_foreground.png -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png
+          convert icon.png -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          convert icon.png -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+          convert icon_foreground.png -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png
+          convert icon.png -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          convert icon.png -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+          convert icon_foreground.png -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png
+          mkdir -p android/app/src/main/res/mipmap-anydpi-v26
+          cat > android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml << 'XML'
           <?xml version="1.0" encoding="utf-8"?>
           <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
               <background android:drawable="@color/ic_launcher_background"/>
               <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
           </adaptive-icon>
           XML
-            cp $xmldir/ic_launcher.xml $xmldir/ic_launcher_round.xml
-          done
-          mkdir -p android/app/src/main/res/values
-          grep -q "ic_launcher_background" android/app/src/main/res/values/colors.xml 2>/dev/null || \
-            echo '<resources><color name="ic_launcher_background">#DC2626</color></resources>' > android/app/src/main/res/values/ic_launcher_colors.xml
+          cp android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+          printf '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <color name="ic_launcher_background">#DC2626</color>\n</resources>' > android/app/src/main/res/values/ic_launcher_background.xml
 
       - name: Android SDK versies instellen
         run: |
