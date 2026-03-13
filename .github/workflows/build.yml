@@ -1,83 +1,17 @@
-name: Build Android APK
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Code ophalen
-        uses: actions/checkout@v4
-
-      - name: Java 17 instellen
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Node.js instellen
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: NPM packages installeren
+- name: Android project aanmaken
         run: |
-          npm init -y
-          npm install @capacitor/core@5.7.4 @capacitor/cli@5.7.4 @capacitor/android@5.7.4
-
-      - name: www map klaarmaken
-        run: |
-          mkdir -p www
-          cp index.html www/index.html
-
-      - name: Android project aanmaken
-        run: |
+          cat > capacitor.config.json << 'EOF'
+          {
+            "appId": "nl.brandmeldgids.app",
+            "appName": "Brandmeld Gids",
+            "webDir": "www",
+            "server": {
+              "androidScheme": "https"
+            },
+            "android": {
+              "allowMixedContent": true
+            }
+          }
+          EOF
           npx cap add android
           npx cap sync android
-
-      - name: Android SDK versies instellen
-        run: |
-          cat > android/variables.gradle << 'GRADLE'
-          ext {
-              minSdkVersion = 22
-              compileSdkVersion = 34
-              targetSdkVersion = 34
-              androidxActivityVersion = '1.7.0'
-              androidxAppCompatVersion = '1.6.1'
-              androidxCoordinatorLayoutVersion = '1.2.0'
-              androidxCoreVersion = '1.10.1'
-              androidxFragmentVersion = '1.6.0'
-              coreSplashScreenVersion = '1.0.0'
-              androidxWebkitVersion = '1.6.1'
-              junitVersion = '4.13.2'
-              androidxJunitVersion = '1.1.5'
-              androidxEspressoCoreVersion = '3.5.1'
-              cordovaAndroidVersion = '10.1.1'
-          }
-          GRADLE
-
-      - name: Gradle properties instellen
-        run: |
-          mkdir -p ~/.gradle
-          echo "org.gradle.daemon=false" > ~/.gradle/gradle.properties
-          echo "org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
-          echo "org.gradle.java.home=$JAVA_HOME" >> android/gradle.properties
-
-      - name: APK bouwen
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
-        env:
-          JAVA_HOME: ${{ env.JAVA_HOME }}
-
-      - name: APK uploaden als download
-        uses: actions/upload-artifact@v4
-        with:
-          name: BrandmeldGids-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
