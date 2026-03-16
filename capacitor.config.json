@@ -1,22 +1,12 @@
 {
-  "appId": "nl.brandmeldgids.app",
+  "appId": "com.brandmeldgids.app",
   "appName": "Brandmeld Gids",
   "webDir": "www",
   "server": {
-    "androidScheme": "https"
+    "url": "https://dennixnl.github.io/-brandmeld-gids/",
+    "cleartext": true
   },
   "android": {
     "allowMixedContent": true
   }
 }
-```
-
-Klik **"Commit changes"**
-
----
-
-## Stap 3 — Build workflow aanmaken
-
-Klik **"Add file" → "Create new file"**, bestandsnaam (exact zo typen):
-```
-.github/workflows/build.yml
