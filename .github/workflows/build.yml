@@ -36,7 +36,7 @@ jobs:
 
       - name: Config aanmaken en Android project bouwen
         run: |
-          echo '{"appId":"nl.brandmeldgids.app","appName":"Brandmeld Gids","webDir":"www","server":{"androidScheme":"https"},"android":{"allowMixedContent":true}}' > capacitor.config.json
+          echo '{"appId":"nl.brandmeldgids.app","appName":"Brandmeld Gids","webDir":"www","server":{"url":"https://brandmeldgids.nl/app.html","cleartext":true},"android":{"allowMixedContent":true}}' > capacitor.config.json
           npx cap add android
           npx cap sync android
 
