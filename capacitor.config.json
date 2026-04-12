@@ -1,0 +1,12 @@
+{
+    "appId": "com.brandmeldgids.app",
+    "appName": "Brandmeld Gids",
+    "webDir": "www",
+    "server": {
+      "url": "https://brandmeldgids.nl/app.html",
+      "cleartext": true
+    },
+    "android": {
+      "allowMixedContent": true
+    }
+}
