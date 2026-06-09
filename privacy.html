@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacyverklaring — Brandmeld Gids">
+  <title>Privacyverklaring — Brandmeld Gids</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #e03535;
+      --red-glow: rgba(224,53,53,0.4);
+      --ember: #ff6b35;
+      --bg: #07070a;
+      --bg2: #0d0d12;
+      --bg3: #111118;
+      --text: #f0ede8;
+      --muted: #6b6870;
+      --border: rgba(255,255,255,0.06);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    nav {
+      position: sticky; top: 0;
+      background: rgba(7,7,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    @media (max-width: 600px) { nav { padding: 0 20px; } }
+
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .page-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: 4px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .last-updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin: 40px 0 14px;
+    }
+    p { color: #bab7b2; margin-bottom: 14px; }
+    ul {
+      list-style: none;
+      margin-bottom: 14px;
+      padding-left: 0;
+    }
+    ul li {
+      color: #bab7b2;
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--red);
+      font-weight: 600;
+    }
+    .highlight-box {
+      background: rgba(224,53,53,0.06);
+      border: 1px solid rgba(224,53,53,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p { color: var(--text); margin: 0; }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); font-weight: 600; }
+
+    .identity-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    .identity-table tr { border-bottom: 1px solid var(--border); }
+    .identity-table tr:last-child { border-bottom: none; }
+    .identity-table td { padding: 10px 0; color: #bab7b2; font-size: 14px; }
+    .identity-table td:first-child { color: var(--muted); width: 200px; font-size: 13px; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    .data-table th {
+      text-align: left; padding: 10px 12px;
+      background: var(--bg2); font-size: 12px;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--muted); font-weight: 500;
+    }
+    .data-table td { padding: 10px 12px; color: #bab7b2; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .data-table th:first-child, .data-table td:first-child { border-radius: 0; }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      font-size: 12px; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 600px) {
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">BRANDMELD <span>GIDS</span></a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Terug
+  </a>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-label">Juridisch</p>
+  <h1>PRIVACY&shy;VERKLARING</h1>
+  <p class="last-updated">Versie 1.0 &nbsp;·&nbsp; Ingangsdatum: 1 juni 2026 &nbsp;·&nbsp; Conform AVG (GDPR)</p>
+
+  <p>
+    D. van den Berg (hierna: "wij" of "Brandmeld Gids") neemt de bescherming van uw persoonsgegevens serieus.
+    In deze privacyverklaring wordt uitgelegd welke gegevens worden verzameld, waarvoor deze worden gebruikt
+    en welke rechten u heeft.
+  </p>
+
+  <h2>1. VERWERKINGSVERANTWOORDELIJKE</h2>
+  <table class="identity-table">
+    <tr><td>Naam</td><td>D. van den Berg</td></tr>
+    <tr><td>Handelsnaam</td><td>Brandmeld Gids</td></tr>
+    <tr><td>Website</td><td><a href="https://brandmeldgids.nl">brandmeldgids.nl</a></td></tr>
+    <tr><td>E-mail</td><td><a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a></td></tr>
+    <tr><td>KvK-nummer</td><td>42079015</td></tr>
+  </table>
+
+  <h2>2. WELKE GEGEVENS VERZAMELEN WIJ</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Gegeven</th>
+        <th>Waarvoor</th>
+        <th>Bron</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>E-mailadres</strong></td>
+        <td>Aanmaken en beheren van een account; toegang tot de beveiligde omgeving</td>
+        <td>Ingevoerd door gebruiker bij registratie</td>
+      </tr>
+      <tr>
+        <td><strong>IP-adres</strong></td>
+        <td>Beveiliging, fraudepreventie en analytische doeleinden (geanonimiseerd waar mogelijk)</td>
+        <td>Automatisch bij websitebezoek</td>
+      </tr>
+      <tr>
+        <td><strong>Apparaatgegevens</strong></td>
+        <td>Optimalisatie van de App (schermgrootte, besturingssysteem, browser)</td>
+        <td>Firebase Analytics (geanonimiseerd)</td>
+      </tr>
+      <tr>
+        <td><strong>Gebruiksdata</strong></td>
+        <td>Verbetering van de App op basis van gebruik (welke onderdelen worden bezocht)</td>
+        <td>Firebase Analytics (geanonimiseerd)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Wij verzamelen geen bijzondere persoonsgegevens (zoals gezondheidsdata of BSN-nummers).</p>
+
+  <h2>3. GRONDSLAGEN VOOR VERWERKING</h2>
+  <ul>
+    <li><strong>Uitvoering van een overeenkomst</strong> — e-mailadres is noodzakelijk voor accountbeheer en toegang tot de App (art. 6 lid 1 sub b AVG).</li>
+    <li><strong>Gerechtvaardigd belang</strong> — analytische gegevens worden verwerkt op basis van ons gerechtvaardigde belang de dienst te verbeteren (art. 6 lid 1 sub f AVG). Gebruikers kunnen hiertegen bezwaar maken.</li>
+  </ul>
+
+  <h2>4. BEWAARTERMIJNEN</h2>
+  <ul>
+    <li>Accountgegevens (e-mailadres): tot het moment van accountverwijdering, plus maximaal 1 jaar daarna voor administratieve afhandeling.</li>
+    <li>Analytische gegevens: conform het bewaarbeleid van Firebase/Google Analytics (standaard maximaal 14 maanden).</li>
+    <li>Gegevens worden na het verstrijken van de bewaartermijn verwijderd of geanonimiseerd.</li>
+  </ul>
+
+  <h2>5. VERWERKERS EN DERDEN</h2>
+  <p>
+    Brandmeld Gids maakt gebruik van de volgende verwerkers. Met deze partijen zijn verwerkersovereenkomsten
+    gesloten of zijn standaard contractuele bepalingen (SCC's) van toepassing:
+  </p>
+  <ul>
+    <li><strong>Google Firebase</strong> (Firebase Authentication, Hosting, Firestore, Analytics) — Google LLC, VS. Gegevensopslag primair in EU-regio (europe-west1) waar van toepassing. Meer info: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a>.</li>
+    <li><strong>Cloudflare Inc.</strong> (CDN en DDoS-beveiliging) — verwerkt beperkt verkeersdata voor beveiligingsdoeleinden. Meer info: <a href="https://www.cloudflare.com/privacypolicy" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a>.</li>
+  </ul>
+  <p>
+    Uw gegevens worden niet verkocht aan derden en niet gedeeld voor marketingdoeleinden.
+  </p>
+
+  <h2>6. COOKIES EN TRACKING</h2>
+  <p>
+    Brandmeld Gids plaatst geen tracking-cookies van derden voor reclamedoeleinden.
+    Firebase Analytics maakt gebruik van een anoniem, niet-traceerbaar sessie-ID. Er worden geen
+    persoonlijk identificeerbare gegevens gekoppeld aan analytics.
+  </p>
+  <p>
+    De App slaat functionele gegevens lokaal op in uw browser (localStorage) uitsluitend voor het
+    bewaren van uw inlogstatus en voorkeuren. Dit vereist geen cookiebanner op basis van de ePrivacy-richtlijn.
+  </p>
+
+  <h2>7. UW RECHTEN</h2>
+  <p>Onder de AVG heeft u de volgende rechten:</p>
+  <ul>
+    <li><strong>Inzage</strong> — u kunt opvragen welke gegevens wij van u verwerken.</li>
+    <li><strong>Correctie</strong> — u kunt onjuiste gegevens laten corrigeren.</li>
+    <li><strong>Verwijdering</strong> — u kunt verzoeken uw gegevens te laten verwijderen ("recht op vergetelheid").</li>
+    <li><strong>Beperking van verwerking</strong> — u kunt verzoeken de verwerking te beperken.</li>
+    <li><strong>Bezwaar</strong> — u kunt bezwaar maken tegen verwerking op grond van gerechtvaardigd belang.</li>
+    <li><strong>Gegevensoverdraagbaarheid</strong> — u kunt uw gegevens in een leesbaar formaat ontvangen.</li>
+  </ul>
+  <p>
+    Verzoeken kunt u indienen via <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>.
+    Wij reageren binnen 30 dagen.
+  </p>
+
+  <div class="highlight-box">
+    <p>
+      U heeft het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens:
+      <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">autoriteitpersoonsgegevens.nl</a>
+    </p>
+  </div>
+
+  <h2>8. BEVEILIGING</h2>
+  <p>
+    Wij treffen passende technische en organisatorische maatregelen ter beveiliging van uw persoonsgegevens:
+  </p>
+  <ul>
+    <li>Alle verbindingen verlopen via HTTPS/TLS-encryptie.</li>
+    <li>Accounts zijn beveiligd via Firebase Authentication met gehashte wachtwoorden.</li>
+    <li>Toegang tot Firestore is beperkt tot geauthenticeerde gebruikers.</li>
+    <li>Administratieve toegang tot Firebase is beperkt tot de verwerkingsverantwoordelijke.</li>
+  </ul>
+
+  <h2>9. WIJZIGINGEN</h2>
+  <p>
+    Deze privacyverklaring kan worden gewijzigd. De meest actuele versie is altijd beschikbaar op
+    <a href="/privacy.html">brandmeldgids.nl/privacy.html</a>.
+    Bij wezenlijke wijzigingen worden geregistreerde gebruikers geïnformeerd via e-mail.
+  </p>
+
+  <h2>10. CONTACT</h2>
+  <p>
+    Voor vragen of verzoeken met betrekking tot uw privacy:<br>
+    <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>
+  </p>
+</div>
+
+<footer>
+  <span>© 2026 D. van den Berg &nbsp;·&nbsp; KvK 42079015</span>
+  <span>
+    <a href="/av.html">Algemene Voorwaarden</a>
+    &nbsp;·&nbsp;
+    <a href="/privacy.html">Privacyverklaring</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>
+  </span>
+</footer>
+
+</body>
+</html>

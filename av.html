@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Algemene Voorwaarden — Brandmeld Gids">
+  <title>Algemene Voorwaarden — Brandmeld Gids</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #e03535;
+      --red-glow: rgba(224,53,53,0.4);
+      --ember: #ff6b35;
+      --bg: #07070a;
+      --bg2: #0d0d12;
+      --bg3: #111118;
+      --text: #f0ede8;
+      --muted: #6b6870;
+      --border: rgba(255,255,255,0.06);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    /* NAV */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(7,7,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    @media (max-width: 600px) { nav { padding: 0 20px; } }
+
+    /* CONTENT */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .page-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: 4px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .last-updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin: 40px 0 14px;
+    }
+    p { color: #bab7b2; margin-bottom: 14px; }
+    ul {
+      list-style: none;
+      margin-bottom: 14px;
+      padding-left: 0;
+    }
+    ul li {
+      color: #bab7b2;
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--red);
+      font-weight: 600;
+    }
+    .highlight-box {
+      background: rgba(224,53,53,0.06);
+      border: 1px solid rgba(224,53,53,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p { color: var(--text); margin: 0; }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); font-weight: 600; }
+
+    /* IDENTITY TABLE */
+    .identity-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    .identity-table tr { border-bottom: 1px solid var(--border); }
+    .identity-table tr:last-child { border-bottom: none; }
+    .identity-table td { padding: 10px 0; color: #bab7b2; font-size: 14px; }
+    .identity-table td:first-child { color: var(--muted); width: 160px; font-size: 13px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      font-size: 12px; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 600px) {
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">BRANDMELD <span>GIDS</span></a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Terug
+  </a>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-label">Juridisch</p>
+  <h1>ALGEMENE<br>VOORWAARDEN</h1>
+  <p class="last-updated">Versie 1.0 &nbsp;·&nbsp; Ingangsdatum: 1 juni 2026</p>
+
+  <h2>ARTIKEL 1 — IDENTITEIT</h2>
+  <table class="identity-table">
+    <tr><td>Naam</td><td>D. van den Berg</td></tr>
+    <tr><td>Handelsnaam</td><td>Brandmeld Gids</td></tr>
+    <tr><td>Website</td><td><a href="https://brandmeldgids.nl">brandmeldgids.nl</a></td></tr>
+    <tr><td>E-mail</td><td><a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a></td></tr>
+    <tr><td>KvK-nummer</td><td>42079015</td></tr>
+  </table>
+
+  <h2>ARTIKEL 2 — TOEPASSELIJKHEID</h2>
+  <p>
+    Deze algemene voorwaarden zijn van toepassing op het gebruik van de website brandmeldgids.nl,
+    de Brandmeld Gids-applicatie (hierna: "de App") en alle door D. van den Berg aangeboden diensten.
+    Door gebruik te maken van de App of website gaat de gebruiker akkoord met deze voorwaarden.
+  </p>
+
+  <h2>ARTIKEL 3 — DE DIENST</h2>
+  <p>
+    Brandmeld Gids biedt een digitale bibliotheek met stap-voor-stap handleidingen en checklists
+    voor brandmeldcentrales. De informatie is uitsluitend bedoeld als praktisch hulpmiddel voor
+    gecertificeerde brandmeldtechnici en installateurs.
+  </p>
+  <p>
+    De handleidingen zijn opgesteld op basis van praktijkervaring en openbaar beschikbare
+    fabrikantinformatie. Brandmeld Gids is geen officieel fabrikant- of norminstituut.
+  </p>
+
+  <h2>ARTIKEL 4 — GEBRUIK</h2>
+  <ul>
+    <li>Gebruik van de App is voorbehouden aan professionals werkzaam in de brandmeldbranche.</li>
+    <li>Gebruikers zijn zelf verantwoordelijk voor het hebben van de juiste certificeringen, bevoegdheden en kennis van geldende normen.</li>
+    <li>Het is niet toegestaan de App of de daarin opgenomen content commercieel te exploiteren, door te verkopen of te verspreiden zonder schriftelijke toestemming van D. van den Berg.</li>
+    <li>De App mag niet worden gebruikt voor doeleinden die strijdig zijn met de wet of deze voorwaarden.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p>
+      <strong>Belangrijk:</strong> De informatie in Brandmeld Gids vervangt nooit de officiële fabrikantdocumentatie,
+      geldende NEN-normen (o.a. NEN 2535, NEN 2654) of wettelijke voorschriften. Gebruik de App altijd als aanvullend hulpmiddel.
+    </p>
+  </div>
+
+  <h2>ARTIKEL 5 — AANSPRAKELIJKHEID</h2>
+  <p>
+    D. van den Berg besteedt de grootst mogelijke zorg aan de juistheid en volledigheid van de
+    informatie in de App. Desondanks kan de juistheid, volledigheid of actualiteit van de informatie
+    niet worden gegarandeerd.
+  </p>
+  <ul>
+    <li>D. van den Berg aanvaardt geen aansprakelijkheid voor schade — direct of indirect — die voortvloeit uit het gebruik of onjuist gebruik van de in de App verstrekte informatie.</li>
+    <li>D. van den Berg is niet aansprakelijk voor schade door storingen, onderbrekingen of fouten in de App of website.</li>
+    <li>D. van den Berg is niet aansprakelijk voor schade veroorzaakt door het handelen of nalaten van de gebruiker op basis van de aangeboden informatie.</li>
+    <li>Werkzaamheden aan brandmeldinstallaties dienen altijd te worden uitgevoerd conform de actuele fabrikantdocumentatie en geldende normering door bevoegde personen. Gebruik van de App geschiedt volledig op eigen risico van de gebruiker.</li>
+  </ul>
+
+  <h2>ARTIKEL 6 — INTELLECTUEEL EIGENDOM</h2>
+  <p>
+    Alle teksten, handleidingen, structuren en overige content van Brandmeld Gids zijn intellectueel
+    eigendom van D. van den Berg, tenzij uitdrukkelijk anders vermeld.
+  </p>
+  <p>
+    De in de App en op de website genoemde merknamen, productbenamingen en logo's (waaronder maar
+    niet beperkt tot Esser, Notifier, Honeywell, Siemens, Bosch, Schrack, ESMI en Hekatron) zijn
+    eigendom van hun respectievelijke fabrikanten. Brandmeld Gids heeft geen formele band met
+    deze fabrikanten.
+  </p>
+  <p>
+    Gehele of gedeeltelijke overname, reproductie of verspreiding van de content — in welke vorm
+    dan ook — is niet toegestaan zonder voorafgaande schriftelijke toestemming.
+  </p>
+
+  <h2>ARTIKEL 7 — BESCHIKBAARHEID</h2>
+  <p>
+    D. van den Berg streeft naar een zo hoog mogelijke beschikbaarheid van de dienst, maar geeft
+    geen garantie voor ononderbroken of foutloze werking. De dienst kan zonder voorafgaande
+    kennisgeving worden gewijzigd, onderbroken of beëindigd.
+  </p>
+
+  <h2>ARTIKEL 8 — WIJZIGINGEN VOORWAARDEN</h2>
+  <p>
+    D. van den Berg behoudt het recht deze algemene voorwaarden op ieder moment te wijzigen.
+    De meest actuele versie is altijd beschikbaar op <a href="/av.html">brandmeldgids.nl/av.html</a>.
+    Voortgezet gebruik van de App na publicatie van gewijzigde voorwaarden geldt als aanvaarding daarvan.
+  </p>
+
+  <h2>ARTIKEL 9 — TOEPASSELIJK RECHT EN GESCHILLEN</h2>
+  <p>
+    Op deze algemene voorwaarden is uitsluitend Nederlands recht van toepassing.
+    Geschillen die voortvloeien uit of verband houden met het gebruik van de App of website worden
+    voorgelegd aan de bevoegde rechter in het arrondissement Oost-Brabant.
+  </p>
+
+  <h2>ARTIKEL 10 — CONTACT</h2>
+  <p>
+    Voor vragen over deze voorwaarden kunt u contact opnemen via:
+    <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>
+  </p>
+</div>
+
+<footer>
+  <span>© 2026 D. van den Berg &nbsp;·&nbsp; KvK 42079015</span>
+  <span>
+    <a href="/av.html">Algemene Voorwaarden</a>
+    &nbsp;·&nbsp;
+    <a href="/privacy.html">Privacyverklaring</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>
+  </span>
+</footer>
+
+</body>
+</html>
