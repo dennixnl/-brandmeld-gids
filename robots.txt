@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /brandmeld-gids.apk
+
+Sitemap: https://brandmeldgids.nl/sitemap.xml
