@@ -1321,6 +1321,20 @@
         });
         if (!res.ok) throw new Error('Firestore fout: ' + res.status);
 
+        // E-mailmelding — apart van de Firestore-opslag, mag falen zonder de aanvraag te blokkeren
+        fetch('https://formsubmit.co/ajax/logicaibuildlabs@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `Nieuwe zakelijke aanvraag: ${bedrijf}`,
+            Bedrijfsnaam: bedrijf,
+            Contactpersoon: contact,
+            'E-mail': email,
+            Telefoon: telefoon || '(niet ingevuld)',
+            Bericht: bericht || '(niet ingevuld)'
+          })
+        }).catch(() => {});
+
         statusEl.textContent = 'Bedankt! We nemen binnen 1 werkdag contact met je op.';
         statusEl.classList.add('success');
         document.getElementById('zakelijk-form').reset();
