@@ -707,9 +707,45 @@
       transition: color 0.15s; display: flex; align-items: center; gap: 4px;
     }
     .logout-btn:hover { color: var(--red); }
+
+    /* ===================== INSTALL BANNER ===================== */
+    #install-banner {
+      position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 500;
+      max-width: 420px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 16px 18px; display: flex; align-items: center; gap: 12px;
+      transform: translateY(120%); opacity: 0; transition: transform 0.35s ease, opacity 0.35s ease;
+      pointer-events: none;
+    }
+    #install-banner.visible { transform: translateY(0); opacity: 1; pointer-events: all; }
+    #install-banner-icon {
+      width: 40px; height: 40px; min-width: 40px; background: var(--red); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    #install-banner-text { flex: 1; font-size: 13px; color: var(--slate-700); line-height: 1.4; }
+    #install-banner-text strong { display: block; color: var(--slate-900); font-size: 14px; margin-bottom: 2px; }
+    #install-banner-actions { display: flex; flex-direction: column; gap: 6px; }
+    #install-banner-btn {
+      background: var(--red); color: var(--white); border: none; border-radius: var(--radius-sm);
+      padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    }
+    #install-banner-close {
+      background: none; border: none; color: var(--slate-400); font-size: 12px; cursor: pointer; padding: 2px;
+    }
   </style>
 </head>
 <body>
+
+<!-- Install Banner (Android/Windows — verschijnt alleen als de browser 'm toestaat) -->
+<div id="install-banner">
+  <div id="install-banner-icon">📲</div>
+  <div id="install-banner-text"><strong>Installeer als app</strong>Eén tik, geen browserbalk meer</div>
+  <div id="install-banner-actions">
+    <button id="install-banner-btn" onclick="triggerInstall()">Installeren</button>
+    <button id="install-banner-close" onclick="dismissInstallBanner()">Niet nu</button>
+  </div>
+</div>
 
 <!-- Login Screen -->
 <div id="login-screen">
@@ -3891,6 +3927,38 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
   });
 }
+
+// ===================== PWA INSTALL BANNER (Android/Windows) =====================
+let deferredInstallPrompt = null;
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const installDismissed = localStorage.getItem('bmg_install_dismissed') === 'true';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (!isStandalone && !installDismissed) {
+    document.getElementById('install-banner').classList.add('visible');
+  }
+});
+
+async function triggerInstall() {
+  const banner = document.getElementById('install-banner');
+  if (!deferredInstallPrompt) { banner.classList.remove('visible'); return; }
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  banner.classList.remove('visible');
+}
+
+function dismissInstallBanner() {
+  document.getElementById('install-banner').classList.remove('visible');
+  localStorage.setItem('bmg_install_dismissed', 'true');
+}
+
+window.addEventListener('appinstalled', () => {
+  document.getElementById('install-banner').classList.remove('visible');
+  deferredInstallPrompt = null;
+});
 </script>
 </body>
 </html>
