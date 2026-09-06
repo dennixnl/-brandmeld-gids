@@ -3,85 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Brandmeld Gids — Professionele handleidingen voor brandmeldcentrales conform NEN2535 en NEN2654. Esser IQ8Control, Siemens, Bosch, Notifier en meer. Voor brandmeldtechnici in Nederland.">
-  <meta name="keywords" content="brandmeldinstallatie, brandmeld gids, NEN2535, NEN2654, Esser IQ8Control, brandmeldcentrale handleiding, brandmeld technicus Nederland, brandmeldgids, siemens cerberus, notifier, bosch brandmeld">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Logic AI Build">
-  <link rel="canonical" href="https://brandmeldgids.nl/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://brandmeldgids.nl/">
-  <meta property="og:title" content="Brandmeld Gids — Professionele Handleidingen Brandmeldcentrales">
-  <meta property="og:description" content="Stap-voor-stap handleidingen voor brandmeldcentrales conform NEN2535 en NEN2654. Esser IQ8Control, Siemens, Bosch, Notifier, Autronica en meer — gratis voor technici.">
-  <meta property="og:image" content="https://brandmeldgids.nl/icon.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
-  <meta property="og:locale" content="nl_NL">
-  <meta property="og:site_name" content="Brandmeld Gids">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Brandmeld Gids — Professionele Handleidingen">
-  <meta name="twitter:description" content="Handleidingen voor brandmeldcentrales conform NEN2535 en NEN2654. Esser IQ8Control, Siemens, Bosch en meer.">
-  <meta name="twitter:image" content="https://brandmeldgids.nl/icon.png">
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://brandmeldgids.nl/#website",
-        "url": "https://brandmeldgids.nl/",
-        "name": "Brandmeld Gids",
-        "description": "Professionele handleidingen voor brandmeldcentrales in Nederland, conform NEN2535 en NEN2654",
-        "inLanguage": "nl-NL",
-        "publisher": { "@id": "https://brandmeldgids.nl/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://brandmeldgids.nl/#organization",
-        "name": "Logic AI Build",
-        "url": "https://brandmeldgids.nl/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://brandmeldgids.nl/icon.png"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "logicaibuildlabs@gmail.com",
-          "contactType": "customer support",
-          "areaServed": "NL",
-          "availableLanguage": "nl"
-        }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Brandmeld Gids",
-        "url": "https://brandmeldgids.nl/app.html",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, Android",
-        "description": "Professionele stap-voor-stap handleidingen voor brandmeldcentrales conform NEN2535 en NEN2654. Ondersteunt Esser IQ8Control, Siemens Cerberus Pro, Bosch, Notifier NF3000, Autronica, Penta, Drager, Honeywell, NSC, Schrack en Esmi.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "publisher": { "@id": "https://brandmeldgids.nl/#organization" },
-        "inLanguage": "nl-NL",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "ratingCount": "1"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <title>Brandmeld Gids — Professionele Handleidingen Brandmeldcentrales NEN2535 NEN2654</title>
+  <meta name="description" content="Brandmeld Gids — Professionele stap-voor-stap handleidingen voor brandmeldcentrales. Voor technici van Unica Fire Detection en andere brandmeldinstallateurs.">
+  <title>Brandmeld Gids — Professionele Handleidingen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -103,6 +26,7 @@
     }
 
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -113,581 +37,742 @@
       cursor: none;
     }
 
-    /* ─── SCROLL PROGRESS BAR ─── */
-    #progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 3px;
-      width: 0%;
-      background: linear-gradient(to right, var(--red), var(--ember), #ffb347);
-      z-index: 10001;
-      box-shadow: 0 0 12px var(--red-glow), 0 0 24px rgba(255,107,53,0.3);
-    }
-
-    /* ─── SPLASH SCREEN ─── */
-    #splash {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 10000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .splash-icon {
-      width: 72px; height: 72px;
-      background: var(--red);
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px;
-      box-shadow: 0 0 60px var(--red-glow), 0 0 120px rgba(224,53,53,0.15);
-      animation: splashIconIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
-    }
-    .splash-title {
-      font-family: var(--font-display);
-      font-size: 48px;
-      letter-spacing: 8px;
-      animation: splashTextIn 0.6s 0.2s ease both;
-    }
-    .splash-title span { color: var(--red); }
-    .splash-loader {
-      width: 0; height: 2px;
-      background: linear-gradient(to right, var(--red), var(--ember));
-      box-shadow: 0 0 16px var(--red-glow);
-      border-radius: 2px;
-      animation: splashLoad 1s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    @keyframes splashIconIn {
-      from { opacity: 0; transform: scale(0.3) rotate(-20deg); }
-      to   { opacity: 1; transform: scale(1) rotate(0deg); }
-    }
-    @keyframes splashTextIn {
-      from { opacity: 0; transform: translateY(16px) skewX(-4deg); }
-      to   { opacity: 1; transform: translateY(0) skewX(0deg); }
-    }
-    @keyframes splashLoad { to { width: 220px; } }
-
     /* ─── CUSTOM CURSOR ─── */
     .cursor {
-      position: fixed; width: 10px; height: 10px;
-      background: var(--red); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
       transform: translate(-50%, -50%);
-      transition: width 0.2s ease, height 0.2s ease;
+      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
       box-shadow: 0 0 12px var(--red), 0 0 24px var(--red-glow);
     }
     .cursor-ring {
-      position: fixed; width: 36px; height: 36px;
-      border: 1px solid rgba(224,53,53,0.5); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(224, 53, 53, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
       transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
     }
     body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 16px; height: 16px; }
     body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring {
       width: 52px; height: 52px;
-      border-color: rgba(224,53,53,0.8);
+      border-color: rgba(224, 53, 53, 0.8);
     }
-
-    /* ─── MOBILE OVERLAY MENU ─── */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none; border: none;
-      padding: 8px; cursor: pointer;
-      z-index: 201; position: relative;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: all 0.3s ease; transform-origin: center;
-    }
-    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-overlay {
-      position: fixed; inset: 0;
-      background: rgba(7,7,10,0.97);
-      backdrop-filter: blur(24px);
-      z-index: 200;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 8px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .mobile-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-nav-link {
-      font-family: var(--font-display);
-      font-size: 52px; letter-spacing: 4px;
-      color: var(--muted); text-decoration: none;
-      opacity: 0; transform: translateY(24px);
-      transition: color 0.2s, opacity 0.3s ease, transform 0.3s ease;
-    }
-    .mobile-overlay.active .mobile-nav-link { opacity: 1; transform: translateY(0); }
-    .mobile-nav-link:hover { color: var(--red); }
-    .mobile-nav-link:nth-child(1) { transition-delay: 0.05s; }
-    .mobile-nav-link:nth-child(2) { transition-delay: 0.10s; }
-    .mobile-nav-link:nth-child(3) { transition-delay: 0.15s; }
-    .mobile-nav-link:nth-child(4) { transition-delay: 0.20s; }
-    .mobile-cta-wrap {
-      margin-top: 24px;
-      opacity: 0; transform: translateY(16px);
-      transition: all 0.3s 0.28s ease;
-    }
-    .mobile-overlay.active .mobile-cta-wrap { opacity: 1; transform: translateY(0); }
 
     /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 20px 48px;
       background: linear-gradient(to bottom, rgba(7,7,10,0.95), transparent);
       backdrop-filter: blur(0px);
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
     }
-    nav.scrolled {
-      background: rgba(7,7,10,0.88);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom-color: rgba(224,53,53,0.12);
-      padding: 14px 48px;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo-icon {
-      width: 32px; height: 32px; background: var(--red); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; box-shadow: 0 0 20px var(--red-glow);
+      width: 32px;
+      height: 32px;
+      background: var(--red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 0 20px var(--red-glow);
     }
-    .nav-logo-text { font-family: var(--font-display); font-size: 22px; letter-spacing: 2px; color: var(--text); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
     .nav-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: 14px; font-weight: 400; letter-spacing: 0.5px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--red); color: #fff !important;
-      padding: 8px 20px; border-radius: 6px;
+      background: var(--red);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 6px;
       font-weight: 500 !important;
       transition: box-shadow 0.2s, transform 0.2s !important;
     }
     .nav-cta:hover {
       box-shadow: 0 0 24px var(--red-glow) !important;
-      transform: translateY(-1px); color: #fff !important;
+      transform: translateY(-1px);
+      color: #fff !important;
     }
 
     /* ─── HERO ─── */
     #hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
-    #canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.75; }
+    #canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+    }
     .hero-noise {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; opacity: 0.3;
+      pointer-events: none;
+      opacity: 0.3;
     }
     .hero-gradient {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(224,53,53,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; padding: 0 24px; max-width: 900px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 900px;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(224,53,53,0.12); border: 1px solid rgba(224,53,53,0.25);
-      border-radius: 100px; padding: 6px 16px;
-      font-size: 13px; color: #e87070; letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224,53,53,0.12);
+      border: 1px solid rgba(224,53,53,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #e87070;
+      letter-spacing: 0.5px;
       margin-bottom: 32px;
       animation: fadeUp 0.8s ease both;
     }
     .hero-badge-dot {
-      width: 6px; height: 6px; background: var(--red); border-radius: 50%;
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:0.5; transform:scale(0.8); }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
     }
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(72px,12vw,140px);
-      letter-spacing: 4px; line-height: 0.95; margin-bottom: 16px;
+      font-size: clamp(72px, 12vw, 140px);
+      letter-spacing: 4px;
+      line-height: 0.95;
+      margin-bottom: 16px;
       animation: fadeUp 0.8s 0.1s ease both;
     }
     .hero-title-line1 { display: block; color: var(--text); }
     .hero-title-line2 {
-      display: block; color: transparent;
+      display: block;
+      color: transparent;
       -webkit-text-stroke: 1px rgba(224,53,53,0.6);
-      font-size: clamp(40px,7vw,80px); letter-spacing: 8px;
-      animation: fadeUp 0.8s 0.1s ease both, glitch 10s 3s infinite;
-    }
-    @keyframes glitch {
-      0%,87%,100% { text-shadow:none; transform:none; -webkit-text-stroke:1px rgba(224,53,53,0.6); }
-      88% { text-shadow:-3px 0 var(--ember),3px 0 rgba(0,200,255,0.5); transform:translate(-2px,0) skewX(-2deg); -webkit-text-stroke:1px rgba(255,107,53,0.9); }
-      89% { text-shadow:3px 0 rgba(0,200,255,0.4),-3px 0 var(--red); transform:translate(2px,0) skewX(2deg); }
-      90% { text-shadow:none; transform:none; -webkit-text-stroke:1px rgba(224,53,53,0.6); }
-      91% { text-shadow:-2px 0 var(--ember); transform:translate(-1px,1px); }
-      92% { text-shadow:none; transform:none; }
+      font-size: clamp(40px, 7vw, 80px);
+      letter-spacing: 8px;
     }
     .hero-sub {
-      font-size: clamp(15px,2vw,18px); color: var(--muted);
-      max-width: 520px; margin: 0 auto 48px; font-weight: 300;
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      font-weight: 300;
       animation: fadeUp 0.8s 0.2s ease both;
     }
     .hero-sub span { color: var(--text); font-weight: 400; }
     .hero-actions {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
       animation: fadeUp 0.8s 0.3s ease both;
     }
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--red); color: #fff; text-decoration: none;
-      padding: 14px 32px; border-radius: 8px;
-      font-size: 15px; font-weight: 500; letter-spacing: 0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
       transition: box-shadow 0.3s, transform 0.2s;
-      border: none; cursor: none; position: relative; overflow: hidden;
+      border: none;
+      cursor: none;
     }
-    .btn-primary::after {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(255,255,255,0.15) 0%,transparent 60%);
-      pointer-events:none;
+    .btn-primary:hover {
+      box-shadow: 0 0 40px var(--red-glow), 0 8px 32px rgba(224,53,53,0.3);
+      transform: translateY(-2px);
     }
-    .btn-primary:hover { box-shadow: 0 0 40px var(--red-glow), 0 8px 32px rgba(224,53,53,0.3); }
     .btn-secondary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: var(--text); text-decoration: none;
-      padding: 14px 32px; border-radius: 8px;
-      font-size: 15px; font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 400;
       border: 1px solid var(--border);
       transition: border-color 0.3s, background 0.3s, transform 0.2s;
       cursor: none;
     }
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px);
+    }
     .hero-scroll {
-      position: absolute; bottom: 40px; left: 50%;
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
       transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
       animation: fadeUp 1s 0.6s ease both;
     }
-    .hero-scroll span { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+    .hero-scroll span {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .scroll-line {
-      width:1px; height:48px;
+      width: 1px;
+      height: 48px;
       background: linear-gradient(to bottom, var(--red), transparent);
       animation: scrollLine 2s infinite;
     }
     @keyframes scrollLine {
-      0%   { transform:scaleY(0); transform-origin:top; opacity:1; }
-      50%  { transform:scaleY(1); transform-origin:top; opacity:1; }
-      100% { transform:scaleY(1); transform-origin:bottom; opacity:0; }
+      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
     }
     @keyframes fadeUp {
-      from { opacity:0; transform:translateY(24px); }
-      to   { opacity:1; transform:translateY(0); }
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ─── WAVE DIVIDER ─── */
-    .wave-divider { line-height:0; margin-top:-2px; position:relative; z-index:3; }
-    .wave-divider svg { display:block; width:100%; }
 
     /* ─── STATS BAR ─── */
     .stats-bar {
       background: var(--bg2);
+      border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       padding: 32px 48px;
-      display: flex; justify-content: center; gap: 80px; flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
     }
-    .stat-item { text-align: center; }
+    .stat-item {
+      text-align: center;
+    }
     .stat-number {
-      font-family: var(--font-display); font-size: 48px;
-      color: var(--red); letter-spacing: 2px; line-height: 1; display: block;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--red);
+      letter-spacing: 2px;
+      line-height: 1;
+      display: block;
     }
-    .stat-label { font-size:13px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
-
-    /* ─── MARQUEE TICKER ─── */
-    .marquee-wrap {
-      overflow: hidden;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0;
-      position: relative;
-    }
-    .marquee-wrap::before, .marquee-wrap::after {
-      content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none;
-    }
-    .marquee-wrap::before { left:0; background:linear-gradient(to right,var(--bg),transparent); }
-    .marquee-wrap::after  { right:0; background:linear-gradient(to left,var(--bg),transparent); }
-    .marquee-track {
-      display: flex; width: max-content; white-space: nowrap;
-      animation: marqueeScroll 30s linear infinite;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item {
-      display: inline-flex; align-items: center; gap: 18px;
-      padding: 0 24px;
-      font-family: var(--font-display); font-size: 17px; letter-spacing: 3px;
+    .stat-label {
+      font-size: 13px;
       color: var(--muted);
-      transition: color 0.2s;
-    }
-    .marquee-item:hover { color: var(--text); }
-    .marquee-dot { width:5px; height:5px; background:var(--red); border-radius:50%; opacity:0.5; flex-shrink:0; }
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
     /* ─── SECTIONS ─── */
     section { padding: 100px 48px; }
-    .section-label { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:16px; }
-    .section-title { font-family:var(--font-display); font-size:clamp(36px,5vw,64px); letter-spacing:2px; line-height:1.05; margin-bottom:20px; }
-    .section-sub { color:var(--muted); font-size:16px; max-width:480px; font-weight:300; }
-    .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 480px;
+      font-weight: 300;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ─── FEATURES ─── */
-    #features { background:var(--bg); max-width:1200px; margin:0 auto; }
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:64px; }
+    #features {
+      background: var(--bg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 64px;
+    }
     .feature-card {
-      background: var(--bg2); border: 1px solid var(--border); border-radius:16px;
-      padding: 36px; position:relative; overflow:hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      transform-style: preserve-3d; will-change: transform;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
     }
     .feature-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:1px;
-      background: linear-gradient(to right,transparent,var(--red),transparent);
-      opacity:0; transition:opacity 0.3s;
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--red), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
-    .feature-card:hover { border-color:rgba(224,53,53,0.25); box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(224,53,53,0.08); }
-    .feature-card:hover::before { opacity:1; }
+    .feature-card:hover { border-color: rgba(224,53,53,0.2); transform: translateY(-4px); }
+    .feature-card:hover::before { opacity: 1; }
     .feature-icon {
-      width:48px; height:48px; background:rgba(224,53,53,0.1); border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      margin-bottom:24px; font-size:22px;
-      transition: background 0.3s, transform 0.3s;
+      width: 48px;
+      height: 48px;
+      background: rgba(224,53,53,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 22px;
     }
-    .feature-card:hover .feature-icon { background:rgba(224,53,53,0.2); transform:scale(1.1) rotate(-5deg); }
-    .feature-title { font-family:var(--font-display); font-size:24px; letter-spacing:1px; margin-bottom:12px; }
-    .feature-text { color:var(--muted); font-size:14px; line-height:1.7; font-weight:300; }
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .feature-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
 
     /* ─── BRANDS ─── */
-    #brands { background:var(--bg2); text-align:center; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .brands-header { max-width:600px; margin:0 auto 64px; }
-    .brands-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; max-width:1100px; margin:0 auto; }
+    #brands {
+      background: var(--bg2);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .brands-header { max-width: 600px; margin: 0 auto 64px; }
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
     .brand-pill {
-      background:var(--bg3); border:1px solid var(--border); border-radius:12px;
-      padding:20px 16px; font-size:14px; font-weight:500; letter-spacing:0.3px;
-      color:var(--text);
-      transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
-      display:flex; flex-direction:column; align-items:center; gap:8px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: var(--text);
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
     }
     .brand-pill:hover {
-      border-color: rgba(224,53,53,0.4);
-      background: rgba(224,53,53,0.07);
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 16px 40px rgba(224,53,53,0.15), 0 0 0 1px rgba(224,53,53,0.15);
+      border-color: rgba(224,53,53,0.3);
+      background: rgba(224,53,53,0.05);
+      transform: translateY(-3px);
     }
-    .brand-pill-icon { font-size:24px; }
-    .brand-pill-count { font-size:11px; color:var(--muted); letter-spacing:1px; }
+    .brand-pill-icon { font-size: 24px; }
+    .brand-pill-count {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
 
     /* ─── HOW IT WORKS ─── */
-    #how { max-width:1000px; margin:0 auto; }
-    .steps { display:flex; flex-direction:column; gap:0; margin-top:64px; position:relative; }
+    #how {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
     .steps::before {
-      content:''; position:absolute; left:23px; top:40px; bottom:40px;
-      width:1px; background:linear-gradient(to bottom,var(--red),rgba(224,53,53,0.1));
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 40px;
+      bottom: 40px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--red), rgba(224,53,53,0.1));
     }
-    .step { display:flex; gap:32px; align-items:flex-start; padding:32px 0; }
+    .step {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 32px 0;
+    }
     .step-num {
-      width:48px; height:48px; min-width:48px;
-      background:var(--bg2); border:1px solid rgba(224,53,53,0.4); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-display); font-size:20px; color:var(--red);
-      position:relative; z-index:1;
-      transition: background 0.3s, box-shadow 0.3s;
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: var(--bg2);
+      border: 1px solid rgba(224,53,53,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--red);
+      position: relative;
+      z-index: 1;
     }
-    .step:hover .step-num { background:rgba(224,53,53,0.1); box-shadow:0 0 24px var(--red-glow); }
-    .step-content { padding-top:8px; }
-    .step-title { font-family:var(--font-display); font-size:22px; letter-spacing:1px; margin-bottom:8px; }
-    .step-text { color:var(--muted); font-size:15px; font-weight:300; max-width:520px; }
+    .step-content { padding-top: 8px; }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .step-text {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      max-width: 520px;
+    }
 
     /* ─── DOWNLOAD ─── */
-    #download { background:var(--bg2); border-top:1px solid var(--border); text-align:center; }
-    .download-card {
-      max-width:680px; margin:64px auto 0;
-      background:var(--bg3); border:1px solid var(--border); border-radius:24px;
-      padding:56px 48px; position:relative; overflow:hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
+    #download {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      text-align: center;
     }
-    .download-card:hover { border-color:rgba(224,53,53,0.15); box-shadow:0 0 80px rgba(224,53,53,0.06); }
+    .download-card {
+      max-width: 680px;
+      margin: 64px auto 0;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
     .download-card::before {
-      content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%);
-      width:300px; height:200px;
-      background:radial-gradient(circle,rgba(224,53,53,0.15),transparent 70%);
-      pointer-events:none;
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(224,53,53,0.15), transparent 70%);
+      pointer-events: none;
     }
     .download-icon {
-      width:72px; height:72px; background:rgba(224,53,53,0.1); border-radius:20px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:32px; margin:0 auto 24px; border:1px solid rgba(224,53,53,0.2);
-      transition: transform 0.3s, background 0.3s;
+      width: 72px;
+      height: 72px;
+      background: rgba(224,53,53,0.1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(224,53,53,0.2);
     }
-    .download-card:hover .download-icon { transform:scale(1.08) rotate(-5deg); background:rgba(224,53,53,0.18); }
-    .download-title { font-family:var(--font-display); font-size:36px; letter-spacing:2px; margin-bottom:12px; }
-    .download-text { color:var(--muted); font-size:15px; font-weight:300; margin-bottom:36px; line-height:1.7; }
-    .download-requirements { display:flex; justify-content:center; gap:24px; margin-top:28px; flex-wrap:wrap; }
-    .req-item { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); }
-    .req-dot { width:4px; height:4px; background:var(--red); border-radius:50%; }
+    .download-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .download-text {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .download-requirements {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .req-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .req-dot { width: 4px; height: 4px; background: var(--red); border-radius: 50%; }
 
     /* ─── CONTACT ─── */
-    #contact { max-width:800px; margin:0 auto; text-align:center; }
+    #contact {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
     .contact-card {
-      background:var(--bg2); border:1px solid var(--border); border-radius:20px;
-      padding:48px; margin-top:48px;
-      display:flex; flex-direction:column; align-items:center; gap:24px;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
     }
-    .contact-card:hover { border-color:rgba(224,53,53,0.15); box-shadow:0 0 60px rgba(224,53,53,0.05); }
     .contact-avatar {
-      width:64px; height:64px;
-      background:linear-gradient(135deg,var(--red),var(--ember)); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-display); font-size:28px; letter-spacing:1px; color:#fff;
-      box-shadow:0 0 30px var(--red-glow);
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--red), var(--ember));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: #fff;
     }
-    .contact-name { font-family:var(--font-display); font-size:28px; letter-spacing:2px; }
-    .contact-role { font-size:14px; color:var(--muted); margin-top:-16px; }
+    .contact-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    .contact-role {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: -16px;
+    }
     .contact-email {
-      display:inline-flex; align-items:center; gap:10px;
-      background:rgba(224,53,53,0.08); border:1px solid rgba(224,53,53,0.2);
-      border-radius:8px; padding:12px 24px;
-      color:var(--text); text-decoration:none; font-size:15px;
-      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(224,53,53,0.08);
+      border: 1px solid rgba(224,53,53,0.2);
+      border-radius: 8px;
+      padding: 12px 24px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.3s, border-color 0.3s;
     }
-    .contact-email:hover { background:rgba(224,53,53,0.15); border-color:rgba(224,53,53,0.4); box-shadow:0 0 24px rgba(224,53,53,0.15); }
+    .contact-email:hover {
+      background: rgba(224,53,53,0.15);
+      border-color: rgba(224,53,53,0.4);
+    }
 
     /* ─── FOOTER ─── */
     footer {
-      background:var(--bg); border-top:1px solid var(--border);
-      padding:40px 48px;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
-    .footer-left { display:flex; align-items:center; gap:12px; }
-    .footer-logo { font-family:var(--font-display); font-size:18px; letter-spacing:2px; color:var(--text); }
-    .footer-sep { color:var(--border); }
-    .footer-disclaimer { font-size:12px; color:var(--muted); max-width:480px; line-height:1.5; }
-    .footer-right { font-size:12px; color:var(--muted); display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
-    .footer-right a { color:var(--muted); text-decoration:none; }
-    .footer-right a:hover { color:var(--text); }
-    .footer-legal { display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
-
-    /* ─── BACK TO TOP ─── */
-    #back-to-top {
-      position:fixed; bottom:32px; right:32px;
-      width:44px; height:44px;
-      background:var(--red); border:none; border-radius:50%;
-      color:#fff; cursor:none; z-index:500;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 0 24px var(--red-glow);
-      opacity:0; transform:translateY(16px);
-      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
-      pointer-events:none;
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    #back-to-top.visible { opacity:1; transform:translateY(0); pointer-events:all; }
-    #back-to-top:hover { box-shadow:0 0 40px var(--red-glow),0 8px 24px rgba(224,53,53,0.4); }
-
-    /* ─── PWA STEPS ─── */
-    .pwa-steps { display:flex; flex-direction:column; gap:16px; margin-bottom:32px; text-align:left; width:100%; max-width:400px; }
-    .pwa-step { display:flex; align-items:center; gap:16px; }
-    .pwa-num {
-      width:32px; height:32px; min-width:32px;
-      background:rgba(224,53,53,0.15); border:1px solid rgba(224,53,53,0.3); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-display); font-size:16px; color:var(--red);
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: var(--text);
     }
-    .pwa-text { font-size:14px; color:var(--muted); font-weight:300; }
-    .pwa-text strong { color:var(--text); font-weight:500; }
-
-    /* ─── DOWNLOAD TABS ─── */
-    .dl-tabs { display:flex; justify-content:center; gap:12px; margin-bottom:32px; }
-    .dl-tab {
-      background:var(--bg2); border:1px solid var(--border);
-      color:var(--muted); padding:10px 28px; border-radius:8px;
-      font-size:14px; font-family:var(--font-body); cursor:none;
-      transition:all 0.2s;
+    .footer-sep { color: var(--border); }
+    .footer-disclaimer {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.5;
     }
-    .dl-tab.active { background:var(--red); border-color:var(--red); color:#fff; }
-    .dl-tab:hover:not(.active) { border-color:rgba(255,255,255,0.15); color:var(--text); }
-
-    /* ─── RED LINE DIVIDER ─── */
-    .red-line { width:48px; height:2px; background:var(--red); margin:24px 0; }
-    .red-line.centered { margin:24px auto; }
+    .footer-right {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer-right a { color: var(--muted); text-decoration: none; }
+    .footer-right a:hover { color: var(--text); }
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
-      nav { padding:16px 24px; }
-      nav.scrolled { padding:12px 24px; }
-      .nav-links { display:none; }
-      .hamburger { display:flex; }
-      section { padding:64px 24px; }
-      .stats-bar { padding:32px 24px; gap:40px; }
-      .steps::before { display:none; }
-      .download-card { padding:36px 24px; }
-      footer { padding:32px 24px; flex-direction:column; text-align:center; }
-      .cursor, .cursor-ring { display:none; }
-      body { cursor:auto; }
-      .hero-title-line2 { letter-spacing:4px; }
-      #back-to-top { bottom:20px; right:20px; cursor:pointer; }
-      .mobile-nav-link { font-size:40px; }
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 64px 24px; }
+      .stats-bar { padding: 32px 24px; gap: 40px; }
+      .steps::before { display: none; }
+      .download-card { padding: 36px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+      .hero-title-line2 { letter-spacing: 4px; }
     }
     @media (max-width: 480px) {
-      .hero-actions { flex-direction:column; align-items:center; }
-      .btn-primary, .btn-secondary { width:100%; justify-content:center; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     }
+
+    /* ─── PWA STEPS ─── */
+    .pwa-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+    }
+    .pwa-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .pwa-num {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: rgba(224,53,53,0.15);
+      border: 1px solid rgba(224,53,53,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--red);
+    }
+    .pwa-text {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .pwa-text strong { color: var(--text); font-weight: 500; }
+
+    /* ─── DOWNLOAD TABS ─── */
+    .dl-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .dl-tab {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: var(--font-body);
+      cursor: none;
+      transition: all 0.2s;
+    }
+    .dl-tab.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .dl-tab:hover:not(.active) {
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
+    }
+
+    /* ─── RED LINE DIVIDER ─── */
+    .red-line {
+      width: 48px;
+      height: 2px;
+      background: var(--red);
+      margin: 24px 0;
+    }
+    .red-line.centered { margin: 24px auto; }
   </style>
 </head>
 <body>
-
-  <!-- SPLASH SCREEN -->
-  <div id="splash">
-    <div class="splash-icon">🔴</div>
-    <div class="splash-title">BRANDMELD <span>GIDS</span></div>
-    <div class="splash-loader"></div>
-  </div>
-
-  <!-- SCROLL PROGRESS BAR -->
-  <div id="progress-bar"></div>
 
   <!-- Custom cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- MOBILE OVERLAY -->
-  <div class="mobile-overlay" id="mobileOverlay">
-    <a href="#features" class="mobile-nav-link">Functies</a>
-    <a href="#brands" class="mobile-nav-link">Centrales</a>
-    <a href="#how" class="mobile-nav-link">Werkwijze</a>
-    <a href="#contact" class="mobile-nav-link">Contact</a>
-    <div class="mobile-cta-wrap">
-      <a href="#download" class="btn-primary" style="cursor:pointer">Download app</a>
-    </div>
-  </div>
-
   <!-- NAV -->
-  <nav id="mainNav">
+  <nav>
     <a href="#" class="nav-logo">
       <div class="nav-logo-icon">🔴</div>
       <span class="nav-logo-text">BRANDMELD GIDS</span>
@@ -699,9 +784,6 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#download" class="nav-cta">Download app</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
   <!-- HERO -->
@@ -719,16 +801,16 @@
         <span class="hero-title-line2">GIDS</span>
       </h1>
       <p class="hero-sub">
-        Stap-voor-stap handleidingen voor <span>11 brandmeldcentrales</span> — altijd bij de hand, altijd up-to-date.
+        Stap-voor-stap handleidingen én periodiek NEN2654-beheer voor <span>11 brandmeldcentrales</span> — altijd bij de hand, altijd up-to-date.
       </p>
       <div class="hero-actions">
-        <a href="#download" class="btn-primary magnetic">
+        <a href="#download" class="btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download de app
         </a>
-        <a href="#features" class="btn-secondary magnetic">
+        <a href="app.html" class="btn-secondary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-          Meer informatie
+          Open de app
         </a>
       </div>
     </div>
@@ -738,58 +820,23 @@
     </div>
   </section>
 
-  <!-- WAVE DIVIDER hero → stats -->
-  <div class="wave-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none" style="height:56px">
-      <path fill="#0d0d12" d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z"/>
-    </svg>
-  </div>
-
   <!-- STATS -->
   <div class="stats-bar">
     <div class="stat-item reveal">
-      <span class="stat-number" data-target="11">0</span>
+      <span class="stat-number">11</span>
       <span class="stat-label">Merken</span>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.1s">
-      <span class="stat-number" data-target="154">0</span>
+      <span class="stat-number">154</span>
       <span class="stat-label">Handleidingen</span>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.2s">
-      <span class="stat-number" data-target="14">0</span>
-      <span class="stat-label">Procedures per merk</span>
+      <span class="stat-number">2</span>
+      <span class="stat-label">NEN2654 beheerschema's per merk</span>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.3s">
       <span class="stat-number">∞</span>
       <span class="stat-label">Updates gratis</span>
-    </div>
-  </div>
-
-  <!-- MARQUEE TICKER -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">Siemens<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Notifier<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esser D5000<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esser D7000<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Bosch<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Autronica<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Hertek<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Honeywell Pearl<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esmi FDP<span class="marquee-dot"></span></span>
-      <span class="marquee-item">NSC Solution F2<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Schrack Integral<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Siemens<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Notifier<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esser D5000<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esser D7000<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Bosch<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Autronica<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Hertek<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Honeywell Pearl<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Esmi FDP<span class="marquee-dot"></span></span>
-      <span class="marquee-item">NSC Solution F2<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Schrack Integral<span class="marquee-dot"></span></span>
     </div>
   </div>
 
@@ -802,32 +849,37 @@
       <p class="section-sub">Gebouwd door een brandmeldtechnicus, voor brandmeldtechnici. Geen overbodige informatie — alleen de stappen die ertoe doen.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.1s">
+      <div class="feature-card reveal" style="transition-delay:0.1s">
+        <div class="feature-icon">📋</div>
+        <h3 class="feature-title">NEN2654 periodiek beheer</h3>
+        <p class="feature-text">Complete maandelijkse én 4-/8-maandelijkse beheerderstaken per centrale, stap voor stap: visuele controle, meldingtesten, storingstest en doormelding — precies volgens NEN2654-1 §2.7.</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.1s">
         <div class="feature-icon">⚡</div>
         <h3 class="feature-title">Razendsnel zoeken</h3>
         <p class="feature-text">Type een merknaam of procedure en je hebt de juiste handleiding binnen een seconde op het scherm. Geen navigatie, geen oponthoud.</p>
       </div>
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.2s">
+      <div class="feature-card reveal" style="transition-delay:0.2s">
         <div class="feature-icon">📱</div>
         <h3 class="feature-title">Altijd beschikbaar</h3>
         <p class="feature-text">De app werkt ook zonder internetverbinding. Perfect voor kelders, parkeergarages en locaties met slechte ontvangst.</p>
       </div>
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.3s">
+      <div class="feature-card reveal" style="transition-delay:0.3s">
         <div class="feature-icon">🔄</div>
         <h3 class="feature-title">Automatisch bijgewerkt</h3>
         <p class="feature-text">Nieuwe centrales en handleidingen worden automatisch toegevoegd. Geen herinstallatie — jij opent de app, alles is al klaar.</p>
       </div>
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.1s">
+      <div class="feature-card reveal" style="transition-delay:0.1s">
         <div class="feature-icon">🛡️</div>
         <h3 class="feature-title">Beveiligd & betrouwbaar</h3>
         <p class="feature-text">Beheerdersfuncties zijn beveiligd achter een versleuteld wachtwoord. Content wordt opgeslagen in Firebase — altijd bereikbaar.</p>
       </div>
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.2s">
+      <div class="feature-card reveal" style="transition-delay:0.2s">
         <div class="feature-icon">💻</div>
         <h3 class="feature-title">Android & Windows</h3>
         <p class="feature-text">Beschikbaar als Android-app én als Windows-programma. Één keer installeren en je hebt altijd de meest recente versie.</p>
       </div>
-      <div class="feature-card reveal tilt-card" style="transition-delay:0.3s">
+      <div class="feature-card reveal" style="transition-delay:0.3s">
         <div class="feature-icon">📋</div>
         <h3 class="feature-title">Praktijkgericht</h3>
         <p class="feature-text">Elke handleiding is geschreven op basis van echte praktijkervaring. Duidelijke stappen, de juiste volgorde, direct toepasbaar op locatie.</p>
@@ -841,20 +893,64 @@
       <p class="section-label">Ondersteunde centrales</p>
       <h2 class="section-title">11 merken,<br>154 handleidingen</h2>
       <div class="red-line centered"></div>
-      <p class="section-sub" style="margin:0 auto">Van Siemens tot Schrack Integral — alle veelgebruikte brandmeldcentrales zijn gedekt met 14 vaste procedures per merk.</p>
+      <p class="section-sub" style="margin:0 auto">Van Siemens tot Schrack Integral — alle veelgebruikte brandmeldcentrales zijn gedekt met 14 vaste procedures én volledig NEN2654-beheer per merk.</p>
     </div>
     <div class="brands-grid">
-      <div class="brand-pill reveal" style="transition-delay:0.05s"><span class="brand-pill-icon">🔴</span>Siemens<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.1s"><span class="brand-pill-icon">🔴</span>Notifier<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.15s"><span class="brand-pill-icon">🔴</span>Esser D5000<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.2s"><span class="brand-pill-icon">🔴</span>Esser D7000<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.25s"><span class="brand-pill-icon">🔴</span>Bosch<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.3s"><span class="brand-pill-icon">🔴</span>Autronica<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.35s"><span class="brand-pill-icon">🔴</span>Hertek<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.4s"><span class="brand-pill-icon">🔴</span>Honeywell Pearl<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.45s"><span class="brand-pill-icon">🔴</span>Esmi FDP<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.5s"><span class="brand-pill-icon">🔴</span>NSC Solution F2<span class="brand-pill-count">14 handleidingen</span></div>
-      <div class="brand-pill reveal" style="transition-delay:0.55s"><span class="brand-pill-icon">🔴</span>Schrack Integral<span class="brand-pill-count">14 handleidingen</span></div>
+      <div class="brand-pill reveal" style="transition-delay:0.05s">
+        <span class="brand-pill-icon">🔴</span>
+        Siemens
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.1s">
+        <span class="brand-pill-icon">🔴</span>
+        Notifier
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.15s">
+        <span class="brand-pill-icon">🔴</span>
+        Esser IQ8 Control
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.2s">
+        <span class="brand-pill-icon">🔴</span>
+        Esser FlexES Control
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.25s">
+        <span class="brand-pill-icon">🔴</span>
+        Bosch
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.3s">
+        <span class="brand-pill-icon">🔴</span>
+        Autronica
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.35s">
+        <span class="brand-pill-icon">🔴</span>
+        Hertek
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.4s">
+        <span class="brand-pill-icon">🔴</span>
+        Esmi FDP
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.45s">
+        <span class="brand-pill-icon">🔴</span>
+        Honeywell Pearl
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.5s">
+        <span class="brand-pill-icon">🔴</span>
+        NSC Solution F2
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
+      <div class="brand-pill reveal" style="transition-delay:0.55s">
+        <span class="brand-pill-icon">🔴</span>
+        Schrack Integral
+        <span class="brand-pill-count">14 handleidingen</span>
+      </div>
     </div>
   </section>
 
@@ -897,15 +993,22 @@
       <p class="section-label">Download</p>
       <h2 class="section-title">Klaar voor gebruik</h2>
     </div>
+
+    <!-- Tabs -->
     <div class="dl-tabs reveal">
       <button class="dl-tab active" onclick="showTab('android')">📱 Android</button>
       <button class="dl-tab" onclick="showTab('windows')">💻 Windows</button>
     </div>
+
+    <!-- Android -->
     <div class="download-card reveal" id="tab-android">
       <div class="download-icon">📱</div>
       <h3 class="download-title">Android App</h3>
-      <p class="download-text">Download de Brandmeld Gids APK en installeer hem op je Android-toestel.<br>Eenmalig installeren — alle updates komen automatisch binnen.</p>
-      <a href="brandmeld-gids.apk" class="btn-primary" download="brandmeld-gids.apk">
+      <p class="download-text">
+        Download de Brandmeld Gids APK en installeer hem op je Android-toestel.<br>
+        Eenmalig installeren — alle updates komen automatisch binnen.
+      </p>
+      <a href="https://github.com/dennixnl/-brandmeld-gids/releases/latest/download/brandmeld-gids.apk" class="btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download APK
       </a>
@@ -915,16 +1018,30 @@
         <div class="req-item"><div class="req-dot"></div>Werkt offline</div>
       </div>
     </div>
+
+    <!-- Windows -->
     <div class="download-card reveal" id="tab-windows" style="display:none">
       <div class="download-icon">💻</div>
       <h3 class="download-title">Windows Installatie</h3>
-      <p class="download-text">Geen download nodig. Installeer de app direct vanuit je browser —<br>geen admin rechten, geen IT-afdeling nodig.</p>
+      <p class="download-text">
+        Geen download nodig. Installeer de app direct vanuit je browser —<br>
+        geen admin rechten, geen IT-afdeling nodig.
+      </p>
       <div class="pwa-steps">
-        <div class="pwa-step"><div class="pwa-num">1</div><div class="pwa-text">Open <strong>brandmeldgids.nl</strong> in Edge of Chrome</div></div>
-        <div class="pwa-step"><div class="pwa-num">2</div><div class="pwa-text">Klik op het <strong>installeer-icoontje</strong> rechts in de adresbalk (↑)</div></div>
-        <div class="pwa-step"><div class="pwa-num">3</div><div class="pwa-text">Klik op <strong>"Installeren"</strong> — klaar!</div></div>
+        <div class="pwa-step">
+          <div class="pwa-num">1</div>
+          <div class="pwa-text">Open <strong>brandmeldgids.nl/app.html</strong> in Edge of Chrome</div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-num">2</div>
+          <div class="pwa-text">Klik op het <strong>installeer-icoontje</strong> rechts in de adresbalk (↑)</div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-num">3</div>
+          <div class="pwa-text">Klik op <strong>"Installeren"</strong> — klaar!</div>
+        </div>
       </div>
-      <a href="app.html" class="btn-primary" target="_blank">
+      <a href="https://brandmeldgids.nl/app.html" class="btn-primary" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         Open de app
       </a>
@@ -944,12 +1061,12 @@
       <div class="red-line centered"></div>
     </div>
     <div class="contact-card reveal">
-      <div class="contact-avatar">LA</div>
-      <h3 class="contact-name">LOGIC AI BUILD</h3>
-      <p class="contact-role">Ontwikkelaar van Brandmeld Gids</p>
-      <a href="mailto:logicaibuildlabs@gmail.com" class="contact-email">
+      <div class="contact-avatar">DB</div>
+      <h3 class="contact-name">D. VAN DEN BERG</h3>
+      <p class="contact-role">Ontwikkelaar & Brandmeldtechnicus</p>
+      <a href="mailto:info@brandmeldgids.nl" class="contact-email">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        logicaibuildlabs@gmail.com
+        info@brandmeldgids.nl
       </a>
     </div>
   </section>
@@ -960,178 +1077,97 @@
       <span class="footer-logo">BRANDMELD GIDS</span>
       <span class="footer-sep">—</span>
       <p class="footer-disclaimer">
-        Brandmeld Gids is een product van Logic AI Build. Handleidingen zijn opgesteld op basis van praktijkervaring.
-        Raadpleeg altijd de officiële fabrikantdocumentatie. Alle genoemde merknamen zijn eigendom van hun respectievelijke fabrikanten.
+        Deze handleidingen zijn opgesteld door D. van den Berg op basis van praktijkervaring.
+        Raadpleeg altijd de officiële fabrikantdocumentatie. Alle genoemde merknamen zijn
+        eigendom van hun respectievelijke fabrikanten.
       </p>
     </div>
     <div class="footer-right">
-      <span>© 2026 Logic AI Build &nbsp;·&nbsp; KvK 42079015 &nbsp;·&nbsp; <a href="mailto:logicaibuildlabs@gmail.com">logicaibuildlabs@gmail.com</a></span>
-      <div class="footer-legal">
-        <a href="/av.html">Algemene Voorwaarden</a>
-        <a href="/privacy.html">Privacyverklaring</a>
-      </div>
+      © 2025 D. van den Berg &nbsp;·&nbsp;
+      <a href="mailto:info@brandmeldgids.nl">info@brandmeldgids.nl</a>
     </div>
   </footer>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" aria-label="Terug naar boven">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
   <script>
-    // ─── SPLASH ───
-    window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('splash').classList.add('hidden'), 1600);
-    });
-
-    // ─── PROGRESS BAR ───
-    const progressBar = document.getElementById('progress-bar');
-    function updateProgress() {
-      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-      progressBar.style.width = pct + '%';
-    }
-
     // ─── CURSOR ───
     const cursor = document.getElementById('cursor');
-    const ring   = document.getElementById('cursorRing');
+    const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function animateCursor() {
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    function animateCursor() {
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
       requestAnimationFrame(animateCursor);
-    })();
+    }
+    animateCursor();
 
-    // ─── CANVAS FIRE PARTICLES ───
+    // ─── CANVAS PARTICLES ───
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let W, H, particles = [];
-    function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
     resize();
     window.addEventListener('resize', resize);
 
     class Particle {
-      constructor() { this.reset(true); }
-      reset(rndY) {
+      constructor() { this.reset(); }
+      reset() {
         this.x = Math.random() * W;
-        this.y = rndY ? Math.random() * H : H + 20;
-        this.vx = (Math.random() - 0.5) * 0.9;
-        this.vy = -(Math.random() * 1.7 + 0.5);
+        this.y = H + 20;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = -(Math.random() * 1.2 + 0.4);
         this.life = 0;
-        this.maxLife = Math.random() * 180 + 80;
-        this.size = Math.random() * 3.2 + 0.8;
-        this.hue = Math.random() * 42;
-        this.sat = 85 + Math.random() * 15;
+        this.maxLife = Math.random() * 200 + 100;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.hue = Math.random() * 30; // 0-30 = red to orange
       }
       update() {
-        this.x += this.vx; this.y += this.vy;
-        this.vx += (Math.random() - 0.5) * 0.07;
-        this.vy *= 0.998;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vx += (Math.random() - 0.5) * 0.05;
         this.life++;
-        if (this.life > this.maxLife || this.y < -20) this.reset(false);
+        if (this.life > this.maxLife || this.y < -20) this.reset();
       }
       draw() {
-        const alpha = Math.sin((this.life / this.maxLife) * Math.PI) * 0.78;
-        const s = this.size * (1 - (this.life / this.maxLife) * 0.4);
+        const alpha = Math.sin((this.life / this.maxLife) * Math.PI) * 0.7;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, s, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${this.hue},${this.sat}%,65%,${alpha})`;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue}, 90%, 65%, ${alpha})`;
         ctx.fill();
       }
     }
-    for (let i = 0; i < 110; i++) { const p = new Particle(); p.life = Math.random() * p.maxLife; particles.push(p); }
-    (function animateCanvas() {
+
+    for (let i = 0; i < 80; i++) {
+      const p = new Particle();
+      p.y = Math.random() * H;
+      p.life = Math.random() * p.maxLife;
+      particles.push(p);
+    }
+
+    function animateCanvas() {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(p => { p.update(); p.draw(); });
       requestAnimationFrame(animateCanvas);
-    })();
-
-    // ─── SCROLL EVENTS ───
-    const nav      = document.getElementById('mainNav');
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      updateProgress();
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    // ─── BACK TO TOP ───
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // ─── COUNTER ANIMATION ───
-    function animateCounter(el, target) {
-      const dur = 1400, start = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
-        if (p < 1) requestAnimationFrame(tick);
-        else el.textContent = target;
-      })(start);
     }
+    animateCanvas();
 
-    // ─── SCROLL REVEAL + COUNTER TRIGGER ───
-    const observer = new IntersectionObserver(entries => {
+    // ─── SCROLL REVEAL ───
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('visible');
-        const ctr = e.target.querySelector('[data-target]');
-        if (ctr && !ctr.dataset.animated) {
-          ctr.dataset.animated = '1';
-          animateCounter(ctr, parseInt(ctr.dataset.target));
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ─── 3D TILT (desktop only) ───
-    const isTouch = window.matchMedia('(hover:none)').matches;
-    if (!isTouch) {
-      document.querySelectorAll('.tilt-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width  - 0.5;
-          const y = (e.clientY - r.top)  / r.height - 0.5;
-          card.style.transform = `translateY(-4px) perspective(1000px) rotateX(${-y*8}deg) rotateY(${x*8}deg)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transition = 'transform 0.4s ease, border-color 0.3s, box-shadow 0.3s';
-          card.style.transform = '';
-          setTimeout(() => card.style.transition = '', 400);
-        });
-      });
-    }
-
-    // ─── MAGNETIC BUTTONS (desktop only) ───
-    if (!isTouch) {
-      document.querySelectorAll('.magnetic').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-          const r = btn.getBoundingClientRect();
-          const x = (e.clientX - r.left - r.width  / 2) * 0.26;
-          const y = (e.clientY - r.top  - r.height / 2) * 0.26;
-          btn.style.transform = `translate(${x}px,${y}px)`;
-        });
-        btn.addEventListener('mouseleave', () => {
-          btn.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s';
-          btn.style.transform = '';
-          setTimeout(() => btn.style.transition = '', 500);
-        });
-      });
-    }
-
-    // ─── HAMBURGER MENU ───
-    const hamburger    = document.getElementById('hamburger');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-    hamburger.addEventListener('click', () => {
-      const open = hamburger.classList.toggle('active');
-      mobileOverlay.classList.toggle('active', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mobileOverlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }));
 
     // ─── DOWNLOAD TABS ───
     function showTab(tab) {
