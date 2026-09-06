@@ -733,6 +733,53 @@
     #install-banner-close {
       background: none; border: none; color: var(--slate-400); font-size: 12px; cursor: pointer; padding: 2px;
     }
+
+    /* ===================== INSTALL GUIDE (volledig scherm) ===================== */
+    #install-guide {
+      display: none;
+      position: fixed; inset: 0; z-index: 2000;
+      background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+      overflow-y: auto;
+      padding: 24px 16px 48px;
+    }
+    #install-guide.visible { display: flex; align-items: flex-start; justify-content: center; }
+    #install-guide-card {
+      background: var(--white); border-radius: var(--radius-xl);
+      max-width: 440px; width: 100%; margin-top: 16px;
+      padding: 28px 24px 24px; box-shadow: var(--shadow-md);
+    }
+    #install-guide-badge {
+      display: inline-block; background: #dcfce7; color: #166534;
+      font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: var(--radius-full);
+      margin-bottom: 18px;
+    }
+    #install-guide-title {
+      font-size: 22px; font-weight: 800; color: var(--slate-900); margin-bottom: 24px; line-height: 1.3;
+    }
+    .ig-step {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md);
+      padding: 16px; margin-bottom: 14px;
+    }
+    .ig-step-num {
+      width: 32px; height: 32px; min-width: 32px; background: var(--red); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 15px;
+    }
+    .ig-step-body { flex: 1; }
+    .ig-step-body strong { display: block; font-size: 15px; color: var(--slate-900); margin-bottom: 4px; }
+    .ig-step-body span { font-size: 13.5px; color: var(--slate-600); line-height: 1.5; }
+    .ig-step-icon { font-size: 26px; line-height: 1; margin-top: 2px; }
+    .ig-note {
+      background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: var(--radius-sm);
+      padding: 12px 14px; font-size: 13px; color: #92400e; margin: 4px 0 20px;
+    }
+    #install-guide-close {
+      width: 100%; background: var(--red); color: var(--white); border: none;
+      border-radius: var(--radius-md); padding: 16px; font-size: 15px; font-weight: 800; cursor: pointer;
+    }
+    @keyframes ig-bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(8px); } }
+    .ig-arrow { animation: ig-bounce 1.4s ease-in-out infinite; text-align: center; font-size: 28px; margin: -4px 0 14px; }
   </style>
 </head>
 <body>
@@ -744,6 +791,16 @@
   <div id="install-banner-actions">
     <button id="install-banner-btn" onclick="triggerInstall()">Installeren</button>
     <button id="install-banner-close" onclick="dismissInstallBanner()">Niet nu</button>
+  </div>
+</div>
+
+<!-- Install Gids (volledig scherm, voor leken — je staat hier al op de juiste pagina) -->
+<div id="install-guide">
+  <div id="install-guide-card">
+    <div id="install-guide-badge">✅ Je bent nu op de juiste pagina</div>
+    <h2 id="install-guide-title">Zo zet je de app op je scherm</h2>
+    <div id="install-guide-steps"></div>
+    <button id="install-guide-close" onclick="closeInstallGuide()">Ik heb het gedaan</button>
   </div>
 </div>
 
@@ -3959,6 +4016,64 @@ window.addEventListener('appinstalled', () => {
   document.getElementById('install-banner').classList.remove('visible');
   deferredInstallPrompt = null;
 });
+
+// ===================== INSTALL GIDS (voor leken, via ?install=iphone|android) =====================
+function closeInstallGuide() {
+  document.getElementById('install-guide').classList.remove('visible');
+  const url = new URL(window.location);
+  url.searchParams.delete('install');
+  window.history.replaceState({}, '', url);
+}
+
+(function initInstallGuide() {
+  const params = new URLSearchParams(window.location.search);
+  const platform = params.get('install');
+  if (!platform) return;
+
+  const stepsEl = document.getElementById('install-guide-steps');
+  const titleEl = document.getElementById('install-guide-title');
+
+  if (platform === 'iphone') {
+    titleEl.textContent = 'Zo zet je de app op je scherm';
+    stepsEl.innerHTML = `
+      <div class="ig-step">
+        <div class="ig-step-icon">⬆️</div>
+        <div class="ig-step-body"><strong>Stap 1</strong><span>Tik helemaal ONDERIN je scherm op het deel-icoontje (een vierkantje met een pijltje omhoog). Dat zit in Safari zelf, onderaan.</span></div>
+      </div>
+      <div class="ig-arrow">👇 kijk onderin je scherm</div>
+      <div class="ig-step">
+        <div class="ig-step-num">2</div>
+        <div class="ig-step-body"><strong>Scroll naar beneden</strong><span>In het menu dat opent, scroll je naar beneden tot je "Zet op beginscherm" ziet staan.</span></div>
+      </div>
+      <div class="ig-step">
+        <div class="ig-step-num">3</div>
+        <div class="ig-step-body"><strong>Tik op "Voeg toe"</strong><span>Rechtsboven in dat scherm. Klaar! Het icoon staat nu op je beginscherm.</span></div>
+      </div>
+      <div class="ig-note">⚠️ Zie je geen deel-icoontje? Dan zit je niet in Safari. Deze stappen werken alleen in Safari, niet in Chrome of een andere app.</div>
+    `;
+  } else if (platform === 'android') {
+    titleEl.textContent = 'Zo zet je de app op je scherm';
+    stepsEl.innerHTML = `
+      <div class="ig-note">✅ Verschijnt er onderin je scherm vanzelf een rood balkje met "Installeren"? Tik daarop en je bent meteen klaar — sla de stappen hieronder dan over.</div>
+      <div class="ig-step">
+        <div class="ig-step-icon">⋮</div>
+        <div class="ig-step-body"><strong>Stap 1</strong><span>Geen balkje gezien? Tik dan RECHTSBOVEN in Chrome op de drie puntjes.</span></div>
+      </div>
+      <div class="ig-step">
+        <div class="ig-step-num">2</div>
+        <div class="ig-step-body"><strong>Tik op "App installeren"</strong><span>Staat in het menu dat net opende.</span></div>
+      </div>
+      <div class="ig-step">
+        <div class="ig-step-num">3</div>
+        <div class="ig-step-body"><strong>Tik op "Installeren"</strong><span>Klaar! Het icoon staat nu op je startscherm.</span></div>
+      </div>
+    `;
+  } else {
+    return;
+  }
+
+  document.getElementById('install-guide').classList.add('visible');
+})();
 </script>
 </body>
 </html>
