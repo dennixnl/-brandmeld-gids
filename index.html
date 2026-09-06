@@ -1289,6 +1289,18 @@
     const LEADS_FB_API_KEY = "AIzaSyBxGYQLNPr4FvuRQeHIMnRkf31Z01tim8k";
     const LEADS_FB_URL = `https://firestore.googleapis.com/v1/projects/${LEADS_FB_PROJECT}/databases/(default)/documents/leads?key=${LEADS_FB_API_KEY}`;
 
+    function leadDocId(bedrijfsnaam) {
+      const diacritics = new RegExp('[̀-ͯ]', 'g');
+      const slug = bedrijfsnaam.toLowerCase()
+        .normalize('NFD').replace(diacritics, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 60) || 'bedrijf';
+      const now = new Date();
+      const stamp = now.toISOString().slice(0, 19).replace('T', '-').replace(/:/g, 'u');
+      return `${slug}--${stamp}`;
+    }
+
     async function submitZakelijkForm(event) {
       event.preventDefault();
       const btn = document.getElementById('zakelijk-submit');
@@ -1331,7 +1343,8 @@
           status:         { stringValue: 'nieuw' },
           aangemaakt:     { timestampValue: new Date().toISOString() }
         };
-        const res = await fetch(LEADS_FB_URL, {
+        const docId = leadDocId(bedrijf);
+        const res = await fetch(`${LEADS_FB_URL}&documentId=${encodeURIComponent(docId)}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ fields })
