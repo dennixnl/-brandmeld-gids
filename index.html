@@ -552,6 +552,67 @@
     .req-item { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); }
     .req-dot { width:4px; height:4px; background:var(--red); border-radius:50%; }
 
+    /* ─── ZAKELIJK ─── */
+    #zakelijk { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); max-width:1200px; margin:0 auto; }
+    .zakelijk-intro { max-width:600px; margin:0 auto 56px; text-align:center; }
+    .zakelijk-intro .red-line { margin:24px auto; }
+    .zakelijk-intro .section-sub { max-width:520px; margin:0 auto; }
+    .zakelijk-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:stretch; }
+    @media (max-width:860px) { .zakelijk-grid { grid-template-columns:1fr; } }
+
+    .zakelijk-price-card {
+      background:var(--bg3); border:1px solid var(--border); border-left:3px solid var(--red);
+      border-radius:16px; padding:40px; display:flex; flex-direction:column;
+    }
+    .zakelijk-tag {
+      display:inline-block; align-self:flex-start;
+      font-size:11px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+      color:var(--red); background:rgba(224,53,53,0.1); border:1px solid rgba(224,53,53,0.25);
+      border-radius:6px; padding:5px 12px; margin-bottom:20px;
+    }
+    .zakelijk-price {
+      font-family:var(--font-display); font-size:56px; letter-spacing:1px; line-height:1; color:var(--text);
+      margin-bottom:8px;
+    }
+    .zakelijk-price span { font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--muted); letter-spacing:0; margin-left:6px; }
+    .zakelijk-price-note { color:var(--muted); font-size:14px; font-weight:300; line-height:1.6; margin-bottom:28px; }
+    .zakelijk-checklist { list-style:none; margin:0 0 auto; padding:0; display:flex; flex-direction:column; gap:14px; }
+    .zakelijk-checklist li {
+      position:relative; padding-left:26px; font-size:14px; color:var(--text); font-weight:300; line-height:1.5;
+    }
+    .zakelijk-checklist li::before {
+      content:''; position:absolute; left:0; top:5px; width:16px; height:16px;
+      background:var(--red); border-radius:4px;
+      -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat;
+      mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat;
+    }
+    .zakelijk-trial {
+      margin-top:28px; padding-top:24px; border-top:1px solid var(--border);
+      display:flex; flex-direction:column; gap:4px;
+    }
+    .zakelijk-trial strong { font-family:var(--font-display); font-size:18px; letter-spacing:0.5px; color:var(--red); }
+    .zakelijk-trial span { font-size:13px; color:var(--muted); font-weight:300; }
+
+    .zakelijk-form {
+      background:var(--bg3); border:1px solid var(--border); border-radius:16px;
+      padding:40px; display:flex; flex-direction:column; gap:16px;
+    }
+    .zakelijk-form h3 { font-family:var(--font-display); font-size:26px; letter-spacing:1px; margin-bottom:-8px; }
+    .zakelijk-form > p { color:var(--muted); font-size:14px; font-weight:300; margin-bottom:8px; }
+    .zk-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:480px) { .zk-row { grid-template-columns:1fr; } }
+    .zk-field { display:flex; flex-direction:column; gap:6px; }
+    .zk-field label { font-size:12px; color:var(--muted); letter-spacing:0.3px; }
+    .zk-field input, .zk-field textarea {
+      background:var(--bg2); border:1px solid var(--border); border-radius:8px;
+      padding:12px 14px; color:var(--text); font-family:var(--font-body); font-size:14px;
+      resize:vertical; transition:border-color 0.2s;
+    }
+    .zk-field input:focus, .zk-field textarea:focus { outline:none; border-color:rgba(224,53,53,0.5); }
+    .zakelijk-status { font-size:13px; min-height:18px; text-align:center; margin:0; }
+    .zakelijk-status.success { color:#4ade80; }
+    .zakelijk-status.error { color:var(--red); }
+
     /* ─── CONTACT ─── */
     #contact { max-width:800px; margin:0 auto; text-align:center; }
     .contact-card {
@@ -696,6 +757,7 @@
       <li><a href="#features">Functies</a></li>
       <li><a href="#brands">Centrales</a></li>
       <li><a href="#how">Werkwijze</a></li>
+      <li><a href="#zakelijk">Zakelijk</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#download" class="nav-cta">Download app</a></li>
     </ul>
@@ -941,6 +1003,66 @@
     </div>
   </section>
 
+  <!-- ZAKELIJK -->
+  <section id="zakelijk">
+    <div class="zakelijk-intro reveal">
+      <p class="section-label">Voor bedrijven</p>
+      <h2 class="section-title">Eén licentie,<br>heel je team.</h2>
+      <div class="red-line"></div>
+      <p class="section-sub">Onderhoudsbedrijven zetten Brandmeld Gids bedrijfsbreed in — één vaste prijs, ongeacht hoeveel monteurs ermee werken.</p>
+    </div>
+
+    <div class="zakelijk-grid">
+      <div class="zakelijk-price-card reveal">
+        <span class="zakelijk-tag">Vaste jaarprijs</span>
+        <div class="zakelijk-price">€2.500<span>/ jaar per bedrijf</span></div>
+        <p class="zakelijk-price-note">Eén prijs, ongeacht het aantal monteurs — van een klein team tot tientallen gebruikers per dag.</p>
+        <ul class="zakelijk-checklist">
+          <li>Toegang voor alle monteurs binnen het bedrijf</li>
+          <li>11 centrales · 154 handleidingen + volledig NEN2654-beheer</li>
+          <li>Persoonlijke hulp &amp; feedbacklijn</li>
+          <li>Gratis updates: nieuwe centrales, verbeterde procedures, bugfixes</li>
+          <li>Aanpassingen op maat waar redelijk</li>
+        </ul>
+        <div class="zakelijk-trial">
+          <strong>3 maanden gratis proberen</strong>
+          <span>Vrijblijvend testen met je eigen team, geen betaling vooraf.</span>
+        </div>
+      </div>
+
+      <form class="zakelijk-form reveal" id="zakelijk-form" onsubmit="return submitZakelijkForm(event)">
+        <h3>Vraag je proefperiode aan</h3>
+        <p>Vul onderstaande gegevens in, dan nemen we binnen 1 werkdag contact op.</p>
+        <div class="zk-field">
+          <label for="zk-bedrijf">Bedrijfsnaam *</label>
+          <input type="text" id="zk-bedrijf" required autocomplete="organization">
+        </div>
+        <div class="zk-field">
+          <label for="zk-contact">Contactpersoon *</label>
+          <input type="text" id="zk-contact" required autocomplete="name">
+        </div>
+        <div class="zk-row">
+          <div class="zk-field">
+            <label for="zk-email">E-mailadres *</label>
+            <input type="email" id="zk-email" required autocomplete="email">
+          </div>
+          <div class="zk-field">
+            <label for="zk-telefoon">Telefoon</label>
+            <input type="tel" id="zk-telefoon" autocomplete="tel">
+          </div>
+        </div>
+        <div class="zk-field">
+          <label for="zk-bericht">Bericht (optioneel)</label>
+          <textarea id="zk-bericht" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="zakelijk-submit" style="width:100%;justify-content:center;cursor:pointer;">
+          Vraag gratis proefperiode aan
+        </button>
+        <p class="zakelijk-status" id="zakelijk-status"></p>
+      </form>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="reveal">
@@ -1154,6 +1276,63 @@
         if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // ─── ZAKELIJK: PROEFPERIODE-AANVRAAG ───
+    const LEADS_FB_PROJECT = "brandmeld-gids";
+    const LEADS_FB_API_KEY = "AIzaSyBxGYQLNPr4FvuRQeHIMnRkf31Z01tim8k";
+    const LEADS_FB_URL = `https://firestore.googleapis.com/v1/projects/${LEADS_FB_PROJECT}/databases/(default)/documents/leads?key=${LEADS_FB_API_KEY}`;
+
+    async function submitZakelijkForm(event) {
+      event.preventDefault();
+      const btn = document.getElementById('zakelijk-submit');
+      const statusEl = document.getElementById('zakelijk-status');
+      const bedrijf = document.getElementById('zk-bedrijf').value.trim();
+      const contact = document.getElementById('zk-contact').value.trim();
+      const email = document.getElementById('zk-email').value.trim();
+      const telefoon = document.getElementById('zk-telefoon').value.trim();
+      const bericht = document.getElementById('zk-bericht').value.trim();
+
+      statusEl.textContent = '';
+      statusEl.className = 'zakelijk-status';
+
+      if (!bedrijf || !contact || !email) {
+        statusEl.textContent = 'Vul bedrijfsnaam, contactpersoon en e-mailadres in.';
+        statusEl.classList.add('error');
+        return false;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Versturen...';
+
+      try {
+        const fields = {
+          bedrijfsnaam:   { stringValue: bedrijf },
+          contactpersoon: { stringValue: contact },
+          email:          { stringValue: email },
+          telefoon:       { stringValue: telefoon },
+          bericht:        { stringValue: bericht },
+          status:         { stringValue: 'nieuw' },
+          aangemaakt:     { timestampValue: new Date().toISOString() }
+        };
+        const res = await fetch(LEADS_FB_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields })
+        });
+        if (!res.ok) throw new Error('Firestore fout: ' + res.status);
+
+        statusEl.textContent = 'Bedankt! We nemen binnen 1 werkdag contact met je op.';
+        statusEl.classList.add('success');
+        document.getElementById('zakelijk-form').reset();
+      } catch (err) {
+        statusEl.textContent = 'Versturen mislukt — mail ons direct: logicaibuildlabs@gmail.com';
+        statusEl.classList.add('error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Vraag gratis proefperiode aan';
+      }
+      return false;
+    }
   </script>
 </body>
 </html>
