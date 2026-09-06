@@ -1184,10 +1184,18 @@
     // ─── SCROLL EVENTS ───
     const nav      = document.getElementById('mainNav');
     const backToTop = document.getElementById('back-to-top');
+    let nearFooter = false;
+    const footerEl = document.querySelector('footer');
+    if (footerEl) {
+      new IntersectionObserver(entries => {
+        nearFooter = entries[0].isIntersecting;
+        backToTop.classList.toggle('visible', window.scrollY > 400 && !nearFooter);
+      }, { threshold: 0 }).observe(footerEl);
+    }
     window.addEventListener('scroll', () => {
       updateProgress();
       nav.classList.toggle('scrolled', window.scrollY > 60);
-      backToTop.classList.toggle('visible', window.scrollY > 400);
+      backToTop.classList.toggle('visible', window.scrollY > 400 && !nearFooter);
     }, { passive: true });
 
     // ─── BACK TO TOP ───
