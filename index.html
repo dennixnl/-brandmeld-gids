@@ -894,8 +894,8 @@
       </div>
       <div class="feature-card reveal tilt-card" style="transition-delay:0.2s">
         <div class="feature-icon">💻</div>
-        <h3 class="feature-title">Android & Windows</h3>
-        <p class="feature-text">Beschikbaar als Android-app én als Windows-programma. Één keer installeren en je hebt altijd de meest recente versie.</p>
+        <h3 class="feature-title">Android, iPhone & Windows</h3>
+        <p class="feature-text">Beschikbaar als Android-app, op je iPhone-beginscherm en als Windows-programma. Één keer installeren en je hebt altijd de meest recente versie.</p>
       </div>
       <div class="feature-card reveal tilt-card" style="transition-delay:0.3s">
         <div class="feature-icon">📋</div>
@@ -969,6 +969,7 @@
     </div>
     <div class="dl-tabs reveal">
       <button class="dl-tab active" onclick="showTab('android')">📱 Android</button>
+      <button class="dl-tab" onclick="showTab('iphone')">🍎 iPhone</button>
       <button class="dl-tab" onclick="showTab('windows')">💻 Windows</button>
     </div>
     <div class="download-card reveal" id="tab-android">
@@ -983,6 +984,25 @@
         <div class="req-item"><div class="req-dot"></div>Android 7.0 of hoger</div>
         <div class="req-item"><div class="req-dot"></div>Gratis te gebruiken</div>
         <div class="req-item"><div class="req-dot"></div>Werkt offline</div>
+      </div>
+    </div>
+    <div class="download-card reveal" id="tab-iphone" style="display:none">
+      <div class="download-icon">🍎</div>
+      <h3 class="download-title">iPhone Installatie</h3>
+      <p class="download-text">Geen App Store nodig. Zet de app op je beginscherm via Safari —<br>opent daarna als een gewone app, zonder browserbalk.</p>
+      <div class="pwa-steps">
+        <div class="pwa-step"><div class="pwa-num">1</div><div class="pwa-text">Open <strong>brandmeldgids.nl</strong> in <strong>Safari</strong> (moet Safari zijn, geen Chrome)</div></div>
+        <div class="pwa-step"><div class="pwa-num">2</div><div class="pwa-text">Tik op het <strong>deel-icoontje</strong> onderin (vierkant met pijl omhoog)</div></div>
+        <div class="pwa-step"><div class="pwa-num">3</div><div class="pwa-text">Kies <strong>"Zet op beginscherm"</strong> en tik op <strong>"Voeg toe"</strong></div></div>
+      </div>
+      <a href="app.html" class="btn-primary" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        Open de app
+      </a>
+      <div class="download-requirements">
+        <div class="req-item"><div class="req-dot"></div>Safari vereist</div>
+        <div class="req-item"><div class="req-dot"></div>Geen App Store nodig</div>
+        <div class="req-item"><div class="req-dot"></div>Altijd up-to-date</div>
       </div>
     </div>
     <div class="download-card reveal" id="tab-windows" style="display:none">
@@ -1278,6 +1298,7 @@
     // ─── DOWNLOAD TABS ───
     function showTab(tab) {
       document.getElementById('tab-android').style.display = tab === 'android' ? 'block' : 'none';
+      document.getElementById('tab-iphone').style.display = tab === 'iphone' ? 'block' : 'none';
       document.getElementById('tab-windows').style.display = tab === 'windows' ? 'block' : 'none';
       document.querySelectorAll('.dl-tab').forEach(t => t.classList.remove('active'));
       event.target.classList.add('active');
