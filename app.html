@@ -150,6 +150,33 @@
     }
 
     /* ===================== BRAND GRID ===================== */
+    .main-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .main-tab-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 10px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 800;
+      border: 2px solid var(--slate-200);
+      background: var(--white);
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .main-tab-btn.active {
+      border-color: var(--red);
+      background: var(--red);
+      color: var(--white);
+    }
+    .main-tab-btn svg { width: 17px; height: 17px; }
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -998,7 +1025,7 @@ const INITIAL_MANUALS = [
     { text: "Druk 'ESC' of 'MENU' om het logboek te sluiten. Noteer relevante meldingen in het papieren logboek.", icon: "check" }
   ]},
   // ── ESSER 8000X / D5000 (bron: Logboek & bedieningsinstructies Novar NL) ────
-  { id: 19, brand: "Esser D5000", model: "8000X / D5000", action: "Brandalarm afhandelen", steps: [
+  { id: 19, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Brandalarm afhandelen", steps: [
     { text: "Druk op 'Zoemer uit' — de interne zoemer stopt.", icon: "volume-x" },
     { text: "Lees op het display en de uitleeseenheid de EERSTE melding: groep en melder.", icon: "search" },
     { text: "Druk 'Volgende meldingen' om extra meldingen te bekijken (beschikbaar zonder sleutelschakelaar).", icon: "chevron-right" },
@@ -1007,48 +1034,48 @@ const INITIAL_MANUALS = [
     { text: "VALS ALARM: Zet de sleutelschakelaar op 'Aan' (horizontaal) voor volledige bediening.", icon: "lock" },
     { text: "Druk 'Reset centrale / LED test' om het alarm te wissen. Noteer de melding in het logboek.", icon: "refresh-cw" }
   ]},
-  { id: 20, brand: "Esser D5000", model: "8000X / D5000", action: "Centrale resetten / LED test", steps: [
+  { id: 20, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Centrale resetten / LED test", steps: [
     { text: "LED TEST (zonder sleutelschakelaar): Zet schakelaar op 'Uit' (verticaal). Druk 'Reset centrale / LED test' → alle indicatoren lichten ca. 10 seconden op.", icon: "check-square" },
     { text: "RESET (na alarm): Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Verwijder eerst de oorzaak van het alarm (melder terugstellen, rook ventileren).", icon: "alert-triangle" },
     { text: "Druk 'Reset centrale / LED test' — alle alarmen worden gewist.", icon: "refresh-cw" },
     { text: "De groene 'IN BEDRIJF'-LED licht op = centrale terug in normale bewaking.", icon: "check" }
   ]},
-  { id: 21, brand: "Esser D5000", model: "8000X / D5000", action: "Sirenes uitschakelen", steps: [
+  { id: 21, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Sirenes uitschakelen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal) — centrale is nu volledig bedienbaar.", icon: "lock" },
     { text: "Druk op de toets 'Sirenes uit'.", icon: "bell-off" },
     { text: "Alle sirenes en signaalgevers stoppen direct. De gele 'UITSCHAKELEN'-LED licht op.", icon: "volume-x" },
     { text: "Let op: vertraagde sturingen die nog niet zijn geactiveerd worden ook geannuleerd.", icon: "alert-circle" }
   ]},
-  { id: 51, brand: "Esser D5000", model: "8000X / D5000", action: "Doormelding uitschakelen", steps: [
+  { id: 51, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Doormelding uitschakelen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de toets 'Doormelding uit'.", icon: "external-link" },
     { text: "De gele 'DOORMELDING'-indicator licht op = doormelding naar brandweer/meldkamer is geblokkeerd.", icon: "toggle-left" },
     { text: "Informeer de meldkamer altijd vóór het uitschakelen van de doormelding!", icon: "alert-triangle" },
     { text: "Inschakelen: druk 'Doormelding uit' nogmaals of reset de centrale.", icon: "refresh-cw" }
   ]},
-  { id: 22, brand: "Esser D5000", model: "8000X / D5000", action: "Groep buiten dienst stellen", steps: [
+  { id: 22, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Groep buiten dienst stellen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de toets 'Groep'.", icon: "layers" },
     { text: "Voer het groepsnummer in via het numerieke toetsenbord en bevestig.", icon: "hash" },
     { text: "Druk op de toets 'Uit' — de gehele groep staat nu buiten dienst.", icon: "circle-off" },
     { text: "De gele 'UITSCHAKELEN'-indicator licht op. Controleer de uitleeseenheid: gele LED bij de groep brandt continu.", icon: "alert-circle" }
   ]},
-  { id: 23, brand: "Esser D5000", model: "8000X / D5000", action: "Melder buiten dienst stellen", steps: [
+  { id: 23, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Melder buiten dienst stellen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk toets 'Groep' → voer het groepsnummer in.", icon: "layers" },
     { text: "Druk toets 'Melder' → voer het meldernummer in.", icon: "hash" },
     { text: "Druk op toets 'Uit' om de melder buiten dienst te stellen.", icon: "x-circle" },
     { text: "Controleer via 'Toestand' toets of de status correct 'Uitgeschakeld' weergeeft.", icon: "check" }
   ]},
-  { id: 52, brand: "Esser D5000", model: "8000X / D5000", action: "Relais / sturing uitschakelen", steps: [
+  { id: 52, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Relais / sturing uitschakelen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de toets 'Relais'.", icon: "external-link" },
     { text: "Voer het relaisnummer in via het numerieke toetsenbord.", icon: "hash" },
     { text: "Druk op de toets 'Uit' om het relais/de sturing buiten dienst te stellen.", icon: "toggle-left" },
     { text: "De gele 'RELAIS'-indicator licht op = relais is uitgeschakeld.", icon: "alert-circle" }
   ]},
-  { id: 24, brand: "Esser D5000", model: "8000X / D5000", action: "Ringlus uitschakelen", steps: [
+  { id: 24, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Ringlus uitschakelen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de 2e functietoets (onder het display, waar 'Service' of 'Menu' staat).", icon: "settings" },
     { text: "Kies '1 IRL analoog functie' → druk de 4e functietoets ('Overname').", icon: "menu" },
@@ -1056,27 +1083,27 @@ const INITIAL_MANUALS = [
     { text: "Kies optie '2 Uitschakelen' → druk de functietoets onder 'Functies' ter bevestiging.", icon: "rotate-cw" },
     { text: "De ringlus staat buiten dienst. De gele 'UITSCHAKELEN'-LED licht op.", icon: "check" }
   ]},
-  { id: 301, brand: "Esser D5000", model: "8000X / D5000", action: "Sleutelschakelaar — niveaus uitgelegd", steps: [
+  { id: 301, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Sleutelschakelaar — niveaus uitgelegd", steps: [
     { text: "VERTICAAL (omlaag = 'Uit'): beperkt bedienbaar. Alleen: Zoemer Uit, Volgende meldingen, LED test. Geen reset, geen uitschakelen.", icon: "lock" },
     { text: "HORIZONTAAL (rechts = 'Aan'): volledig bedienbaar. Alle functies beschikbaar: Reset, Sirenes Uit, Doormelding Uit, Groep/Melder/Relais in-/uitschakelen.", icon: "check" },
     { text: "Zet de sleutelschakelaar altijd terug naar 'Uit' (verticaal) na afhandeling van een melding.", icon: "settings" },
     { text: "Laat de sleutel nooit in de centrale achter. Bewaar de sleutel op een veilige, toegankelijke locatie.", icon: "alert-triangle" }
   ]},
-  { id: 302, brand: "Esser D5000", model: "8000X / D5000", action: "Buiten dienst onderdeel herinschakelen", steps: [
+  { id: 302, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Buiten dienst onderdeel herinschakelen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Voor een MELDER: druk 'Groep' → groepsnummer → 'Melder' → meldernummer → druk 'In'.", icon: "check" },
     { text: "Voor een GROEP: druk 'Groep' → groepsnummer → druk 'In'. De gehele groep is weer actief.", icon: "layers" },
     { text: "Voor een RELAIS: druk 'Relais' → relaisnummer → druk 'In'.", icon: "refresh-cw" },
     { text: "Controleer: de gele 'UITSCHAKELEN'-LED dooft wanneer alle uitschakelingen zijn opgeheven.", icon: "check" }
   ]},
-  { id: 303, brand: "Esser D5000", model: "8000X / D5000", action: "Toestand opvragen (welke groep/melder is uit?)", steps: [
+  { id: 303, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Toestand opvragen (welke groep/melder is uit?)", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op 'Groep' + groepsnummer + 'Toestand'. Het display toont de status van de groep: IN / UIT / ALARM.", icon: "search" },
     { text: "Druk op 'Melder' + groepsnummer + meldernummer + 'Toestand'. Status van individuele melder wordt getoond.", icon: "layers" },
     { text: "Druk op 'Relais' + relaisnummer + 'Toestand' voor de status van een sturing of relais.", icon: "settings" },
     { text: "Tip: blader met 'Volgende meldingen' door de lijst van actieve alarmen en storingen.", icon: "chevron-right" }
   ]},
-  { id: 304, brand: "Esser D5000", model: "8000X / D5000", action: "LED-betekenis & display uitleg", steps: [
+  { id: 304, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "LED-betekenis & display uitleg", steps: [
     { text: "🔴 BRAND (rood, knippert): brandmelding actief. Bevestigen: Zoemer Uit. Reset: Reset centrale.", icon: "alert-circle" },
     { text: "🟡 UITSCHAKELEN (geel): een groep, melder of relais staat buiten dienst. Bewaak met personeel!", icon: "circle-off" },
     { text: "🟡 STORING (geel): technisch defect. Zie 'Storing afhandelen'.", icon: "alert-triangle" },
@@ -1084,7 +1111,7 @@ const INITIAL_MANUALS = [
     { text: "🟢 BEDRIJF (groen): systeem actief, rusttoestand. Netvoeding en accu aanwezig.", icon: "check" },
     { text: "Display: bovenste regel = status/alarm/storing. Cijfertoetsenbord = directe invoer van groep- en meldernummers. Functietoetsen = contextafhankelijke acties.", icon: "layers" }
   ]},
-  { id: 305, brand: "Esser D5000", model: "8000X / D5000", action: "Logboek / geschiedenis uitlezen", steps: [
+  { id: 305, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Logboek / geschiedenis uitlezen", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de 2e functietoets (onder het display, 'Service' of 'Menu').", icon: "settings" },
     { text: "Kies '2 Geschiedenis / Logboek' → druk de functietoets ter bevestiging.", icon: "search" },
@@ -1092,7 +1119,7 @@ const INITIAL_MANUALS = [
     { text: "Blader met de pijltjestoetsen of 'Volgende meldingen' door de chronologische lijst.", icon: "chevron-right" },
     { text: "Elke entry toont datum, tijd, type, groep en meldernummer. Noteer altijd relevante meldingen in het papieren logboek.", icon: "check" }
   ]},
-  { id: 306, brand: "Esser D5000", model: "8000X / D5000", action: "Vertraging uitschakelaar (dag/nacht)", steps: [
+  { id: 306, brand: "Esser IQ8 Control", model: "IQ8 Control / 8000X", action: "Vertraging uitschakelaar (dag/nacht)", steps: [
     { text: "Zet de sleutelschakelaar op 'Aan' (horizontaal).", icon: "lock" },
     { text: "Druk op de toets 'Vertraging' op het frontpaneel.", icon: "toggle-left" },
     { text: "Dagmodus: vertraging is actief. Melder activeert signaalgevers pas na de geprogrammeerde wachttijd (bijv. 2 minuten onderzoekstijd).", icon: "check" },
@@ -1302,7 +1329,7 @@ const INITIAL_MANUALS = [
   ]},
 
   // ── ESSER FlexES Control / D7000 ─────────────────────────────────────────────
-  { id: 10001, brand: "Esser D7000", model: "FlexES Control", action: "Brandalarm afhandelen", steps: [
+  { id: 10001, brand: "Esser FlexES Control", model: "FlexES Control", action: "Brandalarm afhandelen", steps: [
     { text: "Druk op de [Buzzer] toets om de interne zoemer te stoppen (werkt ook zonder toegangscode).", icon: "volume-x" },
     { text: "Lees het display: rode FIRE LED brandt. Display toont zonenummer, locatietekst en tijdstip van het alarm.", icon: "search" },
     { text: "Controleer de [FD notified] LED (rood, brandt): doormelding naar brandweer is actief. Brandt [Call FD manually]? Bel dan zelf de brandweer!", icon: "external-link" },
@@ -1311,7 +1338,7 @@ const INITIAL_MANUALS = [
     { text: "Ga naar de locatie die op het display staat. Echte brand → brandweer begeleiden, brand bestrijden.", icon: "alert-triangle" },
     { text: "Vals alarm → ventileer de ruimte, herstel handmelders. Druk daarna op [CIE Reset] om de centrale te resetten.", icon: "refresh-cw" }
   ]},
-  { id: 10002, brand: "Esser D7000", model: "FlexES Control", action: "Storing afhandelen", steps: [
+  { id: 10002, brand: "Esser FlexES Control", model: "FlexES Control", action: "Storing afhandelen", steps: [
     { text: "Druk op de [Buzzer] toets om de interne zoemer te stoppen.", icon: "volume-x" },
     { text: "De gele FAULT LED brandt. Lees het display: storing type en locatie worden in klare tekst getoond.", icon: "search" },
     { text: "Druk [Keyb. access] → toegangscode (standaard: 0123) → [OK] om het toetsenbord vrij te geven.", icon: "lock" },
@@ -1320,14 +1347,14 @@ const INITIAL_MANUALS = [
     { text: "Na herstel: druk [CIE Reset] om de centrale terug te zetten. Controleer: groene [Operation] LED brandt.", icon: "refresh-cw" },
     { text: "⚠ Faulty zones geven geen alarm bij een event! Schakel de zone tijdelijk uit en bewaak met personeel.", icon: "alert-triangle" }
   ]},
-  { id: 10003, brand: "Esser D7000", model: "FlexES Control", action: "Centrale resetten", steps: [
+  { id: 10003, brand: "Esser FlexES Control", model: "FlexES Control", action: "Centrale resetten", steps: [
     { text: "Zorg dat de brandhaard is geblust en rook is afgevoerd vóór het resetten.", icon: "alert-triangle" },
     { text: "Druk op de [Sounder silenced] knop om sirenes te stoppen (verplicht vóór reset).", icon: "bell-off" },
     { text: "Druk [Keyb. access] → toegangscode (standaard: 0123) → [OK].", icon: "lock" },
     { text: "Druk op de [CIE Reset] toets. De centrale zet alle alarmen, storingen en displays terug naar de normale toestand.", icon: "refresh-cw" },
     { text: "Controleer: groene [Operation] LED brandt → centrale actief en in rusttoestand.", icon: "check" }
   ]},
-  { id: 10004, brand: "Esser D7000", model: "FlexES Control", action: "Toegangsniveau vrijgeven", steps: [
+  { id: 10004, brand: "Esser FlexES Control", model: "FlexES Control", action: "Toegangsniveau vrijgeven", steps: [
     { text: "Niveau 1: altijd beschikbaar. Zoemer stoppen en statusmeldingen bekijken — geen code nodig.", icon: "check" },
     { text: "Niveau 2 (operator): druk [Keyb. access] → voer toegangscode in via numeriek toetsenbord → druk [OK]. Standaard code: 0123.", icon: "lock" },
     { text: "Het display toont het menu. Gele DISABLEMENT LED kan oplichten — afhankelijk van programmering.", icon: "hash" },
@@ -1335,7 +1362,7 @@ const INITIAL_MANUALS = [
     { text: "Niveau 3 (specialist): druk [F10 Service] → kies '1 Service function release' → voer servicecode in → [OK].", icon: "alert-triangle" },
     { text: "⚠ Let op: bij het vrijgeven van niveau 2/3 kan de doormelding naar de brandweer worden uitgeschakeld!", icon: "alert-circle" }
   ]},
-  { id: 10005, brand: "Esser D7000", model: "FlexES Control", action: "Melder buiten dienst stellen", steps: [
+  { id: 10005, brand: "Esser FlexES Control", model: "FlexES Control", action: "Melder buiten dienst stellen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk vervolgens [F9 Operate].", icon: "menu" },
     { text: "Kies '1 - Zone' → druk [OK]. Voer het zonenummer in via het toetsenbord (bijv. 3).", icon: "search" },
     { text: "Selecteer het 'Detector' veld met de pijltoetsen → voer het meldernummer in (bijv. 12).", icon: "hash" },
@@ -1343,7 +1370,7 @@ const INITIAL_MANUALS = [
     { text: "⚠ Gele DISABLEMENT LED licht op. Display toont uitschakeling. Bewaak het gebied met personeel!", icon: "alert-triangle" },
     { text: "Inschakelen: zelfde pad → zonenummer + meldernummer → druk [F1 On].", icon: "refresh-cw" }
   ]},
-  { id: 10006, brand: "Esser D7000", model: "FlexES Control", action: "Handmelder buiten dienst stellen", steps: [
+  { id: 10006, brand: "Esser FlexES Control", model: "FlexES Control", action: "Handmelder buiten dienst stellen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk [F9 Operate].", icon: "menu" },
     { text: "Kies '1 - Zone' → voer het zonenummer in van de handmelder.", icon: "search" },
     { text: "Selecteer het 'Detector' veld → voer het detectoradres van de handmelder in.", icon: "hash" },
@@ -1351,7 +1378,7 @@ const INITIAL_MANUALS = [
     { text: "⚠ DISABLEMENT LED licht op. Bewaak het gebied — de handmelder geeft geen alarm meer.", icon: "alert-triangle" },
     { text: "Inschakelen: zelfde pad → druk [F1 On]. Of druk [CIE Reset] om alles te herinschakelen.", icon: "refresh-cw" }
   ]},
-  { id: 10007, brand: "Esser D7000", model: "FlexES Control", action: "Zone buiten dienst stellen", steps: [
+  { id: 10007, brand: "Esser FlexES Control", model: "FlexES Control", action: "Zone buiten dienst stellen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk [F9 Operate].", icon: "menu" },
     { text: "Kies '1 - Zone' → [OK]. Voer het zonenummer in via het toetsenbord.", icon: "search" },
     { text: "Zorg dat het 'Detector' veld op '0' staat (voor de gehele zone). Druk [F2 Off].", icon: "hash" },
@@ -1359,42 +1386,42 @@ const INITIAL_MANUALS = [
     { text: "⚠ Gele DISABLEMENT LED licht op. Alle melders in de zone zijn nu inactief! Bewaak het gebied!", icon: "alert-triangle" },
     { text: "Inschakelen: zelfde pad → zonenummer → detector '0' → druk [F1 On].", icon: "refresh-cw" }
   ]},
-  { id: 10008, brand: "Esser D7000", model: "FlexES Control", action: "Sirenes / FAD buiten dienst stellen", steps: [
+  { id: 10008, brand: "Esser FlexES Control", model: "FlexES Control", action: "Sirenes / FAD buiten dienst stellen", steps: [
     { text: "Methode 1 (direct): druk de [Sounder disabled] knop in (toegangsniveau 2 vereist). Alle geprogrammeerde sirenerelais worden uitgeschakeld.", icon: "bell-off" },
     { text: "Gele [Sounder disabled] LED licht op → DISABLEMENT LED licht op.", icon: "toggle-left" },
     { text: "Methode 2 (via menu): druk [Keyb. access] → code → [F9 Operate] → '2 Output' → voer uitgangsnummer in → [F2 Off].", icon: "menu" },
     { text: "⚠ In geval van event worden de sirenes NIET geactiveerd! Bewaak het pand met personeel.", icon: "alert-triangle" },
     { text: "Inschakelen: druk opnieuw [Sounder disabled] knop om te activeren. Of via menu: Output → [F1 On].", icon: "refresh-cw" }
   ]},
-  { id: 10009, brand: "Esser D7000", model: "FlexES Control", action: "Doormelding brandweer uitschakelen", steps: [
+  { id: 10009, brand: "Esser FlexES Control", model: "FlexES Control", action: "Doormelding brandweer uitschakelen", steps: [
     { text: "⚠ Informeer altijd de meldkamer vóór uitschakeling! De brandweer wordt dan NIET automatisch gewaarschuwd.", icon: "alert-triangle" },
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk de [Fire alarm routing disabled] knop in.", icon: "lock" },
     { text: "Gele [Fire alarm routing disabled] LED licht op → doormelding is uitgeschakeld.", icon: "toggle-left" },
     { text: "Of via menu: [F9 Operate] → '2 Output' → voer FARE-uitgangsnummer in → [F2 Off].", icon: "menu" },
     { text: "Inschakelen: druk opnieuw [Fire alarm routing disabled] knop. Of via menu: Output → [F1 On].", icon: "refresh-cw" }
   ]},
-  { id: 10010, brand: "Esser D7000", model: "FlexES Control", action: "Uitgang / sturing buiten dienst stellen", steps: [
+  { id: 10010, brand: "Esser FlexES Control", model: "FlexES Control", action: "Uitgang / sturing buiten dienst stellen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk [F9 Operate].", icon: "menu" },
     { text: "Kies '2 - Output (On, Off, State)' → [OK]. Voer het uitgangsnummer in (bijv. 22).", icon: "search" },
     { text: "Druk [F2 Off] → display toont 'Will be used' → vervolgens 'Is used'. Uitgang is uitgeschakeld.", icon: "x-circle" },
     { text: "⚠ DISABLEMENT LED licht op. Apparatuur gekoppeld aan deze uitgang wordt NIET geactiveerd bij een event.", icon: "alert-triangle" },
     { text: "Inschakelen: zelfde pad → uitgangsnummer → [F1 On].", icon: "refresh-cw" }
   ]},
-  { id: 10011, brand: "Esser D7000", model: "FlexES Control", action: "Buiten dienst onderdeel herinschakelen", steps: [
+  { id: 10011, brand: "Esser FlexES Control", model: "FlexES Control", action: "Buiten dienst onderdeel herinschakelen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk [F9 Operate].", icon: "menu" },
     { text: "Kies de categorie: '1 Zone' voor zones/melders, '2 Output' voor uitgangen/sturingen, '3 Loop' voor lussen.", icon: "layers" },
     { text: "Voer het nummer in van het onderdeel dat heringeschakeld moet worden.", icon: "hash" },
     { text: "Druk [F1 On] → display toont 'Will be used' → 'Is used'. Onderdeel is heringeschakeld.", icon: "check-square" },
     { text: "Controleer: gele DISABLEMENT LED dooft wanneer alle uitschakelingen zijn opgeheven.", icon: "check" }
   ]},
-  { id: 10012, brand: "Esser D7000", model: "FlexES Control", action: "Actieve meldingen bekijken", steps: [
+  { id: 10012, brand: "Esser FlexES Control", model: "FlexES Control", action: "Actieve meldingen bekijken", steps: [
     { text: "Druk [F8 Details] → het statusdisplay toont de eerste en laatste melding op hoogste prioriteit.", icon: "search" },
     { text: "Gebruik pijltoetsen ▲▼ om door meldingen van gelijke prioriteit te bladeren.", icon: "chevron-right" },
     { text: "Druk [F5 Info mode on] voor aanvullende informatietekst per melding (locatieomschrijving, contactpersoon).", icon: "layers" },
     { text: "Druk [F7 Overview] voor een totaaloverzicht: aantal brand-, storingen- en uitschakelmeldingen.", icon: "menu" },
     { text: "Druk [F9 Operate] → '1 Zone' → zonenummer → [F4 Details] om de status van een specifieke zone op te vragen.", icon: "check" }
   ]},
-  { id: 10013, brand: "Esser D7000", model: "FlexES Control", action: "LED-betekenis en display uitleg", steps: [
+  { id: 10013, brand: "Esser FlexES Control", model: "FlexES Control", action: "LED-betekenis en display uitleg", steps: [
     { text: "🔴 FIRE (rood, knippert): brand niet bevestigd. Continu: brand geaccepteerd. Direct handelen!", icon: "alert-circle" },
     { text: "🔴 Pre-Alarm (rood): melder heeft vooralarmdrempel bereikt. Altijd onderzoeken!", icon: "alert-triangle" },
     { text: "🟡 FAULT (geel): technisch defect aanwezig. Gele storing-subled geeft type aan (FARE/Sounder/Fire prot.).", icon: "settings" },
@@ -1402,7 +1429,7 @@ const INITIAL_MANUALS = [
     { text: "🟢 Operation (groen): systeem actief en in rusttoestand. Netvoeding en accu aanwezig.", icon: "check" },
     { text: "Display (¼-VGA): toont meldingen op prioriteitsvolgorde. F6=Info, F7=Overzicht, F8=Details, F9=Bedienen, F10=Service. F1-F5 zijn programmeerbare sneltoetsen.", icon: "layers" }
   ]},
-  { id: 10014, brand: "Esser D7000", model: "FlexES Control", action: "Logboek uitlezen", steps: [
+  { id: 10014, brand: "Esser FlexES Control", model: "FlexES Control", action: "Logboek uitlezen", steps: [
     { text: "Druk [Keyb. access] → toegangscode → [OK]. Druk [F6 Info].", icon: "menu" },
     { text: "Kies '4 - Alarm counter' → [OK]. Display toont het aantal brand- en technische alarmen van deze centrale en het totaal via essernet.", icon: "search" },
     { text: "Voor het volledig logboek (max. 10.000 events): dit is uitsluitend via de service-PC met TOOLS 8000 software te bekijken.", icon: "layers" },
@@ -2084,6 +2111,13 @@ const ICONS = {
   'printer': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>',
   'plus': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
   'rotate-ccw': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>',
+  'eye': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+  'phone-call': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+  'file-text': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  'settings': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
+  'clock': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  'clipboard-list': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>',
+  'tool': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
 };
 
 // ===================== FOTO HELPER =====================
@@ -2102,6 +2136,23 @@ const CO_LPG_BRANDS = ["Dräger Parksense 1","Dräger Parksense 2","Dräger Vari
 const TOON_CO_LPG = false; // ← zet op true om CO/LPG terug te zetten
 let selectedTab = 'brandmeld';
 function switchTab(tab) { selectedTab = tab; selectedBrand = ''; searchQuery = ''; render(); }
+
+// ===================== HOOFDTABS (Centrale bediening / Beheer) =====================
+let mainTab = 'bediening'; // 'bediening' | 'beheer'
+let beheerBrand = null;    // geselecteerde centrale binnen Beheer-tab
+let beheerType = null;     // 'maandelijks' | '4-8maandelijks'
+
+function switchMainTab(tab) {
+  mainTab = tab;
+  selectedBrand = null; selectedManual = null; isAdding = false; searchQuery = '';
+  beheerBrand = null; beheerType = null;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function selectBeheerBrand(brand) { beheerBrand = brand; beheerType = null; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function clearBeheerBrand() { beheerBrand = null; beheerType = null; render(); }
+function selectBeheerType(type) { beheerType = type; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function closeBeheerDetail() { beheerType = null; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
 // ===================== FIREBASE REST API =====================
 const FB_PROJECT = "brandmeld-gids";
@@ -2303,7 +2354,9 @@ async function loadFromFirestore() {
   try {
     const docs = await fbGet('manuals');
     if (docs.length > 0) {
-      manuals = docs.sort((a,b) => (a.sortOrder||a.id) - (b.sortOrder||b.id));
+      const BRAND_ALIASES_MAP = { "Esser D5000": "Esser IQ8 Control", "Esser D7000": "Esser FlexES Control" };
+      manuals = docs.sort((a,b) => (a.sortOrder||a.id) - (b.sortOrder||b.id))
+                    .map(m => BRAND_ALIASES_MAP[m.brand] ? {...m, brand: BRAND_ALIASES_MAP[m.brand]} : m);
       firebaseIsEmpty = false;
     } else {
       // Firestore leeg — gebruik lokale data als fallback
@@ -2311,7 +2364,7 @@ async function loadFromFirestore() {
       firebaseIsEmpty = true;
     }
     // Bouw BRANDS dynamisch op uit de geladen handleidingen
-    const brandOrder = ["Siemens","Notifier","Esser D5000","Esser D7000","Bosch","Autronica","Hertek"];
+    const brandOrder = ["Siemens","Notifier","Esser IQ8 Control","Esser FlexES Control","Bosch","Autronica","Hertek"];
     const foundBrands = [...new Set(manuals.filter(m => !CO_LPG_BRANDS.includes(m.brand)).map(m => m.brand))];
     // Bekende merken in vaste volgorde, daarna nieuwe merken op alfabetische volgorde
     BRANDS = [
@@ -2373,6 +2426,845 @@ async function seedFirestore() {
 // ===================== ICON HELPER =====================
 function icon(name, extraClass='') {
   return `<span class="icon-wrap ${extraClass}" style="display:inline-flex;align-items:center;">${ICONS[name] || ''}</span>`;
+}
+
+// ===================== BEHEER (NEN2654 periodiek beheer) =====================
+// Puur naslag/instructie — GEEN afvink-functie, GEEN logboek/opslag wie/wanneer.
+// De monteur houdt zijn eigen logboek apart bij; hier staat alleen HOE.
+const BEHEER_DATA = {
+  "Siemens": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display.", icon: "eye" },
+        { text: "Controleer de status-LED's op het bedienpaneel:\n• Groene LED 'In bedrijf' / 'System On' → moet branden\n• Gele LED 'Systeemstoring' → moet UIT zijn\n• Rode alarm-LED → moet UIT zijn", icon: "check-circle" },
+        { text: "Voer de ingebouwde LED-TEST uit (test scherm, alle LED's én de zoemer in één keer): 'Main menu' > 'Instellingen/administrat.' > 'LED-test'.\nDe test loopt automatisch in 2 fasen van elk 5 seconden (10 sec. totaal): fase 1 = scherm wit + LED's kleurmodus 1, fase 2 = scherm zwart + LED's kleurmodus 2. Controleer dat ALLE LED's in beide fasen oplichten (geen enkele blijft donker) en dat de zoemer hoorbaar is. Na de 2 fasen keert het systeem zelf terug naar normaal bedrijf.", icon: "settings" },
+        { text: "Open 'Main menu' > 'Meldingoverzicht'. Dit scherm toont alléén categorieën met openstaande voorvallen (bv. 'Storingen', 'Systeemdelen uit'). Geen categorie zichtbaar = systeem volledig in orde.", icon: "search" },
+        { text: "Controleer datum en tijd: 'Main menu' > 'Instellingen/administrat.' (toegangsniveau 3 — PIN vereist) en vergelijk met de actuele datum/tijd. Stel bij indien afwijkend.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf — hierna doorlopen we alle stappen, pas aan het einde wordt weer gebeld.", icon: "phone-call" },
+        { text: "Zet de SIGNAALGEVERS (sirenes/zwaailichten) uit, zodat deze niet door het hele gebouw gaan afgaan tijdens de test:\n'Main menu' > 'Functies' > 'Aan / Uit' > elementcategorie 'Bouwdeel' > <OK> zonder adres invoeren > commando 'Alarmgevers UIT'.\nToegangsniveau 2.1 (PIN vereist).", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deurmagneten, ventilatie/rookafvoer, liftbesturing en overige brandbeveiligingsvoorzieningen) in testmodus, zodat de fysieke uitgangen NIET geactiveerd worden:\n'Main menu' > 'Functies' > 'Test' > elementcategorie 'Brand stuurgroep' > <OK> zonder adres > selecteer de stuurgroep, softkey 1 'Uitvoeren Commando's' > commando 'Sturingtest'.\nHerhaal dit voor elke relevante stuurgroep.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: breng één handbrandmelder in alarm om de DOORMELDING BRAND te testen. Gebruik géén testmodus voor de melder zelf: dit moet een echte melding zijn die daadwerkelijk wordt doorgemeld. De doormelding (RT Fire) moet dus AAN blijven — alleen de signaalgevers en sturingen zijn nu uitgeschakeld.", icon: "alert-circle" },
+        { text: "Druk op het bedienpaneel op <Acknowledge> vóórdat de tijd t1 verstrijkt. Lees de meldingslocatie af van het display.", icon: "check-square" },
+        { text: "Verhelp de testoorzaak van de handbrandmelder (bv. testklepje terugzetten) en controleer dat de melding op de centrale verdwijnt — terug naar rusttoestand (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: breng nu een automatische melder (rook- of warmtemelder, in een andere groep dan de zojuist geteste handbrandmelder) in alarm om ook deze doormelding te testen. Ook hier géén testmodus — een echte melding.", icon: "alert-circle" },
+        { text: "Druk op het bedienpaneel op <Acknowledge> vóórdat de tijd t1 verstrijkt. Lees de meldingslocatie af van het display.", icon: "check-square" },
+        { text: "Verhelp de testoorzaak van de automatische melder (bv. testspray/testmagneet verwijderen) en controleer dat de melding verdwijnt — terug naar rusttoestand (herstel A2).", icon: "check-circle" },
+        { text: "Test nu de STORINGSDOORMELDING: onderbreek de primaire energievoorziening (netspanning) van de centrale volgens de voorgeschreven procedure (bv. hoofdschakelaar).", icon: "alert-triangle" },
+        { text: "Controleer dat de storing zichtbaar wordt: gele LED 'Systeemstoring' gaat aan en in 'Meldingoverzicht' verschijnt de categorie 'Storingen'.", icon: "search" },
+        { text: "Herstel de netspanning. Controleer dat de gele storing-LED uitgaat en de categorie 'Storingen' weer verdwijnt uit het meldingoverzicht (herstel storing).", icon: "check-circle" },
+        { text: "Beëindig de sturingtest van elke stuurgroep: zelfde pad als hiervoor, commando 'Einde sturingtest'.", icon: "settings" },
+        { text: "Zet de signaalgevers weer aan: zelfde pad als hiervoor, commando 'Alarmgevers AAN'.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud door de onderhoudsdeskundige — bovenop de maandelijkse controle. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's op het bedienpaneel:\n• Groene LED 'In bedrijf' / 'System On' → moet branden\n• Gele LED 'Systeemstoring' → moet UIT zijn\n• Rode alarm-LED → moet UIT zijn", icon: "check-circle" },
+        { text: "Voer de ingebouwde LED-TEST uit (test scherm, alle LED's én de zoemer in één keer): 'Main menu' > 'Instellingen/administrat.' > 'LED-test'.\nDe test loopt automatisch in 2 fasen van elk 5 seconden (10 sec. totaal): fase 1 = scherm wit + LED's kleurmodus 1, fase 2 = scherm zwart + LED's kleurmodus 2. Controleer dat ALLE LED's in beide fasen oplichten en dat de zoemer hoorbaar is.", icon: "settings" },
+        { text: "Open 'Main menu' > 'Meldingoverzicht'. Dit scherm toont alléén categorieën met openstaande voorvallen. Geen categorie zichtbaar = systeem volledig in orde.", icon: "search" },
+        { text: "Controleer datum en tijd: 'Main menu' > 'Instellingen/administrat.' (toegangsniveau 3 — PIN vereist) en vergelijk met de actuele datum/tijd. Stel bij indien afwijkend.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: vrij bereikbaar, niet geblokkeerd door obstakels, glas onbeschadigd.", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders (rook/warmte): minimaal 0,3 m vrije ruimte rondom elke melder (geen kasten, dozen, planten) en geen vervuiling of beschadiging.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, het ventilatiesysteem of de bouwconstructie sinds de vorige controle die de detectiedekking kunnen beïnvloeden.", icon: "layers" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie ter plaatse. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf — hierna doorlopen we alle stappen, pas aan het einde wordt weer gebeld.", icon: "phone-call" },
+        { text: "Zet de STURINGEN die u NIET wilt activeren in testmodus (deurmagneten, ventilatie/rookafvoer, liftbesturing, blusinstallatie-aansturing — niet de sirenegroep):\n'Main menu' > 'Functies' > 'Test' > elementcategorie 'Brand stuurgroep' > <OK> zonder adres > selecteer de stuurgroep, softkey 1 'Uitvoeren Commando's' > commando 'Sturingtest'.\nHerhaal voor elke relevante stuurgroep, behalve de sirenegroep — die moet u nu juist wél horen.", icon: "settings" },
+        { text: "Breng ÉÉN melder (handbrandmelder of automatische melder) in alarm om de volledige keten te beproeven: detectie → signalering → ontvangst. Gebruik géén testmodus voor de melder zelf — dit moet een echte melding zijn.", icon: "alert-circle" },
+        { text: "Controleer op het bedienpaneel: melding zichtbaar met juiste locatie, druk <Acknowledge>, en controleer dat de akoestische/optische signaleringen (sirenes/zwaailichten) daadwerkelijk geactiveerd zijn.", icon: "check-square" },
+        { text: "Stel de afstelschakelaar van de akoestische signalering bij (volume) en controleer de werking van elke alarmgever in deze groep.", icon: "bell-off" },
+        { text: "Zet de signaalgevers (sirenes) nu uit, zodat ze niet onnodig blijven klinken tijdens de rest van deze procedure: zelfde menu als bij de sturingen, elementcategorie 'Bouwdeel' > <OK> zonder adres > commando 'Alarmgevers UIT'.", icon: "bell-off" },
+        { text: "Herstel de rusttoestand van de geteste melder (herstel van de signaleringstest).", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: 'Main menu' > 'Functies' > 'Aan / Uit' > elementcategorie 'Groep' > <OK> zonder adres > groep selecteren, softkey 'Uitvoeren Commando's' > commando 'UIT'. Controleer de indicatie: LED 'ISOLATION' aan, categorie 'Systeemdelen uit' zichtbaar in meldingoverzicht.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde pad, commando 'AAN'. Controleer dat de indicatie weer verdwijnt (herstel van de in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Test ook de STORINGSDOORMELDING: onderbreek de primaire energievoorziening (netspanning) van de centrale volgens de voorgeschreven procedure (bv. hoofdschakelaar).", icon: "alert-triangle" },
+        { text: "Controleer dat de storing zichtbaar wordt: gele LED 'Systeemstoring' gaat aan en in 'Meldingoverzicht' verschijnt de categorie 'Storingen'.", icon: "search" },
+        { text: "Herstel de netspanning. Controleer dat de gele storing-LED uitgaat, de categorie 'Storingen' verdwijnt uit het meldingoverzicht en de groene LED 'In bedrijf' brandt zonder gele/rode LED's (herstel storing).", icon: "check-circle" },
+        { text: "Beëindig de sturingtest van de overige stuurgroepen: zelfde pad als hiervoor, commando 'Einde sturingtest'.", icon: "settings" },
+        { text: "Zet de signaalgevers weer aan, terug naar normaal bedrijf: commando 'Alarmgevers AAN'.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct en op tijd zijn binnengekomen. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  },
+  "Notifier": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display.", icon: "eye" },
+        { text: "Controleer de status-LED's op het bedienpaneel:\n• Groene LED 'Spanning aan' → moet branden\n• Gele LED 'Storing' → moet UIT zijn\n• Rode alarm-LED → moet UIT zijn\n• Gele LED 'Buiten dienst' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED + zoemer test: druk VOLGEND MENU → voer niveau-2 paswoord in → ENTER → kies optie 1 (TEST) → LAMP TEST.\nFase a: interne zoemer speelt BRAND-toon dan STORING-toon; alle LEDs lichten opvolgend op; productnaam + softwareversie op display.\nFase b: LCD-pixeltest (balken van uiteinden naar midden).\nTotale duur circa 30 seconden. Controleer dat alle LEDs oplichten en zoemer hoorbaar is.\nLet op: bij actief alarm is voor de lamptest niveau 3 vereist.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: het display toont tabs onderaan (BRAND / VOOR-ALARM / STORING / BUITEN DIENST / TEST / EVACUATIE). Druk VOLGEND MENU om door tabs te bladeren. Controleer dat er geen onverklaarbare meldingen zijn. Pijltoetsen links/rechts voor zones, omhoog/omlaag voor elementen.", icon: "search" },
+        { text: "Controleer datum en tijd: VOLGEND MENU → niveau-2 paswoord → ENTER → optie 4 (INSTELLEN KLOK). Navigeer met pijltoetsen naar het gewenste veld (dag/datum/jaar/uur/min), voer nieuwe waarde in met pijltoetsen of numerieke toetsen, bevestig met ENTER. CANCEL = afbreken zonder wijziging.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf — hierna doorlopen we alle stappen, pas aan het einde wordt weer gebeld.", icon: "phone-call" },
+        { text: "Zet de SIGNAALGEVERS (sirenes) UIT, zodat deze niet door het gebouw gaan afgaan:\nVOLGEND MENU → niveau-2 → IN/BUITEN DIENST → ALARM UITGANGEN PER ZONE → selecteer EERSTE en LAATSTE ZONE (of ALLE ZONES) → SIRENES BUITEN DIENST (optie 1).\nGele LED 'SIR. BUIT. DNST' gaat aan, tab 'BUITEN DIENST' verschijnt.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deurmagneten, ventilatie/rookafvoer, liftbesturing) buiten dienst:\nVOLGEND MENU → niveau-2 → IN/BUITEN DIENST → ALARM UITGANGEN PER ZONE → selecteer ALLE ZONES → STURINGEN BUITEN DIENST (optie 2).\nHerhaal dit voor elke relevante uitgangsgroep.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer 1 handbrandmelder met testsleutel (geen looptest — dit moet een echte melding zijn die daadwerkelijk wordt doorgemeld). Alarm verschijnt op display, doormelding (RAC) blijft actief.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display (zone + elementnummer). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (testsleutel terugzetten). Druk RESET. Controleer dat de melding verdwijnt — terug naar rusttoestand (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder (rookspray of testmagneet) in een andere zone dan A1. Of start een zone-looptest: VOLGEND MENU → niveau-2 → TEST → ZONE LOOPTEST → selecteer zone → ENTER, activeer melder in die zone. Alarm op display — doormelding blijft actief.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display. Noteer zone en elementnummer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray/magneet verwijderen). Druk RESET. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Tab 'STORING' verschijnt op display, STORING-LED knippert, storingszoemer activeert met tussenpozen.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: tab 'STORING' aanwezig met melding 'Voedingsstoring hoofdvoeding'. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Druk RESET. Tab 'STORING' verdwijnt, STORING-LED dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: IN/BUITEN DIENST → ALARM UITGANGEN PER ZONE → selecteer ALLE ZONES → STURINGEN IN DIENST (optie 4).", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: IN/BUITEN DIENST → ALARM UITGANGEN PER ZONE → selecteer ALLE ZONES → SIRENES IN DIENST (optie 3). Gele LED 'SIR. BUIT. DNST' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's op het bedienpaneel:\n• Groene LED 'Spanning aan' → moet branden\n• Gele LED 'Storing' → moet UIT zijn\n• Rode alarm-LED → moet UIT zijn\n• Gele LED 'Buiten dienst' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED + zoemer test: VOLGEND MENU → niveau-2 paswoord → ENTER → optie 1 (TEST) → LAMP TEST. Fase a+b doorlopen (circa 30 sec). Controleer dat alle LEDs oplichten en zoemer hoorbaar is.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: controleer alle tabs (BRAND / STORING / BUITEN DIENST) op onverklaarbare meldingen via VOLGEND MENU.", icon: "search" },
+        { text: "Datum en tijd controleren: optie 4 (INSTELLEN KLOK). Controleer en corrigeer indien nodig.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling of spinnenwebben, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst — sirenes NIET uitschakelen, die moeten hoorbaar zijn voor de afstellingscontrole:\nIN/BUITEN DIENST → ALARM UITGANGEN PER ZONE → STURINGEN BUITEN DIENST (optie 2).", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers (sirenes) hoorbaar klinken — dit is de afstellingscontrole van de akoestische signalering.", icon: "alert-circle" },
+        { text: "Acknowledge op centrale. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer de locatie.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers (sirenes) UIT na de afstellingscontrole:\nIN/BUITEN DIENST → SIRENES BUITEN DIENST (optie 1).", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak (testsleutel/spray/magneet). Druk RESET. Controleer dat de melding verdwijnt.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: IN/BUITEN DIENST → ALARM INGANGEN PER ZONE → selecteer een testzone → ALLE INGANGEN BUITEN DIENST (optie 1). Gele LED 'BUITEN DIENST' gaat aan.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde menupad → ALLE INGANGEN IN DIENST (optie 3). Gele LED dooft (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Tab 'STORING' verschijnt, STORING-LED knippert, storingszoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: tab 'STORING' met 'Voedingsstoring hoofdvoeding' aanwezig op display.", icon: "search" },
+        { text: "Herstel netspanning. Druk RESET. Tab 'STORING' verdwijnt, STORING-LED dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: IN/BUITEN DIENST → STURINGEN IN DIENST (optie 4).", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: IN/BUITEN DIENST → SIRENES IN DIENST (optie 3). Gele LED 'SIR. BUIT. DNST' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  },
+  "Esser IQ8 Control": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED (spanning aan) → moet branden\n• Gele LED 'Storing' → moet UIT zijn\n• Rode LED (brandalarm) → moet UIT zijn\n• Gele LEDs 'Uitschakelen', 'Doormelding uit', 'Sirenes uit' → moeten UIT zijn", icon: "check-circle" },
+        { text: "LED-test: zet sleutelschakelaar in UIT-stand (verticale stand). Druk de toets 'Reset centrale / LED TEST'. Alle optische indicatoren worden circa 10 seconden aangestuurd — controleer dat alle LEDs oplichten.\nLet op: in AAN-stand (horizontaal) heeft dezelfde toets de functie 'Reset centrale' — niet per ongeluk indrukken bij actief alarm.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: sleutelschakelaar in AAN-stand. Druk functietoets 1 (Overzicht). Display toont meldingen per categorie (Brand, Storing, Uitschakelen). Controleer op onverklaarbare meldingen. Gebruik pijltoetsen voor navigatie.", icon: "search" },
+        { text: "Datum en tijd controleren: druk functietoets 3 (T functie). Display toont Tijd / Datum. Pas zo nodig aan via cursortoetsen + numerieke invoer → druk functietoets 4 (Functie) om te bevestigen. Druk functietoets 1 (Afbreken) om te annuleren.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de SIGNAALGEVERS (sirenes) UIT: sleutelschakelaar AAN → druk de vaste knop 'Sirenes uit' op het frontpaneel. Gele LED 'Uitschakelen' gaat aan. Display toont uitschakelmelding.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deurmagneten, ventilatie/rookafvoer, liftbesturing) buiten dienst: voer het relaisnummer in via de numerieke toetsen (bijv. 1) → druk functietoets 'Relais' → druk functietoets 'Uit'. Herhaal dit voor elk relevant relais / elke stuuruitgang.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: sleutelschakelaar AAN → activeer 1 handbrandmelder met testsleutel (geen looptest — dit moet een echte melding zijn die daadwerkelijk wordt doorgemeld). Alarmmelding verschijnt op display, rode LED gaat aan. Doormelding (RAC) blijft actief.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display (zone + meldernummer). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (testsleutel terugzetten). Druk 'Reset centrale' (sleutelschakelaar AAN). Controleer dat de melding verdwijnt — terug naar rusttoestand (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Alarmmelding op display — doormelding (RAC) blijft actief.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display (zone + meldernummer). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray of warmtebron verwijderen). Druk 'Reset centrale'. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Gele LED 'Storing' gaat aan, gele LED 'Energievoorziening' dooft. Storingszoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: druk functietoets 1 (Overzicht) → storingsmelding aanwezig in de categorie 'Storing'.", icon: "search" },
+        { text: "Herstel netspanning. Druk 'Reset centrale'. Storingsindicaties verdwijnen (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: voer het relaisnummer in → druk functietoets 'Relais' → druk functietoets 'In'. Herhaal voor alle uitgeschakelde relaisuitgangen.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk opnieuw op de vaste knop 'Sirenes uit' (toggle). Gele LED 'Uitschakelen' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade, juiste bevestiging en leesbaarheid van het display. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED (spanning aan) → moet branden\n• Gele LED 'Storing' → moet UIT zijn\n• Rode LED (brandalarm) → moet UIT zijn\n• Gele LEDs 'Uitschakelen', 'Doormelding uit', 'Sirenes uit' → moeten UIT zijn", icon: "check-circle" },
+        { text: "LED-test: sleutelschakelaar in UIT-stand. Druk 'Reset centrale / LED TEST'. Alle LEDs circa 10 seconden aangestuurd — controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht: sleutelschakelaar AAN, functietoets 1 (Overzicht). Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd: functietoets 3 (T functie). Controleer en corrigeer indien nodig → functietoets 4 bevestigen.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst — sirenes NIET uitschakelen, die moeten hoorbaar zijn voor de afstellingscontrole:\nVoer relaisnummer in → functietoets 'Relais' → functietoets 'Uit'. Herhaal voor elk relevante stuuruitgang.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze, sleutelschakelaar AAN). Geen testmodus — echte melding. Laat de signaalgevers (sirenes) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers (sirenes) UIT na de afstellingscontrole: druk de vaste knop 'Sirenes uit'. Gele LED 'Uitschakelen' gaat aan.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk 'Reset centrale'. Controleer dat de melding verdwijnt.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: voer groepnummer in via numerieke toetsen → druk functietoets 'Groep' → druk functietoets 'Uit'. Display toont: UITGESCH. Grp:[nummer]. Gele LED 'Uitschakelen' gaat aan.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde procedure → druk functietoets 'In'. Melding verdwijnt van display, gele LED dooft (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Gele LED 'Storing' aan, gele LED 'Energievoorziening' dooft. Storingszoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: functietoets 1 (Overzicht) → storingsmelding aanwezig.", icon: "search" },
+        { text: "Herstel netspanning. Druk 'Reset centrale'. Storingsindicaties verdwijnen (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: relaisnummer → functietoets 'Relais' → functietoets 'In'. Herhaal voor alle uitgeschakelde relaisuitgangen.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk opnieuw op de vaste knop 'Sirenes uit' (toggle). Gele LED dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  },
+  "Bosch": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Bosch FPA-1200, FPA-5000 en AVENAR panel 8000/2000 — zelfde menustructuur. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het touchscreen reageert en de statusbalk normaal is (geen rode of gele indicaties).", icon: "eye" },
+        { text: "Controleer de statusbalk bovenaan het touchscreen:\n• Groene indicator 'System normal' → moet zichtbaar zijn\n• Geen actieve alarmen (rood), storingen (geel) of bypass-indicaties in de statusbalk\n• Toegangsniveau 2 vereist voor volledige bediening (gebruikers-ID + wachtwoord, default: 000000)", icon: "check-circle" },
+        { text: "LED-test: Start menu → Diagnostics → Hardware → Display → LED test.\nAlle LEDs op het paneel branden gedurende circa 5 seconden. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Storingen bekijken: Start menu → Fault indication. Display toont alle actieve storingen (gesorteerd op omschrijving of nummer). Controleer op onverklaarbare storingen. Historisch log: Start menu → Maintenance → History log.", icon: "search" },
+        { text: "Datum en tijd controleren: Start menu → Further functions → Change date / time. Raak het veld aan → voer nieuwe waarde in → OK. Toegangsniveau 2 vereist.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de SIGNAALGEVERS (sirenes/NAC) UIT:\nStart menu → Bypass Block → Bypass → selecteer elementtype 'Notification appliance' (NAC) → markeer de relevante elementen → Bypass.\nBypassindicatie verschijnt in statusbalk. Intern paneel-zoemer: Start menu → Maintenance → Bypass buzzer.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie, transmissieapparaten) buiten dienst:\nStart menu → Bypass Block → Bypass → selecteer elementtype 'Control output' of 'Transmission device' → markeer de relevante elementen → Bypass.\nHerhaal voor alle relevante stuuruitgangen.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer 1 handbrandmelder (glasplaatje indrukken of testsleutel). Alarm verschijnt in de statusbalk (witte achtergrond = niet-geacknowledged). Doormelding (RAC) blijft actief.", icon: "alert-circle" },
+        { text: "Raak het alarm in de statusbalk aan om het te selecteren en te acknowledgen. Lees de meldingslocatie af (zone/apparaatadres). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje herstellen / testsleutel terugzetten). Reset via statusbalk of Start menu → Reset. Controleer herstel A1.", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder (rookspray of warmtebron) in een andere zone dan A1. Alarm verschijnt in statusbalk. Doormelding (RAC) blijft actief.\nLet op: gebruik GEEN walktest voor deze test — tijdens walktest wordt de doormelding NIET geactiveerd.", icon: "alert-circle" },
+        { text: "Raak het alarm aan om te acknowledgen. Lees de meldingslocatie af. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray of warmtebron verwijderen). Reset. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Statusbalk toont storingsmelding 'AC fault'. Verificatie: Start menu → Fault indication.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: 'AC fault' aanwezig in statusbalk en/of Fault indication.", icon: "search" },
+        { text: "Herstel netspanning. Controleer dat de storingsmelding 'AC fault' verdwijnt uit de statusbalk (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Start menu → Bypass Block → Bypass → selecteer dezelfde elementen → Unbypass. Of via statusbalk: 'Show bypassed devices' → selecteer element → Unbypass.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: zelfde pad → Unbypass NAC-elementen. Bypassindicatie verdwijnt uit statusbalk. Intern zoemer: Start menu → Maintenance → Unbypass buzzer.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Bosch FPA-1200, FPA-5000 en AVENAR panel 8000/2000. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het touchscreen reageert en de statusbalk normaal is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de statusbalk:\n• Groene indicator 'System normal' → moet zichtbaar zijn\n• Geen actieve alarmen, storingen of bypass-indicaties", icon: "check-circle" },
+        { text: "LED-test: Start menu → Diagnostics → Hardware → Display → LED test. Alle LEDs branden circa 5 seconden — controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Storingen bekijken: Start menu → Fault indication. Controleer op onverklaarbare storingen.", icon: "search" },
+        { text: "Datum en tijd: Start menu → Further functions → Change date / time. Controleer en corrigeer indien nodig. Niveau 2 vereist.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — sirenes NIET uitschakelen (moeten hoorbaar zijn voor afstellingscontrole):\nStart menu → Bypass Block → Bypass → selecteer 'Control output' / 'Transmission device' → Bypass.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers (sirenes) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Acknowledge alarm via statusbalk. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer locatie.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers (NAC) UIT na de afstellingscontrole:\nStart menu → Bypass Block → Bypass → selecteer 'Notification appliance' (NAC) → Bypass.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Reset via statusbalk. Controleer dat de melding verdwijnt.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE (bypass zone): Start menu → Bypass Block → Bypass → selecteer een testzone / detector → Bypass. Bypassindicatie verschijnt in statusbalk.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde pad → selecteer dezelfde zone → Unbypass. Bypassindicatie verdwijnt (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Statusbalk toont 'AC fault'. Verificatie via Fault indication.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: 'AC fault' aanwezig in statusbalk.", icon: "search" },
+        { text: "Herstel netspanning. Controleer dat 'AC fault' verdwijnt (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Start menu → Bypass Block → Bypass → selecteer dezelfde control outputs → Unbypass.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: Start menu → Bypass Block → Bypass → selecteer NAC-elementen → Unbypass. Bypassindicatie verdwijnt.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Esser FlexES Control": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is.", icon: "eye" },
+        { text: "Controleer de status-indicatoren op het frontpaneel:\n• Groene LED 'Operation' (onderin) → moet branden\n• Oranje 'FIRE' → moet UIT zijn\n• Oranje 'FAULT' → moet UIT zijn\n• Gele 'DISABLEMENT' → moet UIT zijn\n• 'TECHN. ALARM' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED + zoemer test: druk F6 (Info) → selecteer item 1 'Lamp test' → OK.\nAlle LEDs op het frontpaneel en de interne zoemer activeren gedurende circa 10 seconden automatisch. Controleer dat alle LEDs oplichten en de zoemer hoorbaar is.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: druk F7 (Overview). Geeft overzicht van alle actieve meldingen per prioriteit (brand, storing, afschakeling). Voor details per melding: druk F8 (Details). Pijltoetsen omhoog/omlaag om door de lijst te navigeren. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: druk F6 (Info) → item 2 'Time settings'. Controleer of datum en tijd correct zijn. Corrigeren vereist toegangsniveau 3 (service-monteur).", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de SIGNAALGEVERS (Sounder) UIT: druk op de 'Sounder' enable/disable knop (⊙/⏻) op het frontpaneel. Toegangsniveau 2 vereist (druk eerst 'Keyb. access' en voer de toegangscode in via het numerieke toetsenbord → OK). Gele DISABLEMENT LED gaat branden, display toont 'Sounder disabled'.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (Fire prot. equipm.) UIT: druk op de 'Fire prot. equipm.' enable/disable knop (⊙/⏻) op het frontpaneel. Display toont 'Fire prot. equipm. disabled'. Of per individuele sturing: F9 (Operate) → 'Output' → selecteer sturing op nummer → F2 (Off).", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer 1 handbrandmelder met testsleutel of breekglas. Centrale gaat direct in brandalarm — display toont 'FIRE' met adres en tekst. Doormelding (Fire alarm routing) blijft actief.", icon: "alert-circle" },
+        { text: "Druk op de 'Buzzer' dempenknop om de interne zoemer te dempen. Lees de meldingslocatie af op het display (adres + tekst). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (testsleutel terugzetten). Controleer dat de melding op het display verdwijnt of als hersteld wordt gemarkeerd (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of testsonde. Display toont 'FIRE' met nieuw adres. Doormelding blijft actief.", icon: "alert-circle" },
+        { text: "Dempen interne zoemer (Buzzer knop). Lees de meldingslocatie af. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray/sonde verwijderen). Controleer herstel A2 op display.", icon: "check-circle" },
+        { text: "Storingstest: schakel de 230V hoofdvoeding van de centrale uit. Oranje FAULT LED gaat branden, display toont 'SYSTEM FAULT' / 'Mains failure' met tijdstip. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: F7 (Overview) of F8 (Details) → storingsmelding 'Mains failure' aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing verdwijnt automatisch. Druk F1 (CIE Reset) als de melding blijft staan. Controleer dat display leeg is en groene 'Operation' LED brandt.", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: druk opnieuw op de 'Fire prot. equipm.' knop op het frontpaneel (toggle naar enable). Display toont geen afschakeling meer voor sturingen.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk opnieuw op de 'Sounder' knop (toggle naar enable). Gele DISABLEMENT LED dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-indicatoren op het frontpaneel:\n• Groene LED 'Operation' → moet branden\n• Oranje 'FIRE' → moet UIT zijn\n• Oranje 'FAULT' → moet UIT zijn\n• Gele 'DISABLEMENT' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED + zoemer test: F6 (Info) → item 1 'Lamp test' → OK. Alle LEDs en interne zoemer activeren circa 10 seconden. Controleer dat alle LEDs oplichten en zoemer hoorbaar is.", icon: "settings" },
+        { text: "Meldingoverzicht: F7 (Overview) voor overzicht, F8 (Details) voor details. Controleer op onverklaarbare meldingen (brand, storing, afschakeling).", icon: "search" },
+        { text: "Datum en tijd: F6 (Info) → item 2 'Time settings'. Controleer of datum en tijd correct zijn.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN (Fire prot. equipm.) UIT — sirenes NIET uitschakelen, die moeten hoorbaar zijn voor de afstellingscontrole: druk op de 'Fire prot. equipm.' knop op het frontpaneel. Of per sturing: F9 (Operate) → 'Output' → nummer → F2 (Off).", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder met testsleutel, of automatische melder met rookspray). Geen testmodus — echte melding. Laat de signaalgevers (Sounder) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Dempen interne zoemer (Buzzer knop). Lees de meldingslocatie af op het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers (Sounder) UIT na de afstellingscontrole: druk op de 'Sounder' knop op het frontpaneel. Gele DISABLEMENT LED gaat branden.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk F1 (CIE Reset). Controleer dat display leeg is.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: druk 'Keyb. access' → toegangscode → OK (niveau 2). Vervolgens: F9 (Operate) → '1 - Zone' → voer zonenummer in → F2 (Off). Gele DISABLEMENT LED gaat aan, display bevestigt afschakeling.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: F9 (Operate) → '1 - Zone' → zelfde zonenummer → F3 (On). Display toont geen afschakeling meer, gele LED dooft (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. Oranje FAULT LED brandt, display toont 'Mains failure'. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: F7 (Overview) → storingsmelding aanwezig.", icon: "search" },
+        { text: "Herstel netspanning. Storing verdwijnt automatisch. Druk F1 (CIE Reset) indien nodig. Controleer: display leeg, groene 'Operation' LED brandt.", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: druk opnieuw op de 'Fire prot. equipm.' knop (toggle naar enable). Display toont geen afschakeling meer.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk opnieuw op de 'Sounder' knop (toggle naar enable). Gele DISABLEMENT LED dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Autronica": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Autronica AutroSafe BS-310, BS-320 en BS-330 — identiek bedienpaneel. Bediening via sleutelschakelaar (niveau 2), alfanumeriek toetsenbord en Menu-knop (☰). Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is en de tekst leesbaar.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED 'Power' → moet branden (voeding aanwezig)\n• Gele LED 'Fault' → moet UIT zijn\n• Rode LED 'ALARM' → moet UIT zijn\n• Gele LED 'Function Disabled' → moet UIT zijn\n• Gele LED 'System Fault' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: houd de groene 'Reset'-knop minimaal 5 seconden ingedrukt. Alle LEDs op het frontpaneel lichten op zolang de knop ingedrukt is. Controleer dat alle LEDs oplichten. Toegangsniveau 1 — geen sleutel nodig.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: zet de sleutelschakelaar in SERVICE-stand (rechtsom, niveau 2). Druk Menu-knop (☰) → selecteer '1 SHOW STATUS' met pijltoetsen → ENTER → kies '1 FIRE ALARMS' en '3 FAULTS'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu-knop (☰) → '4 SYSTEM' → '1 DATE AND TIME'. Datum invoeren: 8 cijfers JJJJMMDD → ENTER. Tijd invoeren: 6 cijfers uummss → ENTER. Sleutel (niveau 2) vereist.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de signaalgevers (FAD) buiten dienst: Menu (☰) → '2 DISABLE' → '3 FIRE ALARM DEVICES (FAD)' → selecteer FAD-groep of alle FADs → voer uitschakeltijd in → ENTER. LED 'Alarms Disabled' en 'Function Disabled' gaan aan.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst: Menu (☰) → '2 DISABLE' → '5 OUTPUTS' → selecteer relevante uitgang(en) → uitschakeltijd → ENTER. LED 'Function Disabled' brandt.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan of testsleutel). Geen testmodus — echte melding die daadwerkelijk wordt doorgemeld. Display toont: 'FIRE ALARMS — Total: 1 — [zonenaam] — Manual callpoint'. LED 'ALARM' knippert rood. Interne zoemer activeert.", icon: "alert-circle" },
+        { text: "Druk 'Mute Panel' (zwarte knop) om de interne zoemer te dempen. Lees de meldingslocatie af van het display (zonenaam + punt). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje vervangen of testsleutel terugzetten). Druk de groene 'Reset'-knop. Display toont 'RESET — Info: Completed' en keert terug naar rusttoestand (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Gebruik GEEN testmodus — in testmodus kan de doormelding onderdrukt worden. Display toont 'FIRE ALARMS' met het nieuwe adres.", icon: "alert-circle" },
+        { text: "Druk 'Mute Panel'. Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray/warmtebron verwijderen). Druk 'Reset'. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de zekeringkast of hoofdschakelaar. LED 'Power' (groen) gaat UIT. LEDs 'Fault' en 'System Fault' (geel) gaan aan. Interne zoemer activeert — bij System Fault kan de zoemer NIET gedempt worden met 'Mute Panel'.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Menu (☰) → '1 SHOW STATUS' → '3 FAULTS'. Storingsmelding 'Power Supply' of 'AC Mains' aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. LEDs 'Fault' en 'System Fault' gaan vanzelf uit. Eventueel 'Reset' drukken als meldingen aanblijven. Controleer dat LED 'Power' (groen) weer brandt (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Menu (☰) → '3 ENABLE' → '5 OUTPUTS' → selecteer dezelfde uitgangen → ENTER. Display bevestigt 'Successfully Completed'.", icon: "settings" },
+        { text: "Signaalgevers (FAD) terug in dienst: Menu (☰) → '3 ENABLE' → '3 FIRE ALARM DEVICES (FAD)' → selecteer → ENTER. LEDs 'Alarms Disabled' en 'Function Disabled' gaan uit.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Autronica AutroSafe BS-310, BS-320 en BS-330. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED 'Power' → moet branden\n• Gele LED 'Fault' → moet UIT zijn\n• Rode LED 'ALARM' → moet UIT zijn\n• Gele LED 'Function Disabled' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: houd de groene 'Reset'-knop minimaal 5 seconden ingedrukt. Alle LEDs lichten op. Controleer dat alle LEDs oplichten. Geen sleutel nodig.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: sleutel in SERVICE-stand → Menu (☰) → '1 SHOW STATUS' → kies '1 FIRE ALARMS', '3 FAULTS' en '4 DISABLEMENTS'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu (☰) → '4 SYSTEM' → '1 DATE AND TIME'. Datum: 8 cijfers JJJJMMDD → ENTER. Tijd: 6 cijfers uummss → ENTER. Sleutel (niveau 2) vereist.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — FADs (sirenes) NIET uitschakelen, die moeten hoorbaar zijn voor de afstellingscontrole:\nMenu (☰) → '2 DISABLE' → '5 OUTPUTS' → selecteer relevante uitgang(en) → uitschakeltijd → ENTER. LED 'Function Disabled' brandt.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de FADs (sirenes) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Druk 'Mute Panel' om de interne zoemer te dempen. Lees de meldingslocatie af van het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet FADs (sirenes) UIT na de afstellingscontrole: druk rode 'Silence Alarms' knop. FADs stoppen direct, LED 'ALARM' gaat van knipperend naar vast rood. Structureel: Menu (☰) → '2 DISABLE' → '3 FIRE ALARM DEVICES (FAD)' → ENTER.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk 'Reset'. Controleer dat display terugkeert naar rusttoestand.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: Menu (☰) → '2 DISABLE' → '1 DETECTION ZONES' → voer zonenaam in of selecteer met pijltoetsen → uitschakeltijd ingeven → ENTER. LED 'Function Disabled' brandt. Display toont afschakeling onder '4 DISABLEMENTS'.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: Menu (☰) → '3 ENABLE' → '1 DETECTION ZONES' → selecteer dezelfde zone → ENTER. Display bevestigt 'Successfully Completed'. LED 'Function Disabled' dooft (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. LED 'Power' gaat UIT. LEDs 'Fault' en 'System Fault' gaan aan. Interne zoemer activeert (kan niet gedempt worden bij System Fault).", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Menu (☰) → '1 SHOW STATUS' → '3 FAULTS'. Storingsmelding 'Power Supply' of 'AC Mains' aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. LEDs 'Fault' en 'System Fault' gaan vanzelf uit. Eventueel 'Reset' drukken. Controleer dat LED 'Power' (groen) weer brandt (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Menu (☰) → '3 ENABLE' → '5 OUTPUTS' → selecteer dezelfde uitgangen → ENTER. Display bevestigt 'Successfully Completed'.", icon: "settings" },
+        { text: "Signaalgevers (FAD) terug in dienst: Menu (☰) → '3 ENABLE' → '3 FIRE ALARM DEVICES (FAD)' → selecteer → ENTER. LEDs 'Alarms Disabled' en 'Function Disabled' gaan uit.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Hertek": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Hertek Penta 5000 en Penta 6000 — identieke menustructuur. Toegangsniveau 2: Menu-toets → 'VRIJGAVE TOETSENBORD' → PIN (standaard: 10000) → ENTER. Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is.", icon: "eye" },
+        { text: "Controleer de status-LED's op het bediendeel:\n• Groene LED 'IN BEDRIJF' → moet branden (24V DC voeding aanwezig)\n• Gele LED 'STORING' → moet UIT zijn\n• Rode LED 'BRAND' → moet UIT zijn\n• Gele LED 'SYSTEEMDEEL UITGESCHAKELD' → moet UIT zijn\n• Gele LEDs 'SIGNAALGEVERS AFGESTELD / UITGESCHAKELD' → moeten UIT zijn", icon: "check-circle" },
+        { text: "LED-test: druk de Menu-toets → selecteer 'LAMPENTEST' met cursortoetsen → ENTER. Alle actieve LEDs lichten ca. 5 seconden op. Geen PIN vereist. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: Menu-toets → 'WEERGAVE' → kies 'BRANDMELDINGEN', 'STORINGEN' en 'UITSCHAKELINGEN'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu-toets → 'VRIJGAVE TOETSENBORD' → PIN (standaard 10000) → ENTER → 'EXTRA' → 'WIJZIG TIJD'. Display toont TIJD & DATUM. Invoeren met numeriek toetsenbord, bevestigen met ENTER. Alleen op de hoofdcentrale beschikbaar (niet op Penta 5030 nevenbediendeel).", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de signaalgevers structureel buiten dienst: Menu → PIN → ENTER → 'UITSCHAKELEN' → 'UITGANGEN' → 'ALLE SIGNAALGEVERS'. Gele LEDs 'SIGNAALGEVERS UITGESCHAKELD' en 'SYSTEEMDEEL UITGESCHAKELD' gaan aan.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst: Menu → PIN → ENTER → 'UITSCHAKELEN' → 'UITGANGEN' → 'ALLE OVERIGE UITGANGEN'. Gele LED 'SYSTEEMDEEL UITGESCHAKELD' brandt.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan of testsleutel). Geen testmodus — echte melding. Display toont: 'ZONE [nr] BRAND — [locatietekst]'. LED 'BRAND' (rood) actief. Interne zoemer continu actief.", icon: "alert-circle" },
+        { text: "Druk de 'ZOEMER UIT' knop op het bediendeel om de interne zoemer te dempen. Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje vervangen of testsleutel terugzetten). Menu → PIN → ENTER → functietoets 'RESET'. LED 'BRAND' gaat uit, display keert terug naar 'CENTRALE IN NORMAAL BEDRIJF' (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Gebruik GEEN testmodus — Penta testmodus onderdrukt doormeldingen en sturingen. Display toont 'ZONE [nr] BRAND' met het nieuwe adres.", icon: "alert-circle" },
+        { text: "Druk 'ZOEMER UIT'. Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak. Menu → PIN → ENTER → RESET. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de zekeringkast of hoofdschakelaar. LED 'IN BEDRIJF' (groen) blijft aan — accu neemt over. LED 'STORING' (geel) gaat aan. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Menu → 'WEERGAVE' → 'STORINGEN'. Storingsmelding over netspanning aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storingsmelding verdwijnt automatisch. Eventueel Menu → PIN → RESET als melding blijft staan. Controleer dat LED 'STORING' weer UIT is (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Menu → PIN → ENTER → 'INSCHAKELEN' → 'UITGANGEN' → 'ALLE OVERIGE UITGANGEN'. LED 'SYSTEEMDEEL UITGESCHAKELD' dooft (als geen andere uitschakelingen actief zijn).", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: Menu → PIN → ENTER → 'INSCHAKELEN' → 'UITGANGEN' → 'ALLE SIGNAALGEVERS'. LED 'SIGNAALGEVERS UITGESCHAKELD' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Hertek Penta 5000 en Penta 6000. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's op het bediendeel:\n• Groene LED 'IN BEDRIJF' → moet branden\n• Gele LED 'STORING' → moet UIT zijn\n• Rode LED 'BRAND' → moet UIT zijn\n• Gele LEDs 'SYSTEEMDEEL UITGESCHAKELD', 'SIGNAALGEVERS ...' → moeten UIT zijn", icon: "check-circle" },
+        { text: "LED-test: Menu-toets → 'LAMPENTEST' → ENTER. Alle actieve LEDs ca. 5 seconden aan. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: Menu → 'WEERGAVE' → kies 'BRANDMELDINGEN', 'STORINGEN', 'UITSCHAKELINGEN'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu → PIN (standaard 10000) → ENTER → 'EXTRA' → 'WIJZIG TIJD'. Controleer en corrigeer indien nodig.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (voor de afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — signaalgevers NIET uitschakelen (moeten hoorbaar zijn voor de afstellingscontrole):\nMenu → PIN → ENTER → 'UITSCHAKELEN' → 'UITGANGEN' → 'ALLE OVERIGE UITGANGEN'. LED 'SYSTEEMDEEL UITGESCHAKELD' aan.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze, GEEN testmodus). Echte melding. Laat de signaalgevers (sirenes) hoorbaar klinken — dit is de afstellingscontrole. Druk 'ZOEMER UIT' om de interne zoemer te dempen.", icon: "alert-circle" },
+        { text: "Lees de meldingslocatie af van het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers UIT na de afstellingscontrole: druk functietoets 'SIGNAALGEVERS UIT' op het bediendeel. Gele LED 'SIGNAALGEVERS AFGESTELD' gaat aan. Sirenes stoppen direct.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Menu → PIN → ENTER → RESET. Controleer dat display terugkeert naar normaal bedrijf.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: Menu → PIN → ENTER → 'UITSCHAKELEN' → 'ZONE/INGANGEN' → selecteer een testzone (pijltoetsen of zonenummer) → ENTER. Kies tijdsduur of permanent. LED 'SYSTEEMDEEL UITGESCHAKELD' brandt. WEERGAVE → UITSCHAKELINGEN toont de zone.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: Menu → PIN → ENTER → 'INSCHAKELEN' → 'ZONE/INGANGEN' → 'ALLE UITGESCHAKELDE INGANGEN INSCHAKELEN' → ENTER. LED 'SYSTEEMDEEL UITGESCHAKELD' dooft (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. LED 'IN BEDRIJF' (groen) blijft aan (accu). LED 'STORING' (geel) gaat aan. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Menu → 'WEERGAVE' → 'STORINGEN'. Storingsmelding over netspanning aanwezig.", icon: "search" },
+        { text: "Herstel netspanning. Storingsmelding verdwijnt automatisch. Eventueel RESET drukken. LED 'STORING' gaat uit (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: Menu → PIN → ENTER → 'INSCHAKELEN' → 'UITGANGEN' → 'ALLE OVERIGE UITGANGEN'. LED 'SYSTEEMDEEL UITGESCHAKELD' dooft.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk functietoets 'SIGNAALGEVERS AAN' op het bediendeel. LED 'SIGNAALGEVERS AFGESTELD' dooft. Of via menu: 'INSCHAKELEN' → 'UITGANGEN' → 'ALLE SIGNAALGEVERS'.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Esmi FDP": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Esmi FDP (ook bekend als Esmi sense — Schneider Electric). Bediening via kleurendisplay, draaiknop (Selection wheel) en Wheel button. Toegang: sleutel rechtsom + Wheel button, of PIN 5910 (access level 3, default). Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het kleurendisplay actief is.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel (rechts van het display):\n• LED 'Power supply' → moet branden\n• Gele LED 'FAULT' (driehoeksymbool) → moet UIT zijn\n• Rode LED 'FIRE' (vlamicoon) → moet UIT zijn\n• Gele LED 'DISABLEMENT' → moet UIT zijn", icon: "check-circle" },
+        { text: "Display test (LED-test): vanuit het rustscherm → druk Wheel button → softkey 'Display test' (rechtsboven op display). Alle LEDs en displaypixels activeren — controleer dat alle LEDs oplichten. Geen inloggen vereist.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: bij actieve meldingen toont display automatisch het alarm- of storingsscherm. Bladeren met Selection wheel of 'More alarms' knop. Actieve afschakelingen: sleutel → Wheel button → menu → 'Events' → 'Active disablements'.", icon: "search" },
+        { text: "Datum en tijd: de FDP beheert tijd/datum via EcoStruxure Fire Expert configuratiesoftware — niet via het gebruikersmenu. Klopt de tijd niet (zichtbaar in logboek)? Meld dit aan de installateursdienst.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de signaalgevers (Alarm devices) buiten dienst: sleutel rechtsom → Wheel button → draai Selection wheel naar de LED-kolom → selecteer 'Alarm devices' → druk 'Disable' knop. Gele DISABLEMENT LED gaat branden.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (fire outputs/stuuruitgangen) buiten dienst: sleutel → Wheel button → navigeer naar relevante stuuruitgangen (fire outputs) → druk 'Disable' per uitgang. DISABLEMENT LED brandt. Controleer via menu → 'Events' → 'Active disablements'.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan). Geen testmodus — echte melding. Display toont rode achtergrond: 'X ZONES IN FIRE' met zonenummer en adres. Rode FIRE LED gaat aan.", icon: "alert-circle" },
+        { text: "Druk 'Buzzer' knop om de interne zoemer te dempen. Druk Wheel button om in te zoomen op meldingsdetails. Lees de meldingslocatie af (zone + adres). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje vervangen). Houd 'Reset' knop 5 seconden ingedrukt. Display keert terug naar rustscherm (herstel A1). Lukt reset niet: druk 'Disable' op het alarmerende adres, daarna opnieuw Reset 5 sec.", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Gebruik GEEN testmodus — doormelding moet actief zijn. Display toont nieuw fire-alarm.", icon: "alert-circle" },
+        { text: "Druk 'Buzzer'. Lees de meldingslocatie af. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak. Houd 'Reset' 5 seconden ingedrukt. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de zekeringkast of hoofdschakelaar. Gele FAULT LED gaat aan. LED 'Power supply' wijzigt van status. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: display toont storingsmelding (bijv. 'Mains failure' of 'Power supply fault'). Draai Selection wheel voor details. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storingsmelding verdwijnt automatisch. Eventueel 'Reset' 5 sec als melding blijft. FAULT LED dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: menu → 'Events' → 'Active disablements' → selecteer de stuuruitgangen → druk 'Enable'. DISABLEMENT LED dooft als alle afschakelingen opgeheven zijn.", icon: "settings" },
+        { text: "Signaalgevers (Alarm devices) terug in dienst: menu → 'Events' → 'Active disablements' → selecteer 'Alarm devices' → druk 'Enable'. DISABLEMENT LED dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Esmi FDP (Schneider Electric). Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het kleurendisplay actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's:\n• LED 'Power supply' → moet branden\n• Gele LED 'FAULT' → moet UIT zijn\n• Rode LED 'FIRE' → moet UIT zijn\n• Gele LED 'DISABLEMENT' → moet UIT zijn", icon: "check-circle" },
+        { text: "Display test: vanuit rustscherm → Wheel button → softkey 'Display test'. Alle LEDs en pixels activeren. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: actieve afschakelingen via menu → 'Events' → 'Active disablements'. Bij meldingen: Selection wheel om te bladeren.", icon: "search" },
+        { text: "Datum en tijd: beheerd via EcoStruxure Fire Expert configuratiesoftware. Afwijking geconstateerd? Meld aan installateursdienst.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — Alarm devices NIET uitschakelen (moeten hoorbaar zijn voor de afstellingscontrole):\nSleutel → Wheel button → navigeer naar stuuruitgangen (fire outputs) → druk 'Disable' per relevante uitgang. DISABLEMENT LED brandt.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers (Alarm devices) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Druk 'Buzzer' om interne zoemer te dempen. Lees de meldingslocatie af op het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers UIT na de afstellingscontrole: druk 'Silence / Resound' knop (belsymbool + kruis) om alle alarmgevers te stoppen. Daarna structureel uitschakelen: sleutel → Wheel button → selecteer 'Alarm devices' → 'Disable'. DISABLEMENT LED aan.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Houd 'Reset' 5 seconden ingedrukt. Controleer dat display terugkeert naar rustscherm.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: sleutel → Wheel button → navigeer naar een testzone of melderadres → druk 'Disable'. DISABLEMENT LED brandt. Controleer via menu → 'Events' → 'Active disablements'.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: menu → 'Events' → 'Active disablements' → selecteer de testzone → druk 'Enable'. DISABLEMENT LED dooft (als geen andere afschakelingen actief) (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. FAULT LED gaat aan. Power supply LED wijzigt. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: display toont storingsmelding (bijv. 'Mains failure'). Selection wheel voor details. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing verdwijnt automatisch. Eventueel 'Reset' 5 sec. FAULT LED dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: menu → 'Events' → 'Active disablements' → selecteer stuuruitgangen → 'Enable'. DISABLEMENT LED dooft als alles is opgeheven.", icon: "settings" },
+        { text: "Signaalgevers (Alarm devices) terug in dienst: menu → 'Events' → 'Active disablements' → selecteer 'Alarm devices' → 'Enable'. DISABLEMENT LED dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Honeywell Pearl": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Honeywell Pearl (Notifier by Honeywell). Bediening via LCD-display, navigatietoetsen en softkeys. Toegangsniveau 2: sleutel 90° rechtsom, of toegangscode (site-specifiek — vraag de installateur). Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is en leesbaar.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED 'IN BEDRIJF' → moet branden\n• Gele LED 'STORING' → moet UIT zijn\n• Rode LED 'BRAND' → moet UIT zijn (brandt pas bij bevestigd alarm)\n• Gele LED 'BUITEN DIENST' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: niveau 2 toegang → Hoofdmenu → '2: Testen' → '7: LED's op CENTRALE'. Elke LED knippert 4 keer kort in vaste volgorde. Controleer dat alle LEDs knipperen. LED 'IN BEDRIJF' wordt niet getest (brandt continu).", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: display toont automatisch tabblad 'Brand' of 'Storing' bij actieve meldingen. Bladeren met Scroll-toets. Logboek: Hoofdmenu → '4: Status bekijken' → '1: Logboek'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Hoofdmenu → '3: Klokinstelling'. Tijd invoeren [uu:mm] → vinkje bevestigen. Datum invoeren [dd/mm/jj] → vinkje bevestigen. Niveau 2 vereist.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN (stuurmodule-uitgangen: deuren, lift, ventilatie) buiten dienst: niveau 2 → Hoofdmenu → '1: In dienst/Buiten dienst' → '1: Meldergroepen en elementen' → selecteer de meldergroep met stuurmodule → vinkje → selecteer stuurmodule-element → vinkje (buiten dienst). Herhaal voor alle relevante stuurmodules. LED 'BUITEN DIENST' gaat aan.", icon: "settings" },
+        { text: "Let op: bij de Honeywell Pearl kunnen signaalgevers niet vooraf als groep buiten dienst worden gesteld. Informeer het gebouw van tevoren over de korte test-alarmen met sirenes. Houd na activatie knop 'STOP SIGNAALGEVERS' bij de hand om sirenes snel te stoppen.", icon: "bell-off" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan of testsleutel). Geen testmodus — echte melding. Tabblad 'Brand' verschijnt op display. Zoemer pulserend. Doormelding (RAC) actief.", icon: "alert-circle" },
+        { text: "Druk 'STOP ZOEMER' om de interne zoemer te dempen. Druk 'STOP SIGNAALGEVERS' (niveau 2 vereist) om sirenes te stoppen. Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje herstellen of testsleutel terugzetten). Druk 'RESET'. Display keert terug naar 'Status Normaal' (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Geen testmodus — echte melding. Tabblad 'Brand' verschijnt opnieuw. Doormelding (RAC) actief.", icon: "alert-circle" },
+        { text: "Druk 'STOP ZOEMER' + 'STOP SIGNAALGEVERS'. Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak. Druk 'RESET'. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de zekeringkast of hoofdschakelaar. LCD-achtergrondlicht wordt uitgeschakeld of gedimd. Druk op een willekeurige toets om display te activeren. LED 'STORING' gaat aan.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: tabblad 'Storing' verschijnt op display met voedingsstoring-melding. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Druk 'RESET' indien meldingen aanblijven. Controleer dat LED 'STORING' UIT is en display 'Status Normaal' toont (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: niveau 2 → Hoofdmenu → '1: In dienst/Buiten dienst' → '1: Meldergroepen en elementen' → selecteer dezelfde meldergroep en stuurmodule-elementen → vinkje (terug naar in dienst). LED 'BUITEN DIENST' dooft als alle elementen in dienst zijn.", icon: "settings" },
+        { text: "Druk 'HERSTART SIGNAALGEVERS/ONTRUIMING' als de signaalgevers nog gestopt zijn. LED 'SIGNAALGEVERS BUITEN DIENST/STORING' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Honeywell Pearl (Notifier by Honeywell). Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's:\n• Groene LED 'IN BEDRIJF' → moet branden\n• Gele LED 'STORING' → moet UIT zijn\n• Rode LED 'BRAND' → moet UIT zijn\n• Gele LED 'BUITEN DIENST' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: niveau 2 → Hoofdmenu → '2: Testen' → '7: LED's op CENTRALE'. Elke LED knippert 4 keer. Controleer alle LEDs.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: Scroll-toets voor actieve meldingen. Logboek: Hoofdmenu → '4: Status bekijken' → '1: Logboek'. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Hoofdmenu → '3: Klokinstelling'. Controleer en corrigeer indien nodig. Niveau 2 vereist.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — signaalgevers NIET stoppen (moeten hoorbaar zijn voor de afstellingscontrole):\nNiveau 2 → Hoofdmenu → '1: In dienst/Buiten dienst' → '1: Meldergroepen en elementen' → selecteer meldergroep met stuurmodule → vinkje → stuurmodule-element → vinkje (buiten dienst). LED 'BUITEN DIENST' aan.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers (sirenes) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Druk 'STOP ZOEMER'. Lees de meldingslocatie af van het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Stop signaalgevers na de afstellingscontrole: druk 'STOP SIGNAALGEVERS'. LED 'SIGNAALGEVERS BUITEN DIENST/STORING' (geel) gaat aan.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk 'RESET'. Controleer dat display 'Status Normaal' toont.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: niveau 2 → Hoofdmenu → '1: In dienst/Buiten dienst' → '1: Meldergroepen en elementen' → selecteer een testmeldergroep → vinkje (buiten dienst). LED 'BUITEN DIENST' brandt. Tabblad 'BUITEN DIENST' verschijnt op display.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde menupad → selecteer dezelfde meldergroep → vinkje (terug naar in dienst). Status: 'Voll. in dienst'. LED 'BUITEN DIENST' en tabblad verdwijnen (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. LCD-achtergrondlicht uit of gedimd — druk willekeurige toets om display te activeren. LED 'STORING' gaat aan. Tabblad 'Storing' verschijnt.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: tabblad 'Storing' aanwezig met voedingsstoring-melding. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Druk 'RESET' indien meldingen aanblijven. LED 'STORING' gaat uit (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: niveau 2 → Hoofdmenu → '1: In dienst/Buiten dienst' → '1: Meldergroepen en elementen' → selecteer dezelfde meldergroep/stuurmodule-elementen → vinkje (terug naar in dienst). LED 'BUITEN DIENST' dooft.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk 'HERSTART SIGNAALGEVERS/ONTRUIMING'. LED 'SIGNAALGEVERS BUITEN DIENST/STORING' dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "NSC Solution F2": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op NSC Solution F2. Bediening via LCD-display (8 regels) en frontpaneel-knoppen. Toegangsniveau 2 via PIN-code (standaard: 0000 — wijzigen via Prog. > menu 04). Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED 'In Bedrijf' → moet branden, display toont 'IN BEDRIJF'\n• Gele LED 'Storing' → moet UIT zijn\n• Rode LED 'Hoofd alarm' → moet UIT zijn\n• Gele LED 'Functie(s) Uit' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: druk de 'int.' knop (interne zoemer) terwijl er geen alarm of storing actief is. Alle LEDs op het frontpaneel lichten op. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: Prog. > 5. Diagnose > 1. Logboek. Display toont meldingen met datum/tijd, meest recente eerst. Navigeren met pijltoetsen (↑↓ = 1 regel, ←→ = 10 regels). Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd: niet instelbaar via het gebruikersmenu — beheerd door de installateur. Klopt de tijd niet? Meld dit aan de installateursdienst.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de signaalgevers (alarmgevers) buiten dienst: Prog. > 1. In/Uitschakelen > 5. Alarmgevers (menu 10) > F3 'Uit'. Gele LEDs 'Alarmgevers' en 'Functie(s) Uit' gaan branden.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst:\n• Relaisuitgangen: Prog. > 1. In/Uitschakelen > 3. Relais (menu 08) > selecteer relaisnummer > F3 'Uit'\n• OC-uitgangen: Prog. > 1. In/Uitschakelen > 2. OC uitgangen (menu 07) > selecteer uitgangnummer > F3 'Uit'\nGele LED 'Functie(s) Uit' brandt.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan of testsleutel). Geen testmodus — echte melding die daadwerkelijk wordt doorgemeld. Rode LED 'Hoofd alarm' gaat branden. Display toont groepnummer en meldernummer.", icon: "alert-circle" },
+        { text: "Druk 'int.' knop om de interne zoemer te dempen. Lees de meldingslocatie af van het display (groep + melder). Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje vervangen of testsleutel omdraaien). Druk de Reset-knop (pijl-enter knop). Controleer dat LED 'Hoofd alarm' dooft en display terugkeert naar 'IN BEDRIJF' (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Gebruik GEEN eventuele testmodus — doormelding moet actief zijn. Display toont nieuw alarm met groep- en meldernummer.", icon: "alert-circle" },
+        { text: "Druk 'int.' knop om zoemer te dempen. Lees de meldingslocatie af. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (spray of warmtebron verwijderen). Druk Reset-knop. Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de groepschakelaar van het paneel. Gele LED 'Storing' gaat branden. Display toont 'STORING'. Interne zoemer activeert (aanhoudend storingstoon).", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Prog. > 5. Diagnose > 1. Logboek. Storingsmelding over netspanning aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing verdwijnt automatisch. Druk eventueel 'int.' knop om zoemer te dempen. Controleer dat LED 'Storing' dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst:\n• Relais: Prog. > 1. In/Uitschakelen > 3. Relais (menu 08) > selecteer zelfde relaisnummer > F2 'Aan'\n• OC-uitgangen: Prog. > menu 07 > selecteer uitgang > F2 'Aan'\nLED 'Functie(s) Uit' dooft als alle uitschakelingen opgeheven zijn.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: Prog. > 1. In/Uitschakelen > 5. Alarmgevers (menu 10) > F2 'Aan'. LEDs 'Alarmgevers' en 'Functie(s) Uit' doven.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op NSC Solution F2. Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's:\n• Groene LED 'In Bedrijf' → moet branden\n• Gele LED 'Storing' → moet UIT zijn\n• Rode LED 'Hoofd alarm' → moet UIT zijn\n• Gele LED 'Functie(s) Uit' → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: druk de 'int.' knop (geen alarm/storing actief). Alle LEDs lichten op. Controleer dat alle LEDs oplichten.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: Prog. > 5. Diagnose > 1. Logboek. Navigeren met pijltoetsen. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd: niet instelbaar via gebruikersmenu — alleen via installateur. Afwijking? Meld aan installateursdienst.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — signaalgevers NIET uitschakelen (moeten hoorbaar zijn voor de afstellingscontrole):\n• Relais: Prog. > 1. In/Uitschakelen > 3. Relais (menu 08) > selecteer relaisnummer > F3 'Uit'\n• OC-uitgangen: Prog. > menu 07 > selecteer uitgang > F3 'Uit'\nGele LED 'Functie(s) Uit' brandt.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers (alarmgevers) hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Druk 'int.' knop om interne zoemer te dempen. Lees de meldingslocatie af van het display. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Zet signaalgevers UIT na de afstellingscontrole: druk 'ext.' knop (tijdelijk) of Prog. > 1. In/Uitschakelen > 5. Alarmgevers (menu 10) > F3 'Uit' (structureel). Gele LED 'Alarmgevers' en 'Functie(s) Uit' branden.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk Reset-knop. Controleer dat display terugkeert naar normaal bedrijf.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: Prog. > 1. In/Uitschakelen > 1. Groepen&Melders (menu 06) > voer groepnummer in bij 'Vanaf groep' > OK > F3 'Uit'. Gele LED 'Functie(s) Uit' brandt. Display toont 'UITSCHAKELING'.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde pad (menu 06) > zelfde groepnummer > F2 'Aan'. LED 'Functie(s) Uit' dooft (als geen andere uitschakelingen actief) (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. LED 'Storing' gaat branden. Display toont 'STORING'. Interne zoemer activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: Prog. > 5. Diagnose > 1. Logboek. Storingsmelding over netspanning aanwezig. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing verdwijnt automatisch. Eventueel 'int.' voor zoemer. LED 'Storing' dooft (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst:\n• Relais: Prog. > menu 08 > selecteer zelfde relaisnummer > F2 'Aan'\n• OC-uitgangen: Prog. > menu 07 > selecteer uitgang > F2 'Aan'\nLED 'Functie(s) Uit' dooft als alle uitschakelingen opgeheven zijn.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: Prog. > 1. In/Uitschakelen > 5. Alarmgevers (menu 10) > F2 'Aan'. LEDs 'Alarmgevers' en 'Functie(s) Uit' doven.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+  ,
+  "Schrack Integral": {
+    maandelijks: {
+      title: "Maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Verplichte controle door de beheerder (OP), elke maand. Van toepassing op Schrack Seconet Integral MAP (Integral IP MX / IP CX). Bediening via 6-regelig LCD-display en fysieke drukknoppen. Toegangsniveau 2 via PIN-code: druk toets 'Systeem Toegang' (11) + cijferblok (code site-specifiek — vraag de installateur). Doel: aantonen dat de centrale storingsvrij is en dat zowel brand- als storingsmeldingen daadwerkelijk worden doorgemeld.",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is en datum + tijd toont.", icon: "eye" },
+        { text: "Controleer de status-LED's op het frontpaneel:\n• Groene LED 'In Bedrijf' (33) → moet branden\n• Gele LED 'Storing' (34) → moet UIT zijn\n• Rode LED 'BRAND' (1) → moet UIT zijn\n• Gele LED 'Functies Uit' (37) → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test (displaytest): Menu (26) > scroll naar 'DISPLAYTEST' > ENTER. Alle display-elementen en LEDs activeren. Controleer dat alle LEDs oplichten. Uitvoerbaar op niveau 1 — geen code nodig.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: druk toets 'Storing' (20) voor storingslijst, 'Alarmen' (19) voor alarmenlijst, 'Functies Uit' (21) voor uitschakelingslijst. Controleer op onverklaarbare meldingen. In de 6e displayregel staat permanent het totaalaantal per categorie.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu (26) > scroll naar 'Datum' > ENTER. Voer datum en tijd in via cijferblok. Bevestigen met ENTER. Display toont tijdens instellen bijv. 'DATUM/TIJD — 21-06-2026 09:00'.", icon: "clock" },
+        { text: "BEL VOORAF de meldkamer (RAC) en — indien van toepassing — de brandweer. Meld dat u nu gaat testen: 1x handbrandmelder (A1), 1x automatische melder (A2) en 1x storingsmelding, elk met herstel. Vraag om de installatie op test te zetten zodat er geen onnodige uitruk volgt. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de signaalgevers buiten dienst: druk toets 'Functies Uit' (44) in het alarminstallatie-veld (rechterkant paneel). Gele LED van de 'Functies Uit'-toets brandt als uitschakeling actief is. Autorisatieniveau > 1 vereist.", icon: "bell-off" },
+        { text: "Zet de STURINGEN (deuren, lift, ventilatie) buiten dienst: druk toets 'Sturing' (15) > LED in pijl gaat branden > voer sturingnummer in via cijferblok (24) + ENTER > druk 'Uitschakelen' (30). Herhaal voor alle relevante sturingen. Gele LED 'Functies Uit' (37) brandt. Autorisatieniveau > 1 vereist.", icon: "settings" },
+        { text: "A1 — HANDBRANDMELDER: activeer een handbrandmelder (glasplaatje slaan of testsleutel). Geen testmodus — echte melding. LED 'BRAND' (1) knippert rood. Akoestische waarschuwing klinkt. Display toont meldergroep, meldernummer en tijdstip.", icon: "alert-circle" },
+        { text: "Druk 'Zoemer Afstellen' (4) om de zoemer te dempen. Druk 'Verkennen' (3) binnen de bevestigingstijd om doormelding te vertragen (optioneel). Lees de meldingslocatie af van het display. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak (glasplaatje vervangen of testsleutel omdraaien). Druk 'Reset BMC' (5). Controleer dat LED 'BRAND' dooft en display terugkeert naar normaal (herstel A1).", icon: "check-circle" },
+        { text: "A2 — AUTOMATISCHE MELDER: activeer een automatische melder in een andere zone dan A1 met rookspray of warmtebron. Geen testmodus — echte melding. Display toont nieuw alarm. Doormelding actief.", icon: "alert-circle" },
+        { text: "Druk 'Zoemer Afstellen' (4). Lees de meldingslocatie af. Noteer.", icon: "check-square" },
+        { text: "Verhelp testoorzaak. Druk 'Reset BMC' (5). Controleer herstel A2.", icon: "check-circle" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit via de voedingszekering of -schakelaar. Gele LED 'Voeding' (36) gaat branden naast gele LED 'Storing' (34). Display toont storingsmelding (bijv. 'NETSPANNING'). Akoestische waarschuwing (800 Hz) activeert.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: druk toets 'Storing' (20) — storingsmelding 'NETSPANNING' aanwezig in de lijst. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing reset automatisch. Druk 'Zoemer Afstellen' (4) om zoemer te dempen. LEDs 'Voeding' en 'Storing' doven (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: druk toets 'Sturing' (15) > LED pijl brandt > voer zelfde sturingnummer in + ENTER > druk 'Inschakelen' (29). Herhaal voor alle uitgeschakelde sturingen. LED 'Functies Uit' (37) dooft als alle uitschakelingen opgeheven zijn.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk toets 'Functies Uit' (44) opnieuw (toggle). Gele LED van de 'Functies Uit'-toets dooft.", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of alle 3 de meldingen correct en op tijd zijn binnengekomen (A1 handbrandmelder, A2 automatische melder, en de storingsmelding). Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten — vanaf nu zijn meldingen weer echt.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen (testtijden, ontvangstbevestiging meldkamer A1/A2/storing, eventuele afwijkingen) in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    },
+    "4-8maandelijks": {
+      title: "4- / 8-maandelijks beheer",
+      norm: "NEN 2654-1 §2.7",
+      intro: "Uitgebreide controle door de beheerder (OP), 4 en 8 maanden na het jaarlijkse onderhoud — bovenop de maandelijkse controle. Van toepassing op Schrack Seconet Integral MAP (IP MX / IP CX). Doel: basiscontrole van de centrale, visuele controle van álle melders, plus één functionele beproeving per centrale (detectie → signalering → ontvangst, in-/uitschakelfunctie en storingsdoormelding).",
+      steps: [
+        { text: "Visuele controle: bekijk de centrale, het brandweerpaneel en eventuele nevenpanelen op zichtbare schade en juiste bevestiging. Controleer dat het LCD-display actief is. (Zelfde basiscontrole als bij het maandelijks beheer.)", icon: "eye" },
+        { text: "Controleer de status-LED's:\n• Groene LED 'In Bedrijf' (33) → moet branden\n• Gele LED 'Storing' (34) → moet UIT zijn\n• Rode LED 'BRAND' (1) → moet UIT zijn\n• Gele LED 'Functies Uit' (37) → moet UIT zijn", icon: "check-circle" },
+        { text: "LED-test: Menu (26) > scroll naar 'DISPLAYTEST' > ENTER. Alle LEDs activeren. Controleer dat alle LEDs oplichten. Geen code nodig.", icon: "settings" },
+        { text: "Meldingoverzicht bekijken: toets 'Storing' (20) voor storingen, 'Alarmen' (19) voor alarmen, 'Functies Uit' (21) voor uitschakelingen. Controleer op onverklaarbare meldingen.", icon: "search" },
+        { text: "Datum en tijd controleren: Menu (26) > scroll naar 'Datum' > ENTER. Controleer en corrigeer indien nodig via cijferblok + ENTER.", icon: "clock" },
+        { text: "Visuele controle van ALLE handbrandmelders: loop alle handbrandmelders langs. Controleer op beschadiging, glasplaatje intact, vrij bereikbaar (geen obstakels binnen 0,3 m).", icon: "eye" },
+        { text: "Visuele controle van ALLE automatische melders: alle detectoren vrij van obstakels (minimaal 0,3 m vrije ruimte), geen stof/vervuiling, correct gemonteerd.", icon: "eye" },
+        { text: "Controleer of er veranderingen zijn geweest in ruimtegebruik, inrichting, ventilatie of bouwconstructie die de detectiedekking kunnen beïnvloeden.", icon: "search" },
+        { text: "Controleer of het alarmorganisatieplan (ontruimingsplan) nog overeenkomt met de huidige situatie van het gebouw en de installatie.", icon: "file-text" },
+        { text: "Vergelijk de installatietekening en de lijst met meldernummers met de werkelijke situatie. Klopt een meldernummer niet meer? Meld dit aan de onderhouder.", icon: "file-text" },
+        { text: "BEL VOORAF de meldkamer/brandweer en informeer de gebouwbeheerder: kondig aan dat u gaat testen — een melding met hoorbare sirenes (afstellingscontrole), de in-/uitschakelfunctie en een storingsmelding, elk met herstel. Vraag om de installatie op test te zetten. Dit is het ENIGE telefoontje vooraf.", icon: "phone-call" },
+        { text: "Zet de STURINGEN buiten dienst — signaalgevers NIET uitschakelen (moeten hoorbaar zijn voor afstellingscontrole):\nToets 'Sturing' (15) > LED pijl brandt > sturingnummer invoeren + ENTER > 'Uitschakelen' (30). Herhaal voor alle sturingen. LED 'Functies Uit' (37) brandt.", icon: "settings" },
+        { text: "Activeer ÉÉN melder (handbrandmelder of automatische melder naar keuze). Geen testmodus — echte melding. Laat de signaalgevers hoorbaar klinken — dit is de afstellingscontrole.", icon: "alert-circle" },
+        { text: "Druk 'Zoemer Afstellen' (4). Lees de meldingslocatie af. Controleer of de akoestische signalering goed hoorbaar is in het beschermde gebied. Noteer.", icon: "check-square" },
+        { text: "Controleer het volume en de werking van elke alarmgever (sirene/zwaailicht). Bij afwijkend volume of defecte alarmgever: meld dit aan de installateursdienst.", icon: "bell-off" },
+        { text: "Stop signaalgevers na de afstellingscontrole: druk 'Herstel' (43) in het alarminstallatie-veld om sirenes tijdelijk te deactiveren. Gele LED van 'Herstel'-toets brandt.", icon: "bell-off" },
+        { text: "Herstel rusttoestand melder: verhelp testoorzaak. Druk 'Reset BMC' (5). Controleer dat display terugkeert naar normaal bedrijf.", icon: "check-circle" },
+        { text: "Beproef de UITSCHAKELFUNCTIE: druk toets 'Groep' (14) > LED pijl brandt > voer groepnummer in via cijferblok + ENTER > druk 'Uitschakelen' (30). LED 'Functies Uit' (37) brandt. Toets 'Functies Uit' (21) toont de uitgeschakelde groep.", icon: "settings" },
+        { text: "Beproef de INSCHAKELFUNCTIE: zelfde pad > zelfde groepnummer + ENTER > druk 'Inschakelen' (29). LED 'Functies Uit' dooft (als geen andere uitschakelingen) (herstel in-/uitschakelfunctie).", icon: "settings" },
+        { text: "Storingstest: schakel 230V hoofdvoeding uit. LED 'Voeding' (36) en LED 'Storing' (34) gaan aan. Akoestische waarschuwing (800 Hz) activeert. Display toont storingsmelding.", icon: "alert-triangle" },
+        { text: "Controleer storing zichtbaar: toets 'Storing' (20) — 'NETSPANNING' aanwezig in storingenlijst. Noteer.", icon: "search" },
+        { text: "Herstel netspanning. Storing reset automatisch. 'Zoemer Afstellen' (4) voor zoemer. LEDs 'Voeding' en 'Storing' doven (herstel storing).", icon: "check-circle" },
+        { text: "Sturingen terug in dienst: toets 'Sturing' (15) > sturingnummer + ENTER > 'Inschakelen' (29). Herhaal voor alle sturingen. LED 'Functies Uit' (37) dooft als alles ingeschakeld.", icon: "settings" },
+        { text: "Signaalgevers terug in dienst: druk 'Functies Uit' (44) opnieuw (toggle). Gele LED dooft. Of druk 'Herstel' (43) opnieuw als tijdelijk deactiveert was (LED dooft).", icon: "bell-off" },
+        { text: "BEL NU AAN HET EINDE de meldkamer terug: vraag na of de brandmelding én de storingsmelding correct binnengekomen zijn. Vraag de meldkamer om de installatie weer IN DIENST / actief te zetten.", icon: "phone-call" },
+        { text: "Noteer alle bevindingen, afwijkingen en testresultaten in het logboek van de installatie. Dit logboek is apart van deze app.", icon: "file-text" }
+      ]
+    }
+  }
+};
+
+function renderMainTabs() {
+  return `
+    <div class="main-tabs">
+      <button class="main-tab-btn ${mainTab==='bediening' ? 'active' : ''}" onclick="switchMainTab('bediening')">
+        ${icon('tool')} Centrale bediening
+      </button>
+      <button class="main-tab-btn ${mainTab==='beheer' ? 'active' : ''}" onclick="switchMainTab('beheer')">
+        ${icon('clipboard-list')} Beheer
+      </button>
+    </div>`;
+}
+
+function renderBeheerBrandList() {
+  const grid = BRANDS.map((b, i) => {
+    const safeB = b.replace(/'/g, "\\'");
+    const imgUrl = getBrandImageUrl(b);
+    const hasContent = !!BEHEER_DATA[b];
+    return `
+      <button class="brand-card has-img" style="animation-delay:${i*0.05}s" onclick="selectBeheerBrand('${safeB}')">
+        <img src="${imgUrl}" class="brand-card-img" alt="${b}" loading="lazy" onerror="this.style.display='none'">
+        <div class="brand-card-content">
+          <span class="brand-name">${b}</span>
+          <span style="font-size:11px;font-weight:700;color:${hasContent ? 'var(--slate-400)' : 'var(--amber)'};">${hasContent ? 'Beheer beschikbaar' : 'Binnenkort beschikbaar'}</span>
+        </div>
+      </button>`;
+  }).join('');
+
+  return `
+    <div class="page">
+      <div style="margin-bottom:20px;">
+        <h2 style="font-size:18px;font-weight:800;color:var(--slate-800);">Periodiek beheer</h2>
+        <p style="font-size:13px;color:var(--slate-500);margin-top:4px;line-height:1.5;">Kies een centrale voor stap-voor-stap instructies bij maandelijks of 4-/8-maandelijks beheer, conform NEN 2654. Puur een naslagtool — uw eigen logboek vult u apart in.</p>
+      </div>
+      <div class="brand-grid">${grid}</div>
+    </div>`;
+}
+
+function renderBeheerTypeChoice(brand) {
+  const hasContent = !!BEHEER_DATA[brand];
+  const safeBrand = brand.replace(/'/g, "\\'");
+  const body = hasContent ? `
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <button class="manual-card" onclick="selectBeheerType('maandelijks')">
+        <div class="manual-card-info">
+          <div class="manual-tags"><span class="brand-tag">NEN 2654-1 §2.7</span></div>
+          <h3>Maandelijks beheer</h3>
+        </div>
+        <span class="chevron">${ICONS['chevron-right']}</span>
+      </button>
+      <button class="manual-card" onclick="selectBeheerType('4-8maandelijks')">
+        <div class="manual-card-info">
+          <div class="manual-tags"><span class="brand-tag">NEN 2654-1 §2.7</span></div>
+          <h3>4- / 8-maandelijks beheer</h3>
+        </div>
+        <span class="chevron">${ICONS['chevron-right']}</span>
+      </button>
+    </div>` : `<div class="empty-state"><p>Beheerinstructies voor ${brand} zijn nog in ontwikkeling. Binnenkort beschikbaar.</p></div>`;
+
+  return `
+    <div class="page">
+      <div class="list-header">
+        <span class="list-title">${brand}</span>
+        <button class="back-btn" onclick="clearBeheerBrand()">← Terug</button>
+      </div>
+      ${body}
+    </div>`;
+}
+
+function renderBeheerDetail(brand, type) {
+  const data = BEHEER_DATA[brand]?.[type];
+  if (!data) return `<div class="page"><div class="empty-state"><p>Geen instructies gevonden.</p></div></div>`;
+
+  const stepsHtml = data.steps.map((s, i) => {
+    const urgentIcons = ['alert-circle','x-circle'];
+    const warnIcons = ['alert-triangle','bell-off','circle-off'];
+    const iconClass = urgentIcons.includes(s.icon) ? 'urgent' : warnIcons.includes(s.icon) ? 'warning' : '';
+    const iconHtml = s.icon && ICONS[s.icon] ? `<div class="step-icon ${iconClass}">${ICONS[s.icon]}</div>` : '';
+    const hasLine = i < data.steps.length - 1;
+    return `
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-num">${i+1}</div>
+          ${hasLine ? '<div class="step-line"></div>' : ''}
+        </div>
+        <div class="step-right">
+          ${iconHtml}
+          <p class="step-text" style="white-space:pre-line;">${s.text}</p>
+        </div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="detail-card page">
+      <div class="detail-header no-print">
+        <button class="icon-btn" onclick="closeBeheerDetail()">${ICONS['arrow-left']}</button>
+        <div class="detail-header-center">
+          <span class="detail-brand-label">${brand} · ${data.norm}</span>
+          <h2>${data.title}</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="print-btn" onclick="window.print()">
+            ${ICONS['printer']} <span class="print-btn-label">Printen / PDF</span>
+          </button>
+          <button class="icon-btn" onclick="closeBeheerDetail()">${ICONS['x']}</button>
+        </div>
+      </div>
+
+      <div style="display:none;" class="print-only-title">
+        <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:4px;">${data.title}</h2>
+        <p style="color:#64748b;font-size:13px;">${brand} &bull; ${data.norm}</p>
+      </div>
+
+      <div class="detail-body">
+        <div class="warning-box">
+          ${ICONS['alert-triangle']}
+          <p><strong>${data.norm}:</strong> ${data.intro}</p>
+        </div>
+        <div class="steps-list">${stepsHtml}</div>
+        <div class="done-btn-wrap no-print">
+          <button class="done-btn" onclick="closeBeheerDetail()">
+            ${ICONS['arrow-left']} Terug naar overzicht
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderBeheer() {
+  if (beheerBrand && beheerType) return renderBeheerDetail(beheerBrand, beheerType);
+  if (beheerBrand) return renderBeheerTypeChoice(beheerBrand);
+  return renderBeheerBrandList();
 }
 
 // ===================== RENDER HELPERS =====================
@@ -2624,17 +3516,27 @@ function renderAddForm() {
 // ===================== RENDER =====================
 function render() {
   const main = document.getElementById('main-content');
+  let contentHtml;
+  let showTabs;
 
-  if (selectedManual) {
-    main.innerHTML = renderDetail(selectedManual);
+  if (mainTab === 'beheer') {
+    contentHtml = renderBeheer();
+    showTabs = !(beheerBrand && beheerType); // tabs verbergen in de detail-stappen, net als bij renderDetail
+  } else if (selectedManual) {
+    contentHtml = renderDetail(selectedManual);
+    showTabs = false;
   } else if (isAdding && isAdmin) {
-    main.innerHTML = renderAddForm();
+    contentHtml = renderAddForm();
+    showTabs = false;
   } else {
-    main.innerHTML = renderHome();
+    contentHtml = renderHome();
+    showTabs = true;
   }
 
+  main.innerHTML = (showTabs ? renderMainTabs() : '') + contentHtml;
+
   // Update nav
-  document.getElementById('nav-home').className = 'nav-item' + (!selectedManual && !isAdding ? ' active' : '');
+  document.getElementById('nav-home').className = 'nav-item' + (!selectedManual && !isAdding && mainTab === 'bediening' ? ' active' : '');
   document.getElementById('nav-add').className  = 'nav-item' + (isAdding ? ' active' : '') + (isAdmin ? '' : ' hidden-nav');
 
   // Header settings knop
@@ -2658,7 +3560,9 @@ function render() {
 
 // ===================== ACTIONS =====================
 function goHome() {
+  mainTab = 'bediening';
   selectedBrand = null; selectedManual = null; isAdding = false; searchQuery = '';
+  beheerBrand = null; beheerType = null;
   render();
 }
 
