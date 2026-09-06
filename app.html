@@ -4068,6 +4068,24 @@ function closeInstallGuide() {
         <div class="ig-step-body"><strong>Tik op "Installeren"</strong><span>Klaar! Het icoon staat nu op je startscherm.</span></div>
       </div>
     `;
+  } else if (platform === 'windows') {
+    titleEl.textContent = 'Zo zet je de app op je computer';
+    stepsEl.innerHTML = `
+      <div class="ig-note">✅ Verschijnt er onderin je scherm vanzelf een balkje met "Installeren"? Klik daarop en je bent meteen klaar — sla de stappen hieronder dan over.</div>
+      <div class="ig-step">
+        <div class="ig-step-icon">⊕</div>
+        <div class="ig-step-body"><strong>Stap 1</strong><span>Geen balkje gezien? Kijk dan HELEMAAL RECHTS in de adresbalk (bovenin het venster) naar een klein installeer-icoontje.</span></div>
+      </div>
+      <div class="ig-step">
+        <div class="ig-step-num">2</div>
+        <div class="ig-step-body"><strong>Klik op dat icoontje</strong><span>Er opent een klein venstertje.</span></div>
+      </div>
+      <div class="ig-step">
+        <div class="ig-step-num">3</div>
+        <div class="ig-step-body"><strong>Klik op "Installeren"</strong><span>Klaar! De app staat nu op je bureaublad/startmenu.</span></div>
+      </div>
+      <div class="ig-note">⚠️ Werkt alleen in Edge of Chrome, niet in bijvoorbeeld Firefox.</div>
+    `;
   } else {
     return;
   }
