@@ -609,6 +609,9 @@
       resize:vertical; transition:border-color 0.2s;
     }
     .zk-field input:focus, .zk-field textarea:focus { outline:none; border-color:rgba(224,53,53,0.5); }
+    .zk-honeypot {
+      position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;
+    }
     .zakelijk-status { font-size:13px; min-height:18px; text-align:center; margin:0; }
     .zakelijk-status.success { color:#4ade80; }
     .zakelijk-status.error { color:var(--red); }
@@ -1055,6 +1058,10 @@
           <label for="zk-bericht">Bericht (optioneel)</label>
           <textarea id="zk-bericht" rows="3"></textarea>
         </div>
+        <div class="zk-honeypot" aria-hidden="true">
+          <label for="zk-website">Website</label>
+          <input type="text" id="zk-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <button type="submit" class="btn-primary" id="zakelijk-submit" style="width:100%;justify-content:center;cursor:pointer;">
           Vraag gratis proefperiode aan
         </button>
@@ -1291,9 +1298,19 @@
       const email = document.getElementById('zk-email').value.trim();
       const telefoon = document.getElementById('zk-telefoon').value.trim();
       const bericht = document.getElementById('zk-bericht').value.trim();
+      const honeypot = document.getElementById('zk-website').value.trim();
 
       statusEl.textContent = '';
       statusEl.className = 'zakelijk-status';
+
+      // Honeypot: onzichtbaar voor mensen, bots vullen dit vaak automatisch in.
+      // Doe alsof het gelukt is, maar stuur niets door.
+      if (honeypot) {
+        statusEl.textContent = 'Bedankt! We nemen binnen 1 werkdag contact met je op.';
+        statusEl.classList.add('success');
+        document.getElementById('zakelijk-form').reset();
+        return false;
+      }
 
       if (!bedrijf || !contact || !email) {
         statusEl.textContent = 'Vul bedrijfsnaam, contactpersoon en e-mailadres in.';
